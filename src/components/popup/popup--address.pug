@@ -1,0 +1,7 @@
+include ./popup
+include ../profile-map/profile-map
+
+mixin popup--address()
+  +popup(id="popup-address" mod="address largest")&attributes(attributes)
+    button(type="button" aria-label="Закрыть" data-popup-close="").popup__btn-close
+    +profile-map().popup__profile-map

@@ -1,0 +1,75 @@
+.alert
+  display flex
+  flex-flow row nowrap
+  gap rem(16px)
+  align-items flex-start
+  padding rem(16px)
+  background-color var(--color-grey-100)
+  border-radius rem(12px)
+
+  &__icon
+    flex 0 0 auto
+    size 24px
+
+  &__caption
+    display flex
+    flex-direction column
+    gap rem(4px)
+
+  &__title
+    margin 0
+    color var(--color-grey-800)
+    font-weight 600
+    font-size rem(18px)
+    line-height 1.4
+
+  &__text
+    margin 0
+    color var(--color-grey-700)
+    font-weight 500
+    font-size rem(16px)
+    line-height 1.4
+
+  &__btn-close
+    position relative
+    flex 0 0 auto
+    margin-left auto
+    padding 0
+    size 24px
+    background transparent
+    border none
+    transition all .2s ease
+    --icon-color var(--color-text)
+    &:hover
+    &:focus-visible
+      --icon-color var(--color-hover)
+    &::before
+    &::after
+      position absolute
+      top 50%
+      left 50%
+      display block
+      margin-top -1px
+      margin-left -9px
+      size 18px 1px
+      background-color var(--icon-color)
+      transition all .2s ease
+      content ""
+    &::before
+      transform rotate(45deg)
+    &::after
+      transform rotate(-45deg)
+    +desktop()
+      size 24px
+
+  &--success
+    background-color var(--color-green-100)
+
+  &--info
+    background-color var(--color-blue-100)
+
+  &--warning
+    background-color var(--color-yellow-100)
+
+  &--error
+    background-color var(--color-red-100)

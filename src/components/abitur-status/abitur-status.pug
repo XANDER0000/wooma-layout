@@ -1,0 +1,19 @@
+mixin abitur-status()
+  -
+    const props = initComponent('abitur-status', attributes, ['status']);
+
+    const states = [
+      { status: "accepted", label: "Заявка принята" },
+      { status: "rejected", label: "Заявка отклонена" },
+      { status: "consideration", label: "На рассмотрении" },
+      { status: "enrolled", label: "Абитуриент зачислен" },
+      { status: "submitted", label: "Подал документы" },
+      { status: "no-application", label: "Без заявки" },
+    ];
+
+    const getLabelByStatus = (status) => 
+      states?.find((item) => item.status === status)?.label || 'Без заявки';
+    
+  .abitur-status(class=props.status && `abitur-status--${props.status}`)&attributes(attributes)
+    span.abitur-status__dot
+    span.abitur-status__label!= getLabelByStatus(props.status)

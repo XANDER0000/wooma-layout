@@ -1,0 +1,25 @@
+include ./file-input
+include ../icon/icon
+
+mixin file-input--img-block()
+  -
+    const props = initComponent('file-input', attributes, ['file','heading', 'text', 'accept']);
+
+    //- Example
+    //- const file = {
+    //-   src: 'https://link-to-image.jpg',
+    //- };
+  
+  +file-input(mod="img-block")&attributes(attributes)
+    block
+    .file-input__grid
+      .file-input__main
+        h2.title-3.file-input__title!= props.heading
+        .file-input__text.last-mb-0
+          p!= props.text
+        +file-input__button(icon="attachment" label="Загрузить" mod="outline")
+      .file-input__visual
+        - if (props.file)
+          img(src=props.file.src alt="")
+        button(type="button" title="Удалить").file-input__btn-delete
+          +icon("trash")

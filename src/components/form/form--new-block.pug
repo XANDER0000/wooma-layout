@@ -1,0 +1,55 @@
+include ./form
+include ../field/field
+include ../input/input
+include ../textarea/textarea
+include ../tabs/tabs
+include ../file-input/file-input--img
+
+mixin form--new-block()
+  -
+    const props = initComponent('form', attributes, ['variant']);
+
+    const tabs = [
+      { id: "new-block-video", label: "Видео", active: true },
+      { id: "new-block-photo", label: "Фото" },
+    ]
+    
+    const file = {
+      name: 'Обложка.png',
+      size: '2.46 mb',
+      src: 'https://placehold.co/600x400',
+    };
+  
+  +form(mod="new-block" data-validate)&attributes(attributes)#form-new-block
+    input(type="hidden" name="itemId" value="" id="form-new-block-item-id")
+    .form__fields
+      +field(for="form-new-block-title" label="Заголовок" required)
+        +field__control()
+          +input(type="text" name="title" id="form-new-block-title" placeholder="Заголовок" maxlength="30" required)
+      +field(for="form-new-block-description" label="Описание" required)
+        +field__control()
+          +textarea(name="description" id="form-new-block-description" placeholder="Подсказка..." maxlength="300" required)
+      
+      - if (props.variant === 'career')
+        +field(for="form-new-block-photo" label!="Вставьте фото в&nbsp;размере 4:3, в&nbsp;формате jpg, jpeg, png")
+          +field__control()
+            +file-input--img()
+              +file-input__input(id="form-new-block-photo" name="photo" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+      
+      - if (props.variant === 'studentship')
+        +field(for="form-new-block-logo" label!="Вставьте логотип в&nbsp;размере 1:1, в&nbsp;формате png, svg объемом не&nbsp;более 2mb")
+          +field__control()
+            +file-input--img()
+              +file-input__input(id="form-new-block-logo" name="logo" accept=".png,.svg" data-max-file-size="2097152")
+
+      - if (props.variant === 'infrastructure')
+        +tabs(items=tabs)
+          +tabs__panel(id="new-block-video" style="min-height: 6.75rem;")
+            +field(for="form-new-block-video" label!="Вставьте ссылку на&nbsp;видео в&nbsp;блок из&nbsp;ваших профилей видеохостингов Rutube, VK&nbsp;Видео или Одноклассники")
+              +field__control()
+                +input(type="url" name="video" id="form-new-block-video" placeholder="https://")
+          +tabs__panel(id="new-block-photo" style="min-height: 6.75rem;")
+            +field(for="form-new-block-photo" label!="Вставьте фото в&nbsp;размере 4:3, в&nbsp;формате jpg, jpeg, png")
+              +field__control()
+                +file-input--img()
+                  +file-input__input(id="form-new-block-photo" name="photo" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")

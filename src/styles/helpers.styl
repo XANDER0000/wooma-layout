@@ -1,0 +1,85 @@
+.container
+.content-container
+  container()
+
+.content-wrapper
+  padding-top 30px
+  padding-bottom 30px
+  +desktop()
+    padding-top 45px
+    padding-bottom 60px
+
+.hidden
+  display none !important
+
+.visually-hidden
+  visually-hidden()
+
+.hide-mobile
+  +below(80em)
+    display none !important
+
+.hide-desktop
+  +desktop()
+    display none !important
+
+.last-mb-0
+.lmb0
+  & > *:last-child
+    margin-bottom 0
+
+.mb-0
+.mb0
+  margin-bottom 0
+
+// Float
+
+.clearfix
+  cf()
+
+.float-left
+  float left !important
+
+.float-right
+  float right !important
+
+.float-none
+  float none !important
+
+
+// Misc
+
+.scroll-lock-ios
+  position fixed
+  overflow hidden
+  touch-action none
+
+.scroll-lock
+  overflow hidden
+  touch-action none
+
+// Colors
+
+.color-error
+  color var(--color-error) !important
+
+.color-success
+  color var(--color-success) !important
+
+.color-red
+  color var(--color-red) !important
+
+.color-blue
+  color var(--color-blue) !important
+
+.color-green
+  color var(--color-green) !important
+
+.color-primary
+  color var(--color-primary )!important
+
+.color-text
+  color var(--color-text) !important
+
+.color-text-light
+  color var(--color-text-light) !important

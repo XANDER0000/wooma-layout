@@ -1,0 +1,25 @@
+.person-item
+  display flex
+  flex-flow row nowrap
+  gap rem(12px)
+  align-items center
+
+  &__avatar
+    flex 0 0 auto
+    size 40px
+
+  &__caption
+    display flex
+    flex-direction column
+    gap 2px
+    color var(--color-grey-700)
+    font-weight 500
+    font-size rem(16px)
+    line-height 1.3
+
+  &__name
+    color var(--color-grey-800)
+    font-weight 500
+    font-size rem(18px)
+    line-height 1.3
+    text-break()

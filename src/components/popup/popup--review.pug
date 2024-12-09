@@ -1,0 +1,35 @@
+include ./popup
+include ../button/button
+include ../tabs/tabs
+include ../form/form--review
+include ../search-filter/search-filter
+include ../reviews-select/reviews-select
+
+mixin popup--review()
+  -
+    const props = initComponent('popup', attributes, []);
+
+    const tabs = [
+      { id: "popup-review-new", label: "Создать новый", active: true },
+      { id: "popup-review-select", label: "Выбрать" },
+    ];
+  
+  +popup(id="popup-review" mod="review middle")&attributes(attributes)
+    +popup__header()
+      h2.popup__title Добавить отзыв
+    +popup__main()
+      +tabs(items=tabs)
+        +tabs__panel(id="popup-review-new" style="min-height: 610px;")
+          +form--review()
+        +tabs__panel(id="popup-review-select" style="min-height: 610px; overflow: hidden;")
+          .popup__reviews-content
+            +search-filter(placeholder="Поиск по отзывам" id="search-filter-reviews").popup__search-filter
+            +form()#form-reviews
+              +reviews-select(data-search-filter="search-filter-reviews")
+
+    +popup__footer()
+      .popup__buttons
+        +button(type="submit" label!="Отправить на&nbsp;модерацию" form="form-review" data-visible-for="popup-review-new").popup__button-moderate
+        +button(label="Очистить" mod="outline" data-visible-for="popup-review-new").popup__button-clear
+        +button(type="submit" label!="Выбрать" form="form-reviews" data-visible-for="popup-review-select").popup__button-select
+        //- +button(type="button" icon="trash" title="Удалить" mod="round delete").popup__button-delete

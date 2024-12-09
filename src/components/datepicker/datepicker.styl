@@ -1,0 +1,44 @@
+.datepicker
+  position relative
+  display block
+  &:focus-within &__icon
+    fill var(--color-blue-500)
+
+  &--disabled
+    pointer-events none
+
+  &__input
+    width 100%
+
+  &__icon
+    position absolute
+    top 25px
+    right 16px
+    transform translateY(-50%)
+    transition all .2s ease
+    pointer-events none
+    fill var(--color-grey-600)
+    size 24px
+    ^[0]--disabled &
+      fill $color-dark-200 !important
+
+  &[data-label]
+    &::before
+      position absolute
+      top 50%
+      left 16px
+      display inline-block
+      color var(--color-grey-900)
+      font-weight normal
+      font-size rem(16px)
+      line-height 1.4
+      transform translateY(-50%)
+      content attr(data-label)
+
+    & ^[0]__input
+      padding-left 86px
+      font-size rem(16px)
+
+  &--short[data-label]
+    & ^[0]__input
+      padding-left 52px

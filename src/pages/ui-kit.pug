@@ -1,0 +1,27 @@
+extends ../layouts/core
+
+include ../components/ui/ui--colors
+include ../components/ui/ui--buttons
+include ../components/ui/ui--fields
+include ../components/ui/ui--misc
+include ../components/ui/ui--popup
+include ../components/ui/ui--typography
+//- include ../components/ui/ui--grid
+
+block append data
+  - 
+    page.name = "ui-kit";
+    page.title = "UI-Kit";
+
+block page
+  main.page__main
+    .content-wrapper
+      .content-container
+        +ui(title="UI-Kit")
+          +ui--misc()
+          +ui--buttons()
+          +ui--fields()
+          +ui--popup()
+          +ui--typography()
+          //- +ui--grid()
+          //- +ui--colors()

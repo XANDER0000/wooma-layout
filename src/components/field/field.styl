@@ -1,0 +1,125 @@
+.field
+  display flex
+  flex-direction column
+
+  &__label
+    display block
+    margin 0 0 rem(12px)
+    color var(--color-grey-800)
+    font-weight 500
+    font-size rem(16px)
+    line-height 1.4
+
+  &__required
+    color var(--color-red)
+
+  &__control
+    position relative
+    color var(--color-grey-600)
+    font-weight 400
+    font-size rem(16px)
+    line-height 1.4
+    p
+      margin 0 0 1em
+      &:last-child
+        margin-bottom 0
+
+    &--required
+      &::before
+        position absolute
+        top 50%
+        left -6px
+        z-index 20
+        display block
+        margin-top -6px
+        background-color var(--color-red-light)
+        border 3px solid #fff
+        border-radius 50%
+        content ""
+        size 12px
+
+    &--delete
+      display flex
+      flex-flow row nowrap
+      gap 10px
+      align-items center
+
+    &--icon-right
+      input
+        padding-right 48px
+
+  &__btn-delete
+    flex 0 0 auto
+    size 50px
+
+  &__hint
+    display block
+    order 10
+    margin 6px 0 0
+    color var(--color-text-light)
+    font-size rem(12px)
+
+  &__password-toggle
+    position absolute
+    top 50%
+    right 10px
+    z-index 20
+    display inline-flex
+    align-items center
+    justify-content center
+    margin-top -20px
+    padding 0
+    color var(--color-grey-500)
+    background-color transparent
+    border none
+    size 40px
+    &:hover
+      color var(--color-hover)
+    &:focus-visible
+      color var(--color-hover)
+      outline none
+      box-shadow 0 0 0 4px var(--color-blue-300)
+    input[type="text"] + &
+      color var(--color-blue-400)
+    input:placeholder-shown + &
+      display none
+
+    .icon
+      flex 0 0 auto
+      size 20px
+
+  &__icon-right
+    position absolute
+    top 25px
+    right 20px
+    z-index 5
+    transform translateY(-50%)
+    fill var(--color-grey-600)
+
+  // Модификаторы
+  &--top-shift
+    & ^[0]__control
+      +desktop()
+        margin-top rem(24px)
+
+  &--second
+    & ^[0]__label
+      opacity 0
+      +below(80em)
+        visually-hidden()
+
+  &-lenght-toggle
+    position relative
+    .input
+      padding-right 80px
+    &-value
+      position absolute
+      top 60%
+      right 24px
+      color var(--color-grey-600)
+      font-size rem(12px)
+
+  // &--label-bigger
+  //   ^[0]__label
+  //     font-weight 600
+  //     font-size rem(18px)

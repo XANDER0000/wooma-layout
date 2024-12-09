@@ -1,0 +1,78 @@
+.form
+  display flex
+  flex-direction column
+  gap rem(20px)
+  .popup &
+    padding-bottom 1px
+
+  &__fields
+    display flex
+    flex-direction column
+    gap rem(24px)
+
+  &__radios
+    display flex
+    flex-flow row wrap
+    gap 16px 32px
+    align-items flex-start
+    width 100%
+
+  &__btn-delete
+    flex 0 0 auto
+
+  &__buttons
+    display flex
+    flex-flow row wrap
+    gap rem(12px)
+    align-items center
+
+  &__row
+    --columns 1
+    display grid
+    grid-template-columns repeat(var(--columns), minmax(0, 1fr))
+    gap rem(24px)
+    +above(30em)
+      --columns 2
+    &--2
+      --columns 1
+      +above(30em)
+        --columns 2
+    &--3
+      --columns 1
+      +above(30em)
+        --columns 3
+
+  &--add-number
+    position relative
+
+    & ^[0]__fields
+      +desktop()
+        flex-flow row nowrap
+        gap 20px
+        .field
+          flex 0 1 100%
+          &:nth-child(1)
+            flex 0 0 rem(160px)
+
+    & ^[0]__btn-delete
+      position absolute
+      top -60px
+      right 0
+      +desktop()
+        position relative
+        top auto
+        right auto
+        margin-top rem(34px)
+
+  &--review
+    & ^[0]__review-top
+      display flex
+      flex-flow row wrap
+      gap rem(24px) rem(32px)
+      align-items center
+    & .custom-select__items
+      max-height 234px
+
+  &--add-exam
+    & ^[0]__section-title
+      margin-bottom 0

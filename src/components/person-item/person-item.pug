@@ -1,0 +1,11 @@
+include ../avatar/avatar
+
+mixin person-item()
+  -
+    const props = initComponent('person-item', attributes, ['avatar', 'name', 'about']);
+
+  .person-item&attributes(attributes)
+    +avatar(img=props.avatar name=props.name).person-item__avatar
+    .person-item__caption
+      .person-item__name!= props.name
+      .person-item__about!= props.about

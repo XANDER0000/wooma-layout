@@ -1,0 +1,100 @@
+include ./form
+include ../field/field
+include ../input/input
+include ../textarea/textarea
+include ../datepicker/datepicker
+include ../switch/switch
+include ../radio/radio
+include ../button/button
+include ../file-input/file-input--img-free
+
+mixin form--add-news()
+  -
+    const file = {
+      name: 'Обложка.png',
+      size: '2.46 mb',
+      src: 'assets/img/news/news-01.jpg',
+    };
+
+  +form(mod="add-news" data-validate)&attributes(attributes)#form-add-news
+    .form__fields
+      .form__radios
+        +field()
+          +radio(for="form-add-news-record-type-news" label="Новость")
+            +radio__input(name="record-type" id="form-add-news-record-type-news" value="news" checked)
+        +field()
+          +radio(for="form-add-news-record-type-event" label="Мероприятие")
+            +radio__input(name="record-type" id="form-add-news-record-type-event" value="event")
+
+      +field(for="form-add-news-cover" label!="Добавьте фоновое изображение в размере 16:9, объемом до 2 mb, в формате jpg, jpeg, png")
+        +field__control()
+          +file-input--img-free(file=file)
+            +file-input__input(id="form-add-news-cover" name="cover" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+
+      +field(for="form-add-news-title" label="Заголовок" required)
+        +field__control()
+          +input(type="text" name="title" id="form-add-news-title" placeholder="Заголовок")
+      +field(for="form-add-news-description" label="Описание")
+        +field__control()
+          +textarea(name="description" id="form-add-news-description" placeholder="Краткое описание новости" maxlength="300" mod="short")
+      +field(for="form-add-news-contents" label="Содержание")
+        +field__control()
+          +textarea(name="contents" id="form-add-news-contents" placeholder="Напишите текст объемом не более 600 символов" maxlength="600")
+      
+      .form__row.form__row--2#form-add-news-event-datetime
+        +field(for="form-add-news-event-date" label="Дата проведения")
+          +field__control()
+            +datepicker()
+              +datepicker__input(name="event-date" id="form-add-news-event-date" placeholder="ДД.ММ.ГГГГ" data-datepicker-position="top left" data-min-date="today")
+        +field(for="form-add-news-event-time" label="Время проведения")
+          +field__control()
+            +input(name="event-time" id="form-add-news-event-time" data-mask="time" placeholder="ЧЧ:ММ")
+      
+      .form__row.form__row--2
+        +field(for="form-add-news-publication-date" label="Дата публикации")
+          +field__control()
+            +datepicker()
+              +datepicker__input(name="publication-date" id="form-add-news-publication-date" placeholder="ДД.ММ.ГГГГ" data-datepicker-position="top left" data-min-date="today")
+        +field(for="form-add-news-publication-time" label="Время публикации")
+          +field__control()
+            +input(name="publication-time" id="form-add-news-publication-time" data-mask="time" placeholder="ЧЧ:ММ")
+      .field
+        +switch(label="Опубликовать сейчас")
+          +switch__input(name="publicate-now" id="form-add-news-publicate-now" value="1")
+      
+      script.
+        // Переключение видимости полей в зависимости от выбранного или выбираемого типа записи
+        const updateEventFields = (isHidden) => {
+          document.getElementById('form-add-news-event-datetime')?.classList.toggle('hidden', isHidden);
+          // Дизаблим скрываемые поля, чтобы они не учитывались при валидации формы
+          document.getElementById('form-add-news-event-date')?.toggleAttribute('disabled', isHidden);
+          document.getElementById('form-add-news-event-time')?.toggleAttribute('disabled', isHidden);
+        };
+
+        const processRecordTypeRadios = (radio) => {
+          if (radio.checked) {
+            updateEventFields(radio.value === 'news')
+          }
+        };
+
+        document.querySelectorAll('#form-add-news input[name="record-type"]').forEach((radio) => {
+          processRecordTypeRadios(radio);
+          radio.addEventListener('change', () => {
+            processRecordTypeRadios(radio);
+          });
+        });
+
+        // Переключение видимости полей в зависимости от активности переключателя publicate-now
+        const updatePublicationFields = (isDisabled) => {
+          document.getElementById('form-add-news-publication-date')?.toggleAttribute('disabled', isDisabled);
+          document.getElementById('form-add-news-publication-time')?.toggleAttribute('disabled', isDisabled);
+        };
+
+        const switchEl = document.getElementById('form-add-news-publicate-now');
+        if (switchEl) {
+          switchEl.addEventListener('change', () => {
+            updatePublicationFields(switchEl.checked)
+          });
+        }
+
+        updatePublicationFields(switchEl.checked);

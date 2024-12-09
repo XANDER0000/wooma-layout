@@ -1,0 +1,34 @@
+include ../icon/icon
+
+mixin stars-field()
+  -
+    const props = initComponent('stars-field', attributes, []);
+
+  .stars-field&attributes(attributes)
+    block
+    .stars-field__stars
+      button(type="button" aria-label="1").stars-field__star
+        +icon("star-empty")
+        +icon("star-filled")
+      button(type="button" aria-label="2").stars-field__star
+        +icon("star-empty")
+        +icon("star-filled")
+      button(type="button" aria-label="3").stars-field__star
+        +icon("star-empty")
+        +icon("star-filled")
+      button(type="button" aria-label="4").stars-field__star
+        +icon("star-empty")
+        +icon("star-filled")
+      button(type="button" aria-label="5").stars-field__star
+        +icon("star-empty")
+        +icon("star-filled")
+    .stars-field__value
+
+mixin stars-field__input()
+  -
+    const props = initComponent('', attributes, []);
+
+    attributes.type = attributes.type || 'number';
+    attributes.value = attributes.value || '';
+
+  input().stars-field__input&attributes(attributes)

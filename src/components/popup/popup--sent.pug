@@ -1,0 +1,16 @@
+include ./popup
+include ../button/button
+
+mixin popup--sent()
+  -
+    const props = initComponent('popup', attributes, []);
+  
+  +popup(id="popup-sent" mod="sent middle")&attributes(attributes)
+    +popup__header()
+    +popup__main()
+      h2.popup__title Отправлено!
+      p.popup__subtitle Отзыв появится в&nbsp;списке после проверки модератором
+    +popup__footer()
+      .popup__buttons
+        +button(type="button" label="Понятно" data-popup-close).popup__button-ok
+        

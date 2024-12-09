@@ -1,0 +1,54 @@
+.profile-status
+  display flex
+  flex-flow row nowrap
+  gap rem(16px) rem(12px)
+  align-items center
+  padding rem(16px)
+  background-color var(--color-white)
+  border-radius rem(12px)
+  +desktop()
+    padding rem(16px) rem(24px)
+
+  &--grey
+    background-color var(--color-grey-200)
+
+  &__main
+    display flex
+    flex-direction column
+    gap rem(16px)
+    align-items flex-start
+    +above(30em)
+      flex-flow row nowrap
+      align-items center
+      &:last-child
+        padding-right .5rem
+
+  &__icon
+    flex 0 0 auto
+    size 24px
+
+  &__caption
+    display flex
+    flex-direction column
+    gap rem(4px)
+
+  &__title
+    margin 0
+    color var(--color-grey-800)
+    font-weight 600
+    font-size rem(18px)
+    line-height 1.4
+
+  &__text
+    margin 0
+    color var(--color-grey-800)
+    font-weight 500
+    font-size rem(16px)
+    line-height 1.4
+
+  &__btn
+    flex 0 0 auto
+    margin-left auto
+    padding 0
+    .icon
+      size rem(24px)

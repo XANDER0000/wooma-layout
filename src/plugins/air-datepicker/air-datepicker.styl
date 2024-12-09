@@ -1,0 +1,28 @@
+@import "air-datepicker/air-datepicker.css"
+
+.air-datepicker
+  --adp-accent-color var(--color-blue-400)
+  --adp-color-current-date var(--color-blue-400)
+  --adp-cell-background-color-selected var(--color-blue-400)
+  --adp-cell-background-color-selected-hover var(--color-blue-400)
+  --adp-day-name-color var(--color-yellow-600)
+
+  &-cell.-events-
+    &::after
+      position absolute
+      top 15%
+      right 15%
+      display block
+      background-color var(--color-blue-400)
+      border-radius 50%
+      content ""
+      size 8px
+
+  &-cell.-events-.-selected-
+    &::after
+      background-color var(--color-blue-400)
+
+.air-datepicker-global-container
+  z-index 9000
+
+

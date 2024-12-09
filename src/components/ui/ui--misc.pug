@@ -1,0 +1,81 @@
+include ./ui
+include ../items-list/items-list
+include ../alert/alert
+include ../badge/badge
+include ../profile-status/profile-status
+include ../person-item/person-item
+include ../avatar/avatar
+include ../abitur-status/abitur-status
+include ../notifications-meter/notifications-meter
+
+mixin ui--misc()
+  +ui__section(title="Общие компоненты")&attributes(attributes)#misc
+    +ui__subsection(title="alert")#alert
+      p Варианты уведомлений и&nbsp;предупреждений
+      +ui__sequence(mod="3")
+        +items-list()
+          +alert(icon="success" heading="Success Text" text!="Success description" mod="success" btn-close)
+          +alert(icon="info" heading="Info Text" text!="Info description" mod="info" btn-close)
+          +alert(icon="warning" heading="Warning Text" text!="Warning description" mod="warning")
+          +alert(icon="error" heading="Error Text" text="Error description" mod="error" btn-close)
+        +items-list()
+          +alert(icon="success" text!="Success description Lorem ipsum dolor sit amet consectetur adipisicing elit" mod="success" btn-close)
+          +alert(icon="info" text!="Info description Lorem ipsum dolor sit amet consectetur adipisicing elit" mod="info" btn-close)
+          +alert(icon="warning" text!="Warning description Lorem ipsum dolor sit amet consectetur adipisicing elit" mod="warning" btn-close)
+          +alert(icon="error" text!="Error Далеко-далеко за&nbsp;словесными горами в&nbsp;стране гласных и&nbsp;согласных." mod="error")
+        +items-list()
+          +alert(icon="success" heading="Success Text" mod="success" btn-close)
+          +alert(icon="info" heading="Info Text" mod="info" btn-close)
+          +alert(icon="warning" heading="Warning Text" mod="warning" btn-close)
+          +alert(icon="error" heading="Error Text" mod="error" btn-close)
+
+    +ui__subsection(title="profile-status")#profile-status
+      p Варианты статусов профиля
+      +ui__sequence()
+        +profile-status(icon="error" text!="Отклонено от&nbsp;публикации")
+        +profile-status(icon="success" text="Опубликовано")
+        +profile-status(icon="draft" text="Черновик")
+        +profile-status(icon="moderation" text="На модерации")
+      p С дополнительной "кнопкой"
+      +ui__sequence(mod="2")
+        +profile-status(icon="error" text!="Отклонено от&nbsp;публикации" btn)
+        +profile-status(icon="success" text="Опубликовано" btn)
+        +profile-status(icon="draft" text="Черновик" btn)
+        +profile-status(icon="moderation" text="На модерации" btn)
+
+    +ui__subsection(title="badge")#badge
+      +ui__box()
+        +ui__sequence(mod="free")
+          +badge(icon="check" label="Все данные сохранены" mod="success")
+        
+    +ui__subsection(title="avatar")#avatar
+      +ui__box()
+        +ui__sequence(mod="free vcenter")
+          +avatar(img="assets/img/user.jpg" name="Константинопольский П.И.")
+          +avatar(img="" name="Константинопольский П.И.")
+          +avatar(img="assets/img/user.jpg" name="Константинопольский П.И." mod="large")
+          +avatar(img="" name="Константинопольский П.И." mod="large")
+
+    +ui__subsection(title="person-item")#person-item
+      +ui__box()
+        +ui__sequence(mod="3")
+          +person-item(avatar="assets/img/user.jpg" name="Константинопольский П.И." about="Сотрудник вуза")
+          +person-item(avatar="" name="Константинопольский П.И." about="Абитуриент")
+      
+    +ui__subsection(title="abitur-status")#abitur-status
+      +ui__box()
+        +ui__sequence(mod="3")
+          +abitur-status(status="accepted")
+          +abitur-status(status="rejected")
+          +abitur-status(status="consideration")
+          +abitur-status(status="enrolled")
+          +abitur-status(status="submitted")
+          +abitur-status(status="no-application")
+
+    +ui__subsection(title="notifications-meter")#notifications-meter
+      +ui__box()
+        +ui__sequence(mod="4")
+          +notifications-meter(count="")
+          +notifications-meter(count="1")
+          +notifications-meter(count="23")
+          +notifications-meter(count="123")

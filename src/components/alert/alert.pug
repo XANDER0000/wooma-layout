@@ -1,0 +1,15 @@
+mixin alert()
+  -
+    const props = initComponent('alert', attributes, ['icon', 'heading', 'text', 'btn-close']);
+
+  .alert&attributes(attributes)
+    - if (props.icon)
+      img(src=`assets/img/icons/${props.icon}.svg` alt="").alert__icon
+    .alert__caption
+      - if (props.heading)
+        .alert__title!= props.heading
+      - if (props.text)
+        .alert__text!= props.text
+      block
+    - if (props['btn-close'])
+      button(type="button" title="Скрыть").alert__btn-close

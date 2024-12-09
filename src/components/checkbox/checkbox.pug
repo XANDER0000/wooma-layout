@@ -1,0 +1,17 @@
+include ../validator/validator
+
+mixin checkbox()
+  -
+    const props = initComponent('checkbox', attributes, ['label', 'for']);
+
+    setValidatorMsg(attributes);
+
+  .checkbox()&attributes(attributes)
+    block
+    label(for=props.for).checkbox__label
+      span.checkbox__check
+      - if (props.label)
+        span.checkbox__caption!= props.label
+
+mixin checkbox__input()
+  input(type="checkbox")&attributes(attributes)

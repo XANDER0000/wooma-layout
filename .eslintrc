@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "node_modules/",
+    "**/node_modules/",
+    "/**/node_modules/*",
+    "dist/",
+    "_project/"
+  ],
+  "extends": "airbnb-base",
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": ["error", "ignorePackages"],
+    "linebreak-style": "off",
+    "eol-last": "off",
+    "no-param-reassign": ["error", { "props": false }]
+  }
+}

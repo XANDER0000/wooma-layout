@@ -1,0 +1,12 @@
+include ../icon/icon
+
+mixin badge()
+  -
+    const props = initComponent('badge', attributes, ['icon', 'label']);
+
+  .badge&attributes(attributes)
+    - if (props.icon)
+      +icon(props.icon).badge__icon
+    - if (props.label)
+      span.badge__label!= props.label
+    block

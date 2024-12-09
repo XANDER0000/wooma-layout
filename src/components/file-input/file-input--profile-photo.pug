@@ -1,0 +1,18 @@
+include ./file-input
+include ../button/button
+include ../avatar/avatar
+
+mixin file-input--profile-photo()
+  -
+    const props = initComponent('file-input', attributes, ['file', 'label']);
+
+    //- const file = { src: 'https://link-to-image.jpg' };
+  
+  +file-input(mod="profile-photo")&attributes(attributes)
+    block
+    +avatar().file-input__photo-avatar
+      - if (props.file)
+        img(src=props.file.src alt="")
+    .file-input__photo-right
+      .file-input__photo-label!= props.label
+      +file-input__button(icon="plus" label="Добавить фото" mod="outline")

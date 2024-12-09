@@ -1,0 +1,8 @@
+mixin notifications-meter()
+  -
+    const props = initComponent('notifications-meter', attributes, ['count']);
+
+  .notifications-meter&attributes(attributes)
+    +icon("bell").notifications-meter__icon
+    - if (props.count)
+      span.notifications-meter__count!= props.count

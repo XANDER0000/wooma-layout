@@ -1,0 +1,194 @@
+h1
+.h1
+.title-1
+  margin 0 0 1em
+  font-weight 700
+  font-size rem(40px)
+  font-family $font-family-P
+  line-height 1.2
+  text-break()
+  +desktop()
+    font-size rem(60px)
+
+h2
+.h2
+.title-2
+  margin 0 0 1em
+  font-weight 700
+  font-size rem(28px)
+  font-family $font-family-P
+  line-height 1.3
+  text-break()
+  +desktop()
+    font-size rem(40px)
+
+h3
+.h3
+.title-3
+  margin 0 0 1em
+  font-weight 600
+  font-size rem(20px)
+  font-family $font-family-MA
+  line-height 1.2
+  text-break()
+  +desktop()
+    font-size rem(24px)
+
+h4
+.h4
+.title-4
+  margin 0 0 1em
+  font-weight 700
+  font-size rem(16px)
+  font-family $font-family-P
+  line-height 1.2
+  text-break()
+  +desktop()
+    font-size rem(20px)
+
+
+.text-grey
+  margin 0
+  color var(--color-grey-700)
+  font-weight 500
+  font-size rem(16px)
+
+h5
+h6
+  margin 1em 0
+  font-weight 700
+  font-size 1em
+  font-family $font-family-P
+  line-height 1.2
+  text-break()
+
+p
+ul
+ol
+dl
+blockquote
+pre
+address
+figure
+table
+  margin-top 0
+  margin-bottom 1em
+
+a
+  color var(--color-link)
+  text-decoration none
+  cursor pointer
+  transition color .2s ease
+  text-break()
+  &:hover
+    color var(--color-hover)
+    text-decoration underline
+  &:focus-visible
+    outline-color var(--color-outline)
+
+button:not(:disabled)
+  outline-color var(--color-outline)
+  cursor pointer
+
+img
+video
+svg
+canvas
+  display inline-block
+  max-width 100%
+  height auto
+
+ol
+ul
+  padding-left 2em
+  li
+    margin 0 0 .8em
+
+b
+strong
+  font-weight 700
+
+.bold
+.font-bold
+  font-weight 700 !important
+
+.font-medium
+  font-weight 500 !important
+
+i
+em
+  font-style italic
+
+.font-italic
+  font-style italic !important
+
+table
+  width 100%
+
+mark
+.mark
+  padding .2em
+  background-color #fcf8e3
+
+small
+.small
+  font-size .8em
+
+.text-large
+  font-size 1.5em
+
+.text-big
+  font-size 1.25em
+
+.text-small
+  font-size .8em
+
+.text-mini
+  font-size .6em
+
+.text-tight
+  p&
+  p
+    margin-bottom .5em
+
+.text-left
+  text-align left
+
+.text-right
+  text-align right
+
+
+
+.center
+.text-center
+  text-align center
+
+pre
+code
+  overflow hidden
+  color var(--color-text)
+  font-size 1em
+  font-family "Consolas", "Courier New", "Nimbus Mono L", monospace
+  white-space pre-wrap
+  word-wrap break-word
+  tab-size 4
+
+pre
+  padding 12px
+  background #eee
+  border-left 7px solid #9bb4c7
+
+code
+  margin 0 1px
+  padding 3px 5px
+  background-color #eaf0f4
+  border-radius 6px
+
+kbd
+  margin 0 1px
+  padding 3px 4px
+  background-color #fff
+  border-radius 4px
+  box-shadow 0 0 4px 0 rgba(0,0,0,.45)
+
+

@@ -1,0 +1,22 @@
+.badge
+  display inline-flex
+  flex-flow row nowrap
+  gap rem(6px)
+  align-items center
+  justify-content center
+  min-height rem(40px)
+  padding rem(8px) rem(12px)
+  color var(--color-grey-800)
+  font-weight 500
+  font-size rem(14px)
+  line-height 1.2
+  background-color var(--color-grey-300)
+  border-radius 1000px
+
+  &__icon
+    size rem(20px)
+
+  &--success
+    background-color var(--color-green-100)
+    & ^[0]__icon
+      fill var(--color-green-500)

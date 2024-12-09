@@ -1,0 +1,15 @@
+mixin profile-status()
+  -
+    const props = initComponent('profile-status', attributes, ['icon', 'heading', 'text', 'btn']);
+
+    props.heading = props.heading || 'Статус профиля';
+
+  .profile-status&attributes(attributes)
+    .profile-status__main
+      - if (props.icon)
+        img(src=`assets/img/icons/${props.icon}.svg` alt="").profile-status__icon
+      .profile-status__caption
+        .profile-status__title!= props.heading 
+        .profile-status__text!= props.text
+    - if (props.btn)
+      +button(href="#" icon="settings" mod="round grey").profile-status__btn

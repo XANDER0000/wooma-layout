@@ -1,0 +1,60 @@
+//- core component for custom composition
+mixin file-input()
+  -
+    const props = initComponent('file-input', attributes, []);
+
+  .file-input&attributes(attributes)
+    block
+
+//- Minimal (Base) composition
+mixin file-input--basic()
+  -
+    const props = initComponent('file-input', attributes, []);
+
+  +file-input&attributes(attributes)
+    +file-input__input(data-max-files-count="4" data-max-file-size="1048576" multiple)
+    +file-input__button(label="Загрузить файл")
+
+//- Input
+mixin file-input__input()
+  //- multiple - multiple files
+  //- accept="image/*,application/pdf" - любые изображения и pdf
+  //- data-max-files-count="10" - не более 10 файлов
+  //- data-max-file-size="2097152" - файлы не более 2MB (1 MB = 1048576 B)
+  input(type="file" tabindex="-1").file-input__input&attributes(attributes)
+
+//- trigger Button
+mixin file-input__button()
+  -
+    const props = initComponent('', attributes, ['label']);
+  
+  +button(type="button" label=props.label mod="outline").file-input__button&attributes(attributes)
+
+//- files list
+mixin file-input__files()
+  -
+    const props = initComponent('', attributes, ['files']);
+
+  .file-input__files&attributes(attributes)
+    - if (props.files)
+      each file, num in params.files
+        .file-input__file
+          - if (file.img)
+            .file-input__file-img
+              img(src=file.img alt="")
+          .file-input__file-caption
+            .file-input__file-title!= file.title
+            - if (file.size)
+              .file-input__file-size!= file.size
+
+//- Dropzone
+mixin file-input__dropzone()
+  -
+    const props = initComponent('', attributes, ['label']);
+
+    props.label = props.label || 'Перетащите файлы сюда';
+
+  .file-input__dropzone&attributes(attributes)
+    - if (props.label)
+    .file-input__dropzone-label!= props-label
+    block

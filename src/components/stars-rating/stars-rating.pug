@@ -1,0 +1,25 @@
+include ../icon/icon
+
+mixin stars-rating()
+  -
+    const props = initComponent('stars-rating', attributes, ['value']);
+
+  .stars-rating(data-value=props.value)&attributes(attributes)
+    .stars-rating__stars
+      .stars-rating__star
+        +icon("star-empty")
+        +icon("star-filled")
+      .stars-rating__star
+        +icon("star-empty")
+        +icon("star-filled")
+      .stars-rating__star
+        +icon("star-empty")
+        +icon("star-filled")
+      .stars-rating__star
+        +icon("star-empty")
+        +icon("star-filled")
+      .stars-rating__star
+        +icon("star-empty")
+        +icon("star-filled")
+    .stars-rating__value!= props.value
+      | .0

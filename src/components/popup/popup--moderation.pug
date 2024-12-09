@@ -1,0 +1,14 @@
+include ./popup
+include ../button/button
+
+mixin popup--moderation()
+  +popup(id="popup-moderation" mod="small mob-bottom")&attributes(attributes)
+    +popup__header()
+      h2.popup__title Модерация данных
+    +popup__main()
+      .popup__text
+        p Публикация вашей страницы произойдет после модерации заполненных данных. Вы&nbsp;можете отследить статус публикации ваших данных в&nbsp;личном кабинете.
+    +popup__footer()
+      .popup__buttons
+        +button(label="Отправить").popup__btn-send
+        +button(label="Отмена" mod="outline" data-popup-close).popup__btn-cancel

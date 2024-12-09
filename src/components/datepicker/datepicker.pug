@@ -1,0 +1,29 @@
+include ../icon/icon
+include ../input/input
+
+mixin datepicker(props = {})
+  -
+    let { icon, mod, controlAttributes } = props;
+    attributes.class = mod2Classes(attributes, 'datepicker', mod);
+
+    icon = icon || 'calendar';
+
+  .datepicker&attributes(attributes)
+    - if (controlAttributes)
+      +datepicker__input()&attributes(controlAttributes)
+    - else
+      block
+    +icon(icon).datepicker__icon
+
+mixin datepicker__input()
+  -
+    const defaultPlaceholder = ('data-datepicker-timepicker' in attributes) ? 'ДД.ММ.ГГГГ ЧЧ:ММ' : 'ДД.ММ.ГГГГ';
+    attributes.type = attributes.type || 'text';
+    attributes['data-mask'] = attributes['data-mask'] || 'date';
+    attributes.placeholder = attributes.placeholder || defaultPlaceholder;
+    attributes.spellcheck = attributes.spellcheck || 'false';
+    attributes.autocomplete = attributes.autocomplete || 'off';
+
+    setValidatorMsg(attributes);
+
+  +input(data-datepicker="").datepicker__input&attributes(attributes)

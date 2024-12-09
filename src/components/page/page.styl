@@ -1,0 +1,45 @@
+.page
+  display flex
+  flex-direction column
+  min-height 100vh
+  min-height var(--doc-height)
+
+  &--bg-white
+    background-color var(--color-white)
+
+  &__main
+  &__profile-main
+    display flex
+    flex 1 0 auto
+    flex-direction column
+    width 100%
+
+  &__main
+    background-color var(--color-grey-200)
+
+  &__content
+    flex 1 0 auto
+    width 100%
+
+  &__content-wrapper
+    padding-top 0
+    padding-bottom 64px
+    +desktop()
+      padding-top 64px
+
+  &__header
+  &__profile-header
+  &__footer
+    flex none
+    width 100%
+
+  &__container
+    container()
+
+  &__flex
+    display flex
+    flex-direction column
+    gap rem(79px)
+    background-color var(--color-grey-200)
+    +above(48em)
+      flex-direction row

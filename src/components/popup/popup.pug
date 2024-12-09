@@ -1,0 +1,32 @@
+include ../button/button
+include ../icon/icon
+//- include ../select/select
+//- include ../map/map
+//- include ../field/field
+//- include ../textarea/textarea
+
+mixin popup()
+  -
+    const props = initComponent('popup', attributes, []);
+
+  dialog.popup&attributes(attributes)
+    .popup__container
+      block
+
+mixin popup__header()
+  -
+    const props = initComponent('popup__header', attributes, []);
+    const showBtnClose = props["btn-close"] !== 'false';
+
+  .popup__header
+    - if (showBtnClose)
+      button(type="button" aria-label="Закрыть" data-popup-close="").popup__btn-close
+    block
+
+mixin popup__main()
+  .popup__main
+    block
+
+mixin popup__footer()
+  .popup__footer
+    block

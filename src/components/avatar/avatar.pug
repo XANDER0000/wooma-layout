@@ -1,0 +1,8 @@
+mixin avatar()
+  -
+    const props = initComponent('avatar', attributes, ['img', 'name']);
+    
+  .avatar&attributes(attributes)
+    - if (props.img)
+      img(loading="lazy" src=props.img alt!=(props.name || ""))
+    block

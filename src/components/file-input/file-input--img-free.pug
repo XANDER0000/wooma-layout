@@ -1,0 +1,29 @@
+include ./file-input
+include ../icon/icon
+include ../button/button
+
+mixin file-input--img-free()
+  -
+    const props = initComponent('file-input', attributes, ['file']);
+
+    props.placeholder = props.placeholder || 'Выберите файл...';
+
+    //- Example
+    //- const file = {
+    //-   name: 'Обложка.png',
+    //-   size: '2.46 mb',
+    //-   src: 'https://placehold.co/600x400',
+    //- };
+  
+  +file-input(mod="img-free")&attributes(attributes)
+    block
+    .file-input__grid
+      +file-input__button(icon="attachment" label="Загрузить" mod="outline")
+      - if (props.file)
+        .file-input__file
+          .file-input__file-img
+            img(src=props.file.src alt="")
+          .file-input__file-info
+            .file-input__file-name!= props.file.name
+            .file-input__file-size!= props.file.size
+          +button(icon="trash" title="Удалить" mod="small square delete").file-input__btn-delete

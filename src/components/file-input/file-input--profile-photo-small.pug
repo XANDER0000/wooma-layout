@@ -1,0 +1,16 @@
+include ./file-input
+include ../button/button
+include ../avatar/avatar
+
+mixin file-input--profile-photo-small()
+  -
+    const props = initComponent('file-input', attributes, ['file']);
+
+    //- const file = { src: 'https://link-to-image.jpg' };
+
+  +file-input(mod="profile-photo-small")&attributes(attributes)
+    block
+    +avatar().file-input__photo-avatar
+      - if (props.file)
+        img(src=props.file.src alt="")
+    +file-input__button(icon="photo" mod="small round" title="Загрузить фото")

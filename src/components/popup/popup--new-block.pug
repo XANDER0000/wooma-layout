@@ -1,0 +1,17 @@
+include ./popup
+include ../button/button
+include ../form/form--new-block
+
+mixin popup--new-block()
+  -
+    const props = initComponent('popup', attributes, ['variant']);
+  
+  +popup(id="popup-new-block" mod="new-block middle")&attributes(attributes)
+    +popup__header()
+      h2.popup__title Новый блок
+    +popup__main()
+      +form--new-block(variant=props.variant)
+    +popup__footer()
+      .popup__buttons
+        +button(type="submit" label="Сохранить" form="form-new-block").popup__btn-save
+        +button(label="Очистить" mod="outline" data-popup-close).popup__btn-clear

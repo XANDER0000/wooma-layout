@@ -1,0 +1,35 @@
+include ./form
+include ../field/field
+include ../input/input
+include ../datepicker/datepicker
+include ../button/button
+
+mixin form--add-exam()
+  +form(mod="add-exam" data-validate method="GET")&attributes(attributes)#form-add-exam
+    input(type="hidden" name="itemId" value="" id="form-add-exam-item-id")
+    .form__fields
+      +field(for="form-add-exam-title" label="Название")
+        +field__control()
+          +input(type="text" name="title" id="form-add-exam-title" placeholder="Заголовок" required)
+      +field(for="form-add-exam-description" label="Описание")
+        +field__control()
+          +textarea(name="description" id="form-add-exam-description" placeholder="Напишите текст объемом не более 600 символов" maxlength="600")
+
+    h3.title-4.form__section-title Время и&nbsp;места проведения
+    .form__fields
+      .form__fields
+        .form__row.form__row--3
+          +field(for="form-add-exam-date" label="Дата")
+            +field__control()
+              +datepicker()
+                +datepicker__input(name="date" id="form-add-exam-date" placeholder="ДД.ММ.ГГГГ" data-datepicker-position="top left" required)
+          +field(for="form-add-exam-begin-time" label="Время начала")
+            +field__control()
+              +input(name="begin-time" id="form-add-exam-begin-time" data-mask="time" placeholder="ЧЧ:ММ" required)
+          +field(for="form-add-exam-end-time" label="Время окончания")
+            +field__control()
+              +input(name="begin-time" id="form-add-exam-end-time" data-mask="time" placeholder="ЧЧ:ММ" data-validator-totime="#form-add-exam-begin-time" data-validator-totime-message="Конечное время меньше начального" required)
+        +field(for="form-add-exam-location" label="Место проведения")
+          +field__control(is-location).field__control--icon-right
+            +input(type="text" name="location" id="form-add-exam-location" placeholder="Адрес проведения экзамена")
+            +icon("pin").field__icon-right

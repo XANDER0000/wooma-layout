@@ -1,0 +1,50 @@
+include ../icon/icon
+include ../button/button
+
+mixin input-file--base()
+  +input-file()
+    +input-file__input()
+    +input-file__button(label="Загрузить файл")
+
+mixin input-file()
+  -
+    const props = initComponent('input-file', attributes, []);
+  
+  .input-file&attributes(attributes)
+    block
+
+mixin input-file__input()
+  input(type="file").input-file__input&attributes(attributes)
+
+mixin input-file__button()
+  -
+    const props = initComponent('input-file__button', attributes, ['label']);
+  
+  +button(type="button" label=props.label tabindex="-1" mod="outline").input-file__button&attributes(attributes)
+
+mixin input-file__files()
+  -
+    const props = initComponent('input-file__files', attributes, ['files']);
+
+  .input-file__files&attributes(attributes)
+    - if (props.files)
+      each file, num in params.files
+        .input-file__file
+          - if (file.img)
+            .input-file__file-img
+              img(src=file.img alt="")
+          .input-file__file-caption
+            .input-file__file-title!= file.title
+            - if (file.size)
+              .input-file__file-size!= file.size
+
+mixin input-file__dropzone()
+  -
+    const props = initComponent('input-file__dropzone', attributes, ['label']);
+
+    props.label = props.label || 'Перетащите файлы сюда';
+
+  .input-file__dropzone&attributes(attributes)
+    - if (props.label)
+    .input-file__dropzone-label!= props-label
+    block

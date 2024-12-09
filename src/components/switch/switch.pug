@@ -1,0 +1,12 @@
+mixin switch()
+  -
+    const props = initComponent('switch', attributes, ['label']);
+
+  label.switch()&attributes(attributes)
+    block
+    span.switch__check(title=props.label)
+    - if (props.label)
+      span.switch__caption!= props.label
+
+mixin switch__input()
+  input(type="checkbox")&attributes(attributes)

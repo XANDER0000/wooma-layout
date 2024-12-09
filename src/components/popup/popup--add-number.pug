@@ -1,0 +1,14 @@
+include ./popup
+include ../button/button
+include ../form/form--add-number
+
+mixin popup--add-number()
+  +popup(id="popup-add-number" mod="add-number middle mob-bottom")&attributes(attributes)
+    +popup__header()
+      h2.popup__title Добавить число
+    +popup__main()
+      +form--add-number()
+    +popup__footer()
+      .popup__buttons
+        +button(type="submit" label="Сохранить" form="form-add-number").popup__btn-save
+        +button(label="Отмена" mod="outline" data-popup-close).popup__btn-cancel

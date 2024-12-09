@@ -1,0 +1,53 @@
+include ./ui
+include ../button/button
+
+mixin ui--buttons()
+  +ui__section(title="Кнопки")
+    +ui__subsection(title="Primary")
+      +ui__sequence(mod="free").ui__sequence--vcenter
+        +button(label="Кнопка" icon="user")
+        +button(label="Кнопка" icon="user" mod="large")
+        +button(label="Кнопка" icon="user" mod="small")
+        +button(href="#" label="Ссылка" icon="user" mod="icon-right")
+        +button(href="#" label="Ссылка" icon="user" mod="large icon-right")
+        +button(href="#" label="Ссылка" icon="user" mod="small icon-right")
+    //- +ui__subsection(title="Secondary")
+    //-   +ui__sequence().ui__sequence--vcenter
+    //-     +button(label="Кнопка" icon="user" mod="secondary")
+    //-     +button(label="Кнопка" icon="user" mod="large secondary")
+    //-     +button(label="Кнопка" icon="user" mod="small secondary")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="secondary icon-right")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="large secondary icon-right")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="small secondary icon-right")
+    +ui__subsection(title="Outline")
+      +ui__sequence(mod="free").ui__sequence--vcenter
+        +button(label="Кнопка" icon="user" mod="outline")
+        +button(label="Кнопка" icon="user" mod="large outline")
+        +button(label="Кнопка" icon="user" mod="small outline")
+        +button(href="#" label="Кнопка" icon="user" mod="outline icon-right")
+        +button(href="#" label="Кнопка" icon="user" mod="large outline icon-right")
+        +button(href="#" label="Кнопка" icon="user" mod="small outline icon-right")
+    //- +ui__subsection(title="Success")
+    //-   +ui__sequence().ui__sequence--vcenter
+    //-     +button(label="Кнопка" icon="user" mod="success")
+    //-     +button(label="Кнопка" icon="user" mod="large success")
+    //-     +button(label="Кнопка" icon="user" mod="small success")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="success icon-right")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="large success icon-right")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="small success icon-right")
+    //- +ui__subsection(title="Error")
+    //-   +ui__sequence().ui__sequence--vcenter
+    //-     +button(label="Кнопка" icon="user" mod="error")
+    //-     +button(label="Кнопка" icon="user" mod="large error")
+    //-     +button(label="Кнопка" icon="user" mod="small error")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="error icon-right")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="large error icon-right")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="small error icon-right")
+    //- +ui__subsection(title="Warning")
+    //-   +ui__sequence().ui__sequence--vcenter
+    //-     +button(label="Кнопка" icon="user" mod="warning")
+    //-     +button(label="Кнопка" icon="user" mod="large warning")
+    //-     +button(label="Кнопка" icon="user" mod="small warning")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="warning icon-right")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="large warning icon-right")
+    //-     +button(href="#" label="Ссылка" icon="user" mod="small warning icon-right")

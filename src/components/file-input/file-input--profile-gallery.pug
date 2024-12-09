@@ -1,0 +1,7 @@
+include ./file-input
+include ../button/button
+
+mixin file-input--profile-gallery()
+  +file-input(mod="profile-gallery" data-max-items="8")
+    +file-input__input(name="gallery-photos" accept=".jpg,.jpeg,.png" data-max-files-count="8" data-max-file-size="2097152" multiple)
+    +file-input__button(icon="plus" mod="outline")

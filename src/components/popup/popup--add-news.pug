@@ -1,0 +1,14 @@
+include ./popup
+include ../button/button
+include ../form/form--add-news
+
+mixin popup--add-news()
+  +popup(id="popup-add-news" mod="add-news middle")&attributes(attributes)
+    +popup__header()
+      h2.popup__title Создать запись
+    +popup__main()
+      +form--add-news()
+    +popup__footer()
+      .popup__buttons
+        +button(type="submit" label="На модерацию" form="form-add-news").popup__btn-moderate
+        +button(label="Очистить" mod="outline" data-popup-close).popup__btn-cancel

@@ -1,0 +1,54 @@
+.stars-rating
+  display flex
+  flex-flow row nowrap
+  gap 12px
+  align-items center
+
+  input
+    visually-hidden()
+
+  &__stars
+    display flex
+    flex-flow row wrap
+    gap 8px
+
+  &__star
+    display inline-flex
+    flex 0 0 auto
+    padding 0
+    color var(--color-blue-400)
+    background-color transparent
+    border none
+    transition all .3s
+    &:hover
+      color var(--color-hover)
+    .icon
+      flex 0 0 auto
+      size 24px
+      &:nth-child(1)
+        display inline-block
+      &:nth-child(2)
+        display none
+
+  &[data-value="1"] ^[0]__star:nth-child(1)
+  &[data-value="2"] ^[0]__star:nth-child(-n+2)
+  &[data-value="3"] ^[0]__star:nth-child(-n+3)
+  &[data-value="4"] ^[0]__star:nth-child(-n+4)
+  &[data-value="5"] ^[0]__star:nth-child(-n+5)
+    .icon
+      &:nth-child(1)
+        display none
+      &:nth-child(2)
+        display inline-block
+
+  &__value
+    flex 0 0 auto
+    margin-top 2px
+    color var(--color-grey-800)
+    font-weight 600
+    font-size rem(18px)
+    line-height 1.3
+
+
+
+
