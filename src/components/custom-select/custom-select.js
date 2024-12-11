@@ -84,13 +84,13 @@ const CustomSelect = function (element, options) {
 
     button.appendChild(buttonCaption);
 
-    buttonLabel = document.createElement("span");
-    buttonLabel.classList.add(settings.baseClass + "__button-label");
-    if (select.options.length && (select.options[0].value == "")) {
-      buttonLabel.textContent = select.options[0].innerHTML;
-    }
+    // buttonLabel = document.createElement("span");
+    // buttonLabel.classList.add(settings.baseClass + "__button-label");
+    // if (select.options.length && (select.options[0].value == "")) {
+    //   buttonLabel.textContent = select.options[0].innerHTML;
+    // }
 
-    button.appendChild(buttonLabel);
+    // button.appendChild(buttonLabel);
 
 
     if (settings.multyFilter) {
@@ -101,7 +101,7 @@ const CustomSelect = function (element, options) {
 
     const buttonArrow = document.createElement("span");
     buttonArrow.classList.add(settings.baseClass + "__button-arrow");
-    buttonArrow.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path d="M14.655 8.68a.834.834 0 0 0-1.18-1.18l-3.23 3.231L7.012 7.5a.834.834 0 0 0-1.18 1.18l3.697 3.695a1.01 1.01 0 0 0 1.428 0l3.697-3.696Z"/></svg>';
+    buttonArrow.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5"><path d="M0 0 L4 5 L8 0 Z"/></svg>';
     button.appendChild(buttonArrow);
 
     button.setAttribute("aria-disabled", select.disabled);
@@ -144,7 +144,7 @@ const CustomSelect = function (element, options) {
     list = null;
     placeholder = "";
 
-    component.classList.remove(settings.baseClass + "--placeholder");
+    // component.classList.remove(settings.baseClass + "--placeholder");
 
   };
 
@@ -308,8 +308,6 @@ const CustomSelect = function (element, options) {
     component.classList.remove(settings.baseClass + "--placeholder");
     if (!str && placeholder) {
       str = placeholder;
-      component.classList.add(settings.baseClass + "--placeholder");
-      component.classList.add("hasPlaceholder");
     };
 
     setButtonCaption(str, img);

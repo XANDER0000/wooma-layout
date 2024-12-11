@@ -7,8 +7,9 @@
   select:disabled + &
     pointer-events none
   select:disabled + & ^[0]__button
-    color var(--color-grey-700)
-    background-color var(--color-grey-400)
+    color var(--color-gray)
+    background-color var(--color-white)
+    border-color var(--color-gray)
     border-color var(--color-grey-400)
     outline none !important
     pointer-events none
@@ -19,18 +20,17 @@
     flex-flow row nowrap
     align-items center
     width 100%
-    min-height rem(50px)
-    padding rem(5px) rem(40px) rem(5px) rem(16px)
-    color var(--color-grey-700)
-    font-weight 500
+    min-height rem(48px)
+    padding rem(12px) rem(30px) rem(12px) rem(15px)
+    color var(--color-dark-soft)
+    font-weight 400
     font-size rem(16px)
     font-family $font-family
     font-variant-numeric lining-nums proportional-nums
-    line-height 1.5
-    background-color var(--color-grey-200)
+    line-height 1
+    background-color var(--color-white)
     background-clip padding-box
-    border 2px solid var(--color-grey-200)
-    border-radius rem(32px)
+    border 1px solid var(--color-gray)
     transition all .2s ease
     appearance none
     ellipsis()
@@ -43,12 +43,10 @@
 
     &:invalid
       box-shadow none
-    &:hover
-      border-color var(--color-blue-300)
     &:focus-visible
-      border-color var(--color-blue-300)
+      border-color var(--color-gray-dark)
     &::placeholder
-      color var(--color-grey-600)
+      color var(--color-gray-dark)
       opacity 1
 
     &:disabled
@@ -65,11 +63,10 @@
       border-color var(--color-error)
 
     ^[0].is-open &
-      background-color var(--color-grey-200)
-      border-color var(--color-blue-300)
+      border-color var(--color-gray-dark)
 
-    ^[0]--placeholder &
-      color var(--color-grey-700)
+    // ^[0]--placeholder &
+    //   color var(--color-grey-700)
 
 
   &__button-caption
@@ -99,15 +96,12 @@
     display block
     margin-top -12px
     padding 0
-    color var(--color-grey-800)
     background-color transparent
-    transition transform 0
+    transition all .2s ease
     size 20px
     svg
       fill currentColor
     ^[0].is-open &
-      margin-top -8px
-      color var(--color-blue-600)
       transform scaleY(-1)
 
   &__dropdown
@@ -117,20 +111,18 @@
     z-index 100
     display none
     min-width 100%
-    margin-top rem(4px)
+    margin-top -1px
     padding 0
     overflow hidden
     background-color var(--color-white)
-    border 1px solid var(--color-grey-400)
-    border-radius rem(26px)
-    box-shadow 0px 6px 12px rgba(171, 190, 209, .3)
+    border 1px solid var(--color-gray-dark)
     ^[0].is-open &
       display block
     ^[0]--top &
       top auto
       bottom 100%
       margin-top 0
-      margin-bottom rem(4px)
+      margin-bottom -1px
 
   &__items
     display block
@@ -144,8 +136,8 @@
     display flex
     align-items center
     margin 0
-    padding rem(12px) rem(16px)
-    color var(--color-text)
+    padding rem(4px) rem(20px)
+    color var(--color-gray-dark)
     font-weight 400
     font-size rem(16px)
     font-family $font-family
@@ -155,13 +147,18 @@
     transition all .2s ease
     &:hover
     &:focus-visible
-      background-color var(--color-grey-300)
+      color var(--color-white)
+      background-color var(--color-dark)
     &.is-placeholder
     &.is-hidden
       display none !important
 
     &.is-selected
-      color var(--color-blue-600)
+      background-color #ddd
+      &:hover
+      &:focus-visible
+        color var(--color-white)
+        background-color var(--color-dark)
 
     ^[0]--multiple &
       display flex
@@ -187,11 +184,11 @@
   &__search
     display block
     width 100%
-    padding 8px
+    padding 4px
     input
       display block
       width 100%
-      padding 8px 16px
+      padding 12px 10px
       color var(--color-text)
       font-weight 400
       font-size rem(16px)
@@ -199,8 +196,7 @@
       line-height 1.5
       background-color var(--color-white)
       background-clip padding-box
-      border 1px solid var(--color-grey-400)
-      border-radius rem(32px)
+      border 1px solid #aaa
       transition all .2s ease
       appearance none
       &:invalid
@@ -239,19 +235,19 @@
     & ^[0]__button
       padding rem(6px) rem(40px) 0 rem(16px)
 
-  &--placeholder
-    & ^[0]__button-label
-      color var(--color-grey-600)
-      font-size rem(16px)
-      transform translateY(-50%)
-    & ^[0]__button-caption
-      display none
-      opacity 0
+  // &--placeholder
+  //   & ^[0]__button-label
+  //     color var(--color-grey-600)
+  //     font-size rem(16px)
+  //     transform translateY(-50%)
+  //   & ^[0]__button-caption
+  //     display none
+  //     opacity 0
 
-  &--placeholder
-  &.hasPlaceholder
-    & ^[0]__button-label
-      display inline-block
+  // &--placeholder
+  // &.hasPlaceholder
+  //   & ^[0]__button-label
+  //     display inline-block
 
   &--white
     & ^[0]__button

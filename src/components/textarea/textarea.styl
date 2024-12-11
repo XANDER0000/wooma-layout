@@ -2,39 +2,38 @@
   display block
   box-sizing border-box
   width 100%
-  min-height rem(240px)
-  padding rem(20px) rem(24px) 50px
-  color var(--color-grey-700)
-  font-weight 500
+  min-height rem(160px)
+  padding rem(10px) rem(15px)
+  color var(--color-gray-dark)
+  font-weight 400
   font-size rem(16px)
   line-height 1.5
-  background-color var(--color-grey-200)
+  background-color var(--color-white)
   background-clip padding-box
-  border 2px solid var(--color-grey-200)
-  border-radius rem(24px)
+  border 1px solid var(--color-gray)
+  border-radius 0
   transition all .2s ease
   appearance none
   resize vertical
-  custom-scrollbar(6px, var(--color-grey-200), var(--color-grey-500))
+  custom-scrollbar(3px, var(--color-gray), var(--color-dark))
   &:invalid
     box-shadow none
-  &:hover
-    border-color var(--color-blue-300)
   &:focus-visible
-    background-color var(--color-grey-200)
-    border-color var(--color-blue-300)
+    border-color var(--color-dark-soft)
     outline none
   &::placeholder
-    color var(--color-text-light)
+    color var(--color-gray-dark)
     opacity 1
   &:disabled
-    background-color var(--color-grey-400)
-    border-color var(--color-grey-400)
+    color var(--color-gray)
+    border-color var(--color-gray)
     pointer-events none
+    &::placeholder
+      color var(--color-gray)
   &:-webkit-autofill
     transition background-color 10000000s ease-out
-  &::-webkit-resizer
-    display none
+  // &::-webkit-resizer
+  //   display none
 
   .is-invalid &
     color var(--color-error)
@@ -56,29 +55,27 @@
       color #425978
 
   &--short
-    min-height rem(160px)
+    min-height rem(60px)
 
   &-count-wrapper
     position relative
     overflow hidden
-    border-radius rem(24px)
     // textarea
     //     padding-bottom 30px
 
   &-count-length
     position absolute
-    bottom rem(12px)
-    left rem(20px)
+    right rem(12px)
+    bottom rem(8px)
     display inline-block
     padding rem(4px) rem(4px)
-    color var(--color-grey-600)
+    color var(--color-gray)
     font-weight 500
     font-size rem(12px)
     line-height 1.4
     text-align right
-    background-color var(--color-grey-200)
     ^[0]:focus + &
-      background-color var(--color-grey-200)
+      color var(--color-gray-dark)
 
 
 

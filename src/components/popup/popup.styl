@@ -22,7 +22,7 @@
     width rem(800px)
     max-width calc(100% - 1rem)
     height min-content
-    max-height calc(100% - 1rem)
+    // max-height calc(100% - 1rem)
 
   &.is-open
   &.is-opening
@@ -76,14 +76,14 @@
     padding 0 12px rem(24px)
     overflow-y auto
     background-color var(--color-white)
-    custom-scrollbar(6px, transparent, var(--color-grey-600))
+    custom-scrollbar(6px, transparent, var(--color-dark))
     +desktop()
       display flex
       flex 0 1 auto
       margin 0
       padding 0 rem(40px)
       overflow-y auto
-      custom-scrollbar(6px, transparent, var(--color-grey-600))
+      custom-scrollbar(6px, transparent, var(--color-dark))
       &:last-child
         margin-bottom rem(40px)
 
@@ -127,7 +127,7 @@
     flex 0 0 auto
     margin 0 0 0 auto
     padding 0
-    background-color #e3eaf7
+    background-color var(--color-gray)
     border none
     border-radius 100px
     transition all .2s ease
@@ -139,7 +139,7 @@
       left 50%
       display block
       margin-left -6px
-      background-color #7992b2
+      background-color var(--color-dark)
       transition all .2s ease
       content ""
       size 12px 1px
@@ -149,7 +149,7 @@
       transform rotate(-45deg)
     &:hover
     &:focus-visible
-      background-color var(--color-blue-600)
+      background-color var(--color-dark)
       &::before
       &::after
         background-color var(--color-white)

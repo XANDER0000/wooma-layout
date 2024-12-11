@@ -1,63 +1,7 @@
 include ./footer-data
 
-include ../logo/logo
-include ../footer-menu/footer-menu
-include ../footer-short-menu/footer-short-menu
-include ../social/social
-
 mixin footer()
   footer.footer&attributes(attributes)
     .footer__main
       .footer__container
         .footer__main-grid
-          .footer__main-col
-            +logo--new().footer__logo
-            .footer__contacts
-              .footer__contacts-title Контакты
-              .footer__contact
-                a(href="mailto:support@studyinrussia.ru") support@studyinrussia.ru
-              .footer__contact
-                a(href="tel:+74952556789") +7 (495) 255-67-89
-          .footer__main-col
-            +footer-menu(id="footer-menu-about" title="Почему Россия" items=menuItemsAbout mod="2")
-          .footer__main-col
-            +footer-menu(id="footer-menu-universities" title="Университеты" items=menuItemsUniversities)
-          .footer__main-col
-            +footer-menu(id="footer-menu-social" title!="Мы&nbsp;в&nbsp;социальных сетях")
-              +social(mod="footer").footer__social
-          .footer__main-col
-            +footer-menu(id="footer-menu-education" title="Образование" items=menuItemsEducation)
-          .footer__main-col
-            +footer-menu(id="footer-menu-scholarships" title="Стипендии" items=menuItemsScholarships)
-          .footer__main-col
-            +footer-menu(id="footer-menu-graduation" title="После выпуска" items=menuItemsGraduation)
-    .footer__bottom
-      .footer__container
-        .footer__bottom-grid
-          p
-            a(href="#") Карта сайта
-          p
-            a(href="#") Политика конфиденциальности
-
-mixin footer--short()
-  footer.footer.footer--short&attributes(attributes)
-    .footer__main
-      .footer__container
-        .footer__main-grid
-          .footer__main-col
-            +logo--new().footer__logo
-            .footer__contacts
-              .footer__contacts-title Контакты
-              .footer__contact
-                a(href="mailto:support@studyinrussia.ru") support@studyinrussia.ru
-              .footer__contact
-                a(href="tel:+74952556789") +7 (495) 255-67-89
-          .footer__main-col
-            +footer-short-menu()
-    .footer__bottom
-      .footer__container
-        .footer__bottom-grid
-          p
-            a(href="#") Карта сайта
-          p
-            a(href="#") Политика конфиденциальности

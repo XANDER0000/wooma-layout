@@ -8,15 +8,16 @@
     position relative
     display flex
     flex-flow row nowrap
-    gap 12px
+    gap 10px
     align-items flex-start
     width auto
     margin 0
-    color var(--color-grey-800)
+    color var(--color-dark)
     font-weight 500
-    font-size rem(16px)
+    font-size rem(10px)
     font-family $font-family
     line-height 1.4
+    text-transform uppercase
     cursor pointer
     transition all .2s ease
     user-select-none()
@@ -26,56 +27,46 @@
     display block
     flex 0 0 auto
     margin 2px 0
-    border 1px solid var(--color-grey-600)
-    border-radius 4px
+    background-color var(--color-gray-dark)
+    border none
+    border-radius 0
     transition all .2s ease
-    size 20px
-    &::after
-      position absolute
-      top 50%
-      left 50%
-      display block
-      margin-top -7px
-      margin-left -3px
-      border-color var(--color-white)
-      border-style none solid solid none
-      border-width 1px
-      transform rotate(45deg)
-      opacity 0
-      transition all .2s ease
-      content ""
-      size 6px 11px
+    size 13px
+    // &::after
+    //   position absolute
+    //   top 50%
+    //   left 50%
+    //   display block
+    //   margin-top -7px
+    //   margin-left -3px
+    //   border-color var(--color-white)
+    //   border-style none solid solid none
+    //   border-width 1px
+    //   transform rotate(45deg)
+    //   opacity 0
+    //   transition all .2s ease
+    //   content ""
+    //   size 6px 11px
     .is-invalid &
       border-color var(--color-error)
 
   &__caption
     padding-top rem(2px)
 
-  input:focus-visible + ^[0]__label ^[0]__check
-    border-color var(--color-blue-400)
-    box-shadow 0 0 0 4px rgba(13,110,253,.25)
 
   input:checked + ^[0]__label ^[0]__check
-    background-color var(--color-blue-400)
-    border-color var(--color-blue-400)
-    &::after
-      opacity 1
+    background-color var(--color-dark)
 
   input:disabled + ^[0]__label ^[0]__check
-    background-color var(--color-grey-100)
-    border-color var(--color-grey-400)
+    background-color var(--color-gray)
+    cursor default
+
+  input:disabled + ^[0]__label
+    color var(--color-gray)
+    cursor default
 
   input:disabled + ^[0]__label ^[0]__check + ^[0]__caption
     opacity .5
-
-  input:checked:disabled + ^[0]__label ^[0]__check
-    &::after
-      border-color var(--color-grey-400)
-      opacity 1
-
-  ^[0]:hover input:not(:disabled) + ^[0]__label ^[0]__check
-    border-color var(--color-blue-600)
-
 
 
 

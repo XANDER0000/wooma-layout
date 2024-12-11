@@ -1,36 +1,31 @@
 .input
   display block
   width 100%
-  height rem(50px)
-  padding 0 rem(24px)
-  color var(--color-grey-700)
-  font-weight 500
+  height rem(48px)
+  padding rem(10px) rem(15px)
+  color var(--color-gray-dark)
+  font-weight 400
   font-size rem(16px)
   font-family $font-family
   font-variant-numeric lining-nums proportional-nums
   line-height 1.5
-  background-color var(--color-grey-200)
+  background-color var(--color-white)
   background-clip padding-box
-  border 2px solid var(--color-grey-200)
-  border-radius rem(100px)
+  border 1px solid var(--color-gray)
   transition all .2s ease
   appearance none
   ellipsis()
   &:invalid
     box-shadow none
-  &:hover
-    border-color var(--color-blue-300)
   &:focus-visible
-    background-color var(--color-grey-200)
-    border-color var(--color-blue-300)
+    border-color var(--color-dark-soft)
     outline none
   &::placeholder
-    color var(--color-grey-600)
+    color var(--color-gray-dark)
     opacity 1
   &:disabled
-    color var(--color-grey-700)
-    background-color var(--color-grey-400)
-    border-color var(--color-grey-400)
+    color var(--color-gray)
+    border-color var(--color-gray)
     pointer-events none
   &:-webkit-autofill
     transition background-color 10000000s ease-out
@@ -51,6 +46,10 @@
     &::placeholder
       color var(--color-blue-20)
 
+  &--border-bottom
+    border none
+    border-bottom 1px solid var(--color-gray)
+
   &--ellipsis
     ellipsis()
 
@@ -66,12 +65,14 @@
     right rem(24px)
     display inline-block
     padding 0
-    color var(--color-grey-600)
+    color var(--color-gray)
     font-weight 500
     font-size rem(12px)
     line-height 1.4
     text-align right
     transform translateY(-50%)
+    ^[0]:focus + &
+      color var(--color-gray-dark)
 
   &--search
     height 64px

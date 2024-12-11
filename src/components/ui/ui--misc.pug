@@ -29,53 +29,53 @@ mixin ui--misc()
           +alert(icon="warning" heading="Warning Text" mod="warning" btn-close)
           +alert(icon="error" heading="Error Text" mod="error" btn-close)
 
-    +ui__subsection(title="profile-status")#profile-status
-      p Варианты статусов профиля
-      +ui__sequence()
-        +profile-status(icon="error" text!="Отклонено от&nbsp;публикации")
-        +profile-status(icon="success" text="Опубликовано")
-        +profile-status(icon="draft" text="Черновик")
-        +profile-status(icon="moderation" text="На модерации")
-      p С дополнительной "кнопкой"
-      +ui__sequence(mod="2")
-        +profile-status(icon="error" text!="Отклонено от&nbsp;публикации" btn)
-        +profile-status(icon="success" text="Опубликовано" btn)
-        +profile-status(icon="draft" text="Черновик" btn)
-        +profile-status(icon="moderation" text="На модерации" btn)
+    //- +ui__subsection(title="profile-status")#profile-status
+    //-   p Варианты статусов профиля
+    //-   +ui__sequence()
+    //-     +profile-status(icon="error" text!="Отклонено от&nbsp;публикации")
+    //-     +profile-status(icon="success" text="Опубликовано")
+    //-     +profile-status(icon="draft" text="Черновик")
+    //-     +profile-status(icon="moderation" text="На модерации")
+    //-   p С дополнительной "кнопкой"
+    //-   +ui__sequence(mod="2")
+    //-     +profile-status(icon="error" text!="Отклонено от&nbsp;публикации" btn)
+    //-     +profile-status(icon="success" text="Опубликовано" btn)
+    //-     +profile-status(icon="draft" text="Черновик" btn)
+    //-     +profile-status(icon="moderation" text="На модерации" btn)
 
-    +ui__subsection(title="badge")#badge
-      +ui__box()
-        +ui__sequence(mod="free")
-          +badge(icon="check" label="Все данные сохранены" mod="success")
+    //- +ui__subsection(title="badge")#badge
+    //-   +ui__box()
+    //-     +ui__sequence(mod="free")
+    //-       +badge(icon="check" label="Все данные сохранены" mod="success")
         
-    +ui__subsection(title="avatar")#avatar
-      +ui__box()
-        +ui__sequence(mod="free vcenter")
-          +avatar(img="assets/img/user.jpg" name="Константинопольский П.И.")
-          +avatar(img="" name="Константинопольский П.И.")
-          +avatar(img="assets/img/user.jpg" name="Константинопольский П.И." mod="large")
-          +avatar(img="" name="Константинопольский П.И." mod="large")
+    //- +ui__subsection(title="avatar")#avatar
+    //-   +ui__box()
+    //-     +ui__sequence(mod="free vcenter")
+    //-       +avatar(img="assets/img/user.jpg" name="Константинопольский П.И.")
+    //-       +avatar(img="" name="Константинопольский П.И.")
+    //-       +avatar(img="assets/img/user.jpg" name="Константинопольский П.И." mod="large")
+    //-       +avatar(img="" name="Константинопольский П.И." mod="large")
 
-    +ui__subsection(title="person-item")#person-item
-      +ui__box()
-        +ui__sequence(mod="3")
-          +person-item(avatar="assets/img/user.jpg" name="Константинопольский П.И." about="Сотрудник вуза")
-          +person-item(avatar="" name="Константинопольский П.И." about="Абитуриент")
+    //- +ui__subsection(title="person-item")#person-item
+    //-   +ui__box()
+    //-     +ui__sequence(mod="3")
+    //-       +person-item(avatar="assets/img/user.jpg" name="Константинопольский П.И." about="Сотрудник вуза")
+    //-       +person-item(avatar="" name="Константинопольский П.И." about="Абитуриент")
       
-    +ui__subsection(title="abitur-status")#abitur-status
-      +ui__box()
-        +ui__sequence(mod="3")
-          +abitur-status(status="accepted")
-          +abitur-status(status="rejected")
-          +abitur-status(status="consideration")
-          +abitur-status(status="enrolled")
-          +abitur-status(status="submitted")
-          +abitur-status(status="no-application")
+    //- +ui__subsection(title="abitur-status")#abitur-status
+    //-   +ui__box()
+    //-     +ui__sequence(mod="3")
+    //-       +abitur-status(status="accepted")
+    //-       +abitur-status(status="rejected")
+    //-       +abitur-status(status="consideration")
+    //-       +abitur-status(status="enrolled")
+    //-       +abitur-status(status="submitted")
+    //-       +abitur-status(status="no-application")
 
-    +ui__subsection(title="notifications-meter")#notifications-meter
-      +ui__box()
-        +ui__sequence(mod="4")
-          +notifications-meter(count="")
-          +notifications-meter(count="1")
-          +notifications-meter(count="23")
-          +notifications-meter(count="123")
+    //- +ui__subsection(title="notifications-meter")#notifications-meter
+    //-   +ui__box()
+    //-     +ui__sequence(mod="4")
+    //-       +notifications-meter(count="")
+    //-       +notifications-meter(count="1")
+    //-       +notifications-meter(count="23")
+    //-       +notifications-meter(count="123")

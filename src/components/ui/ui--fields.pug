@@ -74,31 +74,31 @@ mixin ui--fields()
               +field__control()
                 +textarea(name="message" id="fields-message-3" placeholder="Текст с подсказкой..." disabled)
       
-      +ui__subsection(title="Дата/Время")#datetime
-        h4 DateTimePicker
-        .ui__box()
-          +ui__sequence(mod="3")
-            +field(label="Дата" for="fields-date-1" hint="Дата" required)
-              +field__control()
-                +datepicker()
-                  +datepicker__input(name="date" id="fields-date-1" placeholder="ДД.ММ.ГГГГ" required)
-            +field(label="Дата с ограничениями" for="fields-date-2" hint="MinDate: 2023-09-05 MaxDate: 2023-09-25" required)
-              +field__control()
-                +datepicker()
-                  +datepicker__input(name="date2" id="fields-date-2" placeholder="ДД.ММ.ГГГГ" data-min-date="2023-09-05" data-max-date="2023-09-25" required)
-            +field(label="Дата рождения" for="fields-birthdate" hint="MaxDate: today" required)
-              +field__control()
-                +datepicker({ controlAttributes: { name: "birthdate1", id: "fields-birthdate", placeholder: "ДД.ММ.ГГГГ", "data-max-date": "today", required: true} })
+      //- +ui__subsection(title="Дата/Время")#datetime
+      //-   h4 DateTimePicker
+      //-   .ui__box()
+      //-     +ui__sequence(mod="3")
+      //-       +field(label="Дата" for="fields-date-1" hint="Дата" required)
+      //-         +field__control()
+      //-           +datepicker()
+      //-             +datepicker__input(name="date" id="fields-date-1" placeholder="ДД.ММ.ГГГГ" required)
+      //-       +field(label="Дата с ограничениями" for="fields-date-2" hint="MinDate: 2023-09-05 MaxDate: 2023-09-25" required)
+      //-         +field__control()
+      //-           +datepicker()
+      //-             +datepicker__input(name="date2" id="fields-date-2" placeholder="ДД.ММ.ГГГГ" data-min-date="2023-09-05" data-max-date="2023-09-25" required)
+      //-       +field(label="Дата рождения" for="fields-birthdate" hint="MaxDate: today" required)
+      //-         +field__control()
+      //-           +datepicker({ controlAttributes: { name: "birthdate1", id: "fields-birthdate", placeholder: "ДД.ММ.ГГГГ", "data-max-date": "today", required: true} })
 
-        h4 Время через маску ввода
-        .ui__box
-          +ui__sequence(mod="2")
-            +field(label="Время" for="fields-time-1" hint="Только часы и минуты" required)
-              +field__control()
-                +input(name="time-1" id="fields-time-1" data-mask="time" placeholder="ЧЧ:ММ" required)
-            +field(label="Время" for="fields-time-2" hint="Часы, минуты и секунды" required)
-              +field__control()
-                +input(name="time-2" id="fields-time-2" data-mask="times" placeholder="ЧЧ:ММ:СС" required)
+      //-   h4 Время через маску ввода
+      //-   .ui__box
+      //-     +ui__sequence(mod="2")
+      //-       +field(label="Время" for="fields-time-1" hint="Только часы и минуты" required)
+      //-         +field__control()
+      //-           +input(name="time-1" id="fields-time-1" data-mask="time" placeholder="ЧЧ:ММ" required)
+      //-       +field(label="Время" for="fields-time-2" hint="Часы, минуты и секунды" required)
+      //-         +field__control()
+      //-           +input(name="time-2" id="fields-time-2" data-mask="times" placeholder="ЧЧ:ММ:СС" required)
 
       +ui__subsection(title="Валидация некоторых типов полей")#misc-validation
         .ui__box
@@ -157,84 +157,84 @@ mixin ui--fields()
             +checkbox(for="checkbox-4" label="Disabled checked")
               +checkbox__input(name="checkbox-disabled[]" id="checkbox-4" value="2" checked disabled)
 
-    +ui__subsection(title="switch")#switch
-      h4 Без текста
-      .ui__box()
-        +ui__sequence()
-          +switch()
-            +switch__input(name="switch[]" value="1")
-          +switch()
-            +switch__input(name="switch[]" value="2" checked)
-          +switch()
-            +switch__input(name="switch[]" value="3" disabled)
-          +switch()
-            +switch__input(name="switch[]" value="4" disabled checked)
-      h4 С текстом
-      .ui__box
-        +ui__sequence()
-          +switch(label="Краткая подпись")
-            +switch__input(name="switch2[]" value="1")
-          +switch(label="Длинная подпись lorem ipsum dolor sit amet consectetur adipisicing elit. Animi accusamus itaque fugit possimus!")
-            +switch__input(name="switch2[]" value="2" checked)
-          +switch(label="disabled")
-            +switch__input(name="switch2[]" value="3" disabled)
-          +switch(label="disabled checked")
-            +switch__input(name="switch2[]" value="4" disabled checked)
+    //- +ui__subsection(title="switch")#switch
+    //-   h4 Без текста
+    //-   .ui__box()
+    //-     +ui__sequence()
+    //-       +switch()
+    //-         +switch__input(name="switch[]" value="1")
+    //-       +switch()
+    //-         +switch__input(name="switch[]" value="2" checked)
+    //-       +switch()
+    //-         +switch__input(name="switch[]" value="3" disabled)
+    //-       +switch()
+    //-         +switch__input(name="switch[]" value="4" disabled checked)
+    //-   h4 С текстом
+    //-   .ui__box
+    //-     +ui__sequence()
+    //-       +switch(label="Краткая подпись")
+    //-         +switch__input(name="switch2[]" value="1")
+    //-       +switch(label="Длинная подпись lorem ipsum dolor sit amet consectetur adipisicing elit. Animi accusamus itaque fugit possimus!")
+    //-         +switch__input(name="switch2[]" value="2" checked)
+    //-       +switch(label="disabled")
+    //-         +switch__input(name="switch2[]" value="3" disabled)
+    //-       +switch(label="disabled checked")
+    //-         +switch__input(name="switch2[]" value="4" disabled checked)
 
-    +ui__subsection(title="file-input")#file-input
-      .ui__box()
-        +ui__sequence(mod="2")
-          - const file = { src: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Coat_of_Arms_of_the_Russian_Federation_2.svg' };
-          +file-input--img-block(heading="Обложка" text!="Добавьте фоновое изображение в размере 16:9, объемом до 2 mb, в формате jpg, jpeg, png")
-            +file-input__input(name="cover" id="form-profile-university-cover" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
-          +file-input--img-block(heading="Логотип" text!="Добавьте ваш логотип объемом до&nbsp;2&nbsp;mb в&nbsp;форматах svg, png" file=file)
-            +file-input__input(name="logo" id="form-profile-university-logo" accept=".svg,.png" data-max-file-size="2097152")
+    //- +ui__subsection(title="file-input")#file-input
+    //-   .ui__box()
+    //-     +ui__sequence(mod="2")
+    //-       - const file = { src: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Coat_of_Arms_of_the_Russian_Federation_2.svg' };
+    //-       +file-input--img-block(heading="Обложка" text!="Добавьте фоновое изображение в размере 16:9, объемом до 2 mb, в формате jpg, jpeg, png")
+    //-         +file-input__input(name="cover" id="form-profile-university-cover" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+    //-       +file-input--img-block(heading="Логотип" text!="Добавьте ваш логотип объемом до&nbsp;2&nbsp;mb в&nbsp;форматах svg, png" file=file)
+    //-         +file-input__input(name="logo" id="form-profile-university-logo" accept=".svg,.png" data-max-file-size="2097152")
       
-      .ui__box()
-        +ui__sequence(mod="2")
-          +field(for="fields-photo-1" label!="Вставьте фото в&nbsp;размере 4:3, в&nbsp;формате jpg, jpeg, png")
-            +field__control()
-              +file-input--img()
-                +file-input__input(id="fields-photo-1" name="photo-1" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+    //-   .ui__box()
+    //-     +ui__sequence(mod="2")
+    //-       +field(for="fields-photo-1" label!="Вставьте фото в&nbsp;размере 4:3, в&nbsp;формате jpg, jpeg, png")
+    //-         +field__control()
+    //-           +file-input--img()
+    //-             +file-input__input(id="fields-photo-1" name="photo-1" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
           
-          +field(for="fields-photo-2" label!="Предзаданный файл")
-            +field__control()
-              - const file = { name: 'Обложка.png', size: '2.46 mb', src: 'https://placehold.co/600x400' };
-              +file-input--img(file=file)
-                +file-input__input(id="fields-photo-2" name="photo-2" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
-      .ui__box()
-        -
-          const file = {
-            name: 'Обложка.png',
-            size: '2.46 mb',
-            src: 'assets/img/news/news-01.jpg',
-          };
+    //-       +field(for="fields-photo-2" label!="Предзаданный файл")
+    //-         +field__control()
+    //-           - const file = { name: 'Обложка.png', size: '2.46 mb', src: 'https://placehold.co/600x400' };
+    //-           +file-input--img(file=file)
+    //-             +file-input__input(id="fields-photo-2" name="photo-2" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+    //-   .ui__box()
+    //-     -
+    //-       const file = {
+    //-         name: 'Обложка.png',
+    //-         size: '2.46 mb',
+    //-         src: 'assets/img/news/news-01.jpg',
+    //-       };
 
-        +ui__sequence(mod="2")
-          //- +field(for="form-add-news-cover" label!="Добавьте фоновое изображение в размере 16:9, объемом до 2 mb, в формате jpg, jpeg, png")
-          //-   +field__control()
-          //-     +file-input--img-free()
-          //-       +file-input__input(id="form-add-news-cover" name="cover" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
-          +field(for="form-add-news-cover" label!="Добавьте фоновое изображение в размере 16:9, объемом до 2 mb, в формате jpg, jpeg, png")
-            +field__control()
-              +file-input--img-free(file=file)
-                +file-input__input(id="form-add-news-cover" name="cover" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+    //-     +ui__sequence(mod="2")
+    //-       //- +field(for="form-add-news-cover" label!="Добавьте фоновое изображение в размере 16:9, объемом до 2 mb, в формате jpg, jpeg, png")
+    //-       //-   +field__control()
+    //-       //-     +file-input--img-free()
+    //-       //-       +file-input__input(id="form-add-news-cover" name="cover" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+    //-       +field(for="form-add-news-cover" label!="Добавьте фоновое изображение в размере 16:9, объемом до 2 mb, в формате jpg, jpeg, png")
+    //-         +field__control()
+    //-           +file-input--img-free(file=file)
+    //-             +file-input__input(id="form-add-news-cover" name="cover" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
       
-      .ui__box()
-        +ui__sequence(mod="2")
-          - const file = { src: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Khazin_MSU.jpg' };
-          +file-input--profile-photo(label="Фото ректора")
-            +file-input__input(id="form-profile-rector-photo-1" name="rector-photo-1" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
-          +file-input--profile-photo(label="Фото ректора" file=file)
-            +file-input__input(id="form-profile-rector-photo-2" name="rector-photo-2" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+    //-   .ui__box()
+    //-     +ui__sequence(mod="2")
+    //-       - const file = { src: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Khazin_MSU.jpg' };
+    //-       +file-input--profile-photo(label="Фото ректора")
+    //-         +file-input__input(id="form-profile-rector-photo-1" name="rector-photo-1" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
+    //-       +file-input--profile-photo(label="Фото ректора" file=file)
+    //-         +file-input__input(id="form-profile-rector-photo-2" name="rector-photo-2" accept=".jpg,.jpeg,.png" data-max-file-size="2097152")
       
-      .ui__box
-        +ui__sequence(mod="free")
-          - const file = { src: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Khazin_MSU.jpg' };
-          +file-input--profile-photo-small()
-            +file-input__input(id="form-profile-small-photo-1" name="small-photo-1" accept=".jpg,.jpeg,.png,.svg" data-max-file-size="2097152")
-          +file-input--profile-photo-small(file=file)
-            +file-input__input(id="form-profile-small-photo-2" name="small-photo-2" accept=".jpg,.jpeg,.png,.svg" data-max-file-size="2097152")
+    //-   .ui__box
+    //-     +ui__sequence(mod="free")
+    //-       - const file = { src: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Khazin_MSU.jpg' };
+    //-       +file-input--profile-photo-small()
+    //-         +file-input__input(id="form-profile-small-photo-1" name="small-photo-1" accept=".jpg,.jpeg,.png,.svg" data-max-file-size="2097152")
+    //-       +file-input--profile-photo-small(file=file)
+    //-         +file-input__input(id="form-profile-small-photo-2" name="small-photo-2" accept=".jpg,.jpeg,.png,.svg" data-max-file-size="2097152")
     
     +ui__subsection(title="stars-field")#stars-field
       .ui__box

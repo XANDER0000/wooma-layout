@@ -15,3 +15,4 @@ import './components/custom-select/custom-select.js';
 import './components/file-input/file-input.js';
 import './components/alert/alert.js';
 import './components/stars-field/stars-field.js';
+import './components/header/header.js';

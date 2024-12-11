@@ -1,0 +1,149 @@
+.header
+  --box-shadow 0px 15px 40px 0px rgba(0, 72, 173, .1)
+  --box-shadow-mob 0px 15px 40px 0px rgba(0, 36, 80, .1)
+  position fixed
+  top 0
+  right 0
+  left 0
+  z-index 100
+  display block
+  width 100%
+  background-color var(--color-grey-100)
+  box-shadow var(--box-shadow-mob)
+  transition background-color .5s, box-shadow .3s
+  transition-duration .3s
+  +above(80em)
+    box-shadow none
+
+  &--transparent
+    position fixed
+    background-color transparent
+    box-shadow none
+    +above(80em)
+      box-shadow none
+
+  &--scrolled
+    background-color var(--color-grey-100)
+    box-shadow var(--box-shadow-mob)
+    +above(80em)
+      background-color rgba(250, 252, 255, .5)
+      border-bottom-color var(--color-white)
+      border-bottom-width 1px
+      border-bottom-style solid
+      box-shadow none
+      backdrop-filter blur(8px)
+    +above(100em)
+      border-bottom-width 2px
+
+  &--scrolled&--transparent
+    +above(80em)
+      background-color rgba(250, 252, 255, .8)
+
+  &__container
+    display flex
+    flex-flow row nowrap
+    align-items center
+    height 64px
+    padding 0 12px
+    &::before
+      position absolute
+      top 0
+      left 0
+      z-index 120
+      display block
+      width 100%
+      height 100%
+      background-color var(--color-grey-100)
+      content ""
+      ^[0]--transparent &
+        opacity 0
+      .page--nav-open &
+        opacity 1
+    +above(80em)
+      position relative
+      padding-right 20px
+      padding-left 20px
+      &::before
+        display none
+    +above(100em)
+      height 96px
+      padding-right 40px
+      padding-left 40px
+    +above(110em)
+      padding-right 60px
+      padding-left 60px
+
+  &__logo
+    position relative
+    top -3px
+    z-index 130
+    flex 0 0 auto
+    width 160px
+    color var(--color-blue-400)
+    a
+      color inherit
+      transition color .3s ease
+    a:hover
+    a:focus-visible
+      color var(--color-blue-600)
+
+    ^[0]--transparent &
+      color var(--color-white)
+      a:hover
+      a:focus-visible
+        color var(--color-blue-100)
+
+    ^[0]--transparent^[0]--scrolled &
+    .page--nav-open &
+      color var(--color-blue-400)
+      a:hover
+      a:focus-visible
+        color var(--color-blue-600)
+
+    +above(100em)
+      top -5px
+      width 260px
+
+    &--new
+      top 0
+      width 110px
+      +above(80em)
+        width 168px
+      +above(100em)
+        top 0
+        width 168px
+
+  &__nav
+    +above(80em)
+      flex 1 1 100%
+
+  &__mob
+    position relative
+    z-index 130
+    display flex
+    flex-flow row nowrap
+    gap 0
+    align-items center
+    margin-left auto
+    +above(80em)
+      display none
+
+  &__search-btn
+  &__nav-btn
+    position relative
+    z-index 130
+    flex 0 0 auto
+
+  &__user
+    display inline-block
+    flex 0 0 auto
+    margin-left 12px
+    text-decoration none
+
+  &__avatar
+    position relative
+    z-index 130
+    flex 0 0 auto
+    size 40px
+    +desktop()
+      size 48px

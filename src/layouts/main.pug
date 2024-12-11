@@ -6,7 +6,8 @@ include ../components/header/header
 include ../components/footer/footer
 
 block page
-  +header().page__header
-  .page__main
-    block main
-  +footer--short().page__footer
+  .page__wrapper
+    +header().page__header
+    .page__main
+      block main
+      +footer().page__footer

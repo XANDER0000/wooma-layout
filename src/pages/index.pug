@@ -31,6 +31,10 @@ block page
             p(style="font-size: .8em; margin: 0 0 .5em;") Время последней сборки: #{getCurrentTime()}
           .demo__row
             .demo__col
+              h2.demo__title-2 Интернет-магазин
+              .demo__block
+                +demo__item(file="home.html" title="Главная" ready="true")
+
               h2.demo__title-2 Разное
               .demo__block
                 +demo__item(file="text.html" title="Текстовая страница" ready="true")

@@ -9,14 +9,14 @@
     display flex
     flex-flow row nowrap
     gap 12px
-    align-items flex-start
+    align-items center
     width auto
     margin 0
-    color var(--color-grey-800)
-    font-weight 500
-    font-size rem(16px)
+    color var(--color-text)
+    font-weight 400
+    font-size rem(15px)
     font-family $font-family
-    line-height 1.4
+    line-height 1
     cursor pointer
     transition all .2s ease
     user-select-none()
@@ -25,49 +25,50 @@
     position relative
     display block
     flex 0 0 auto
-    margin 2px 0
-    border 1px solid var(--color-grey-400)
+    border 1px solid var(--color-white)
     border-radius 50%
     transition all .2s ease
-    size 20px
+    size 14px
     &::after
       position absolute
       top 50%
       left 50%
       display block
-      background-color var(--color-blue-400)
+      background-color #d1d3d1
       border-radius 50%
       transform translate(-50%,-50%)
-      opacity 0
       transition all .2s ease
       content ""
-      size 10px
+      size 14px
     .is-invalid &
       border-color var(--color-error)
 
-  &__caption
-    padding-top rem(2px)
 
-  input:focus-visible + ^[0]__label ^[0]__check
-    border-color var(--color-blue-400)
-    box-shadow 0 0 0 4px rgba(13,110,253,.25)
+  // input:focus-visible + ^[0]__label ^[0]__check
+  //   border-color var(--color-blue-400)
+  //   box-shadow 0 0 0 4px rgba(13,110,253,.25)
 
   input:checked + ^[0]__label ^[0]__check
-    border-color var(--color-blue-400)
+    border-color var(--color-dark)
     &::after
-      opacity 1
+      background-color var(--color-dark)
 
   input:disabled + ^[0]__label ^[0]__check
-    background-color var(--color-grey-100)
-    border-color var(--color-grey-300)
+    background-color var(--color-gray-soft)
+    border-color var(--color-gray-soft)
+    cursor default
+
+  input:disabled + ^[0]__label
+    cursor default
 
   input:disabled + ^[0]__label ^[0]__check + ^[0]__caption
     opacity .5
 
   input:checked:disabled + ^[0]__label ^[0]__check
     &::after
-      background-color var(--color-grey-300)
+      background-color var(--color-gray-soft)
 
-  ^[0]:hover input:not(:disabled) + ^[0]__label ^[0]__check
-    border-color var(--color-blue-400)
+  ^[0]:hover input:not(:disabled, :checked) + ^[0]__label ^[0]__check
+    &::after
+      background-color var(--color-gray-dark)
 

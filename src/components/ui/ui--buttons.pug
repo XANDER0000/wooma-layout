@@ -5,12 +5,14 @@ mixin ui--buttons()
   +ui__section(title="Кнопки")
     +ui__subsection(title="Primary")
       +ui__sequence(mod="free").ui__sequence--vcenter
+        +button(label="Кнопка")
         +button(label="Кнопка" icon="user")
         +button(label="Кнопка" icon="user" mod="large")
         +button(label="Кнопка" icon="user" mod="small")
         +button(href="#" label="Ссылка" icon="user" mod="icon-right")
         +button(href="#" label="Ссылка" icon="user" mod="large icon-right")
         +button(href="#" label="Ссылка" icon="user" mod="small icon-right")
+        +button(href="#" label="Ссылка" icon="user" mod="small icon-right").disabled
     //- +ui__subsection(title="Secondary")
     //-   +ui__sequence().ui__sequence--vcenter
     //-     +button(label="Кнопка" icon="user" mod="secondary")
@@ -21,12 +23,36 @@ mixin ui--buttons()
     //-     +button(href="#" label="Ссылка" icon="user" mod="small secondary icon-right")
     +ui__subsection(title="Outline")
       +ui__sequence(mod="free").ui__sequence--vcenter
+        +button(label="Кнопка" mod="outline")
         +button(label="Кнопка" icon="user" mod="outline")
         +button(label="Кнопка" icon="user" mod="large outline")
         +button(label="Кнопка" icon="user" mod="small outline")
         +button(href="#" label="Кнопка" icon="user" mod="outline icon-right")
         +button(href="#" label="Кнопка" icon="user" mod="large outline icon-right")
         +button(href="#" label="Кнопка" icon="user" mod="small outline icon-right")
+        +button(href="#" label="Кнопка" icon="user" mod="small outline icon-right").disabled
+    +ui__subsection(title="Outline-White")
+      .ui__dark
+        +ui__sequence(mod="free").ui__sequence--vcenter
+          +button(label="Кнопка" mod="outline-white")
+          +button(label="Кнопка" icon="user" mod="outline-white")
+          +button(label="Кнопка" icon="user" mod="large outline-white")
+          +button(label="Кнопка" icon="user" mod="small outline-white")
+          +button(href="#" label="Кнопка" icon="user" mod="outline-white icon-right")
+          +button(href="#" label="Кнопка" icon="user" mod="large outline-white icon-right")
+          +button(href="#" label="Кнопка" icon="user" mod="small outline-white icon-right")
+          +button(href="#" label="Кнопка" icon="user" mod="small outline-white icon-right").disabled
+    +ui__subsection(title="Transparent")
+      .ui__dark
+        +ui__sequence(mod="free").ui__sequence--vcenter
+          +button(label="Кнопка" mod="transparent")
+          +button(label="Кнопка" icon="user" mod="transparent")
+          +button(label="Кнопка" icon="user" mod="large transparent")
+          +button(label="Кнопка" icon="user" mod="small transparent")
+          +button(href="#" label="Кнопка" icon="user" mod="transparent icon-right")
+          +button(href="#" label="Кнопка" icon="user" mod="large transparent icon-right")
+          +button(href="#" label="Кнопка" icon="user" mod="small transparent icon-right")
+          +button(href="#" label="Кнопка" icon="user" mod="small transparent icon-right").disabled
     //- +ui__subsection(title="Success")
     //-   +ui__sequence().ui__sequence--vcenter
     //-     +button(label="Кнопка" icon="user" mod="success")
