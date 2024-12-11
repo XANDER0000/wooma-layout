@@ -6,8 +6,7 @@ mixin logo()
 
   .logo&attributes(attributes)
     - if (props.href)
-      a(href=props.href aria-label=props.label) 
-        +logo__icon()
+      a(href=props.href aria-label=props.label) wooma
     - else
       +logo__icon()
 
