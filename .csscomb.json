@@ -6,7 +6,7 @@
   "color-shorthand": true,
   "element-case": "lower",
   "eof-newline": true,
-  "leading-zero": "newer",
+  "leading-zero": false,
   "quotes": "double",
   "sort-order-fallback": "abc",
   "space-before-colon": "",
