@@ -12,7 +12,7 @@ export default {
   rules: {
     // override/add rules settings here, such as:
     // "stylus/indentation": 2,
-    'stylus/number-leading-zero': null,
+    'stylus/number-leading-zero': 'never',
     'stylus/no-eol-whitespace': null,
     'order/properties-order': [],
     'plugin/rational-order': [true,
