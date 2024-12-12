@@ -1,0 +1,36 @@
+include ../form/form--login
+include ../category-item/category-item
+
+mixin sidebar-after()
+  -
+    const props = initComponent('sidebar-after', attributes, []);
+
+    const categories = [
+      { img: "assets/img/categories/basics.png", count: "5", title: "Базовая" },
+      { img: "assets/img/categories/denim-2.png", count: "5", title: "Джинсовки" },
+      { img: "assets/img/categories/denim.png", count: "5", title: "Головные уборы" },
+      { img: "assets/img/categories/men.png", count: "5", title: "Мужская" },
+      { img: "assets/img/categories/shirts.png", count: "5", title: "Футблолки" },
+      { img: "assets/img/categories/skirts.png", count: "5", title: "Туфли" },
+      { img: "assets/img/categories/sport-shoes.png", count: "5", title: "Спортивная обувь" },
+      { img: "assets/img/categories/sweaters-2.png", count: "5", title: "Юбки" },
+      { img: "assets/img/categories/sweaters.png", count: "5", title: "Платья" },
+      { img: "assets/img/categories/swimwear.png", count: "5", title: "Купальники" },
+      { img: "assets/img/categories/basics.png", count: "5", title: "Белье" },
+      { img: "assets/img/categories/women.png", count: "5", title: "Женское" },
+    ]
+
+  aside.sidebar-after&attributes(attributes)
+    .sidebar-after__heading
+      button(type="button" data-sidebar-after-close).sidebar-after__btn-close
+    .sidebar-after__content 
+      .sidebar-after__content-action#sidebar-after-account
+        .sidebar-after__content-heading Войти
+        .sidebar-after__content-inner   
+          +form--login()
+      .sidebar-after__content-action#sidebar-after-categories
+        .sidebar-after__content-heading Все категории продуктов
+        .sidebar-after__content-inner   
+          .sidebar-after__categories 
+            each item in categories   
+              +category-item(img=item.img count=item.count title=item.title)
