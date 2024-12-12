@@ -1,0 +1,16 @@
+mixin category-item()
+  -
+    const props = initComponent('category-item', attributes, ['href', 'img', 'title', 'count']);
+
+    props.href = props.href || "#";
+
+  .category-item&attributes(attributes)
+    a(href=props.href).category-item__link
+      - if (props.count)
+        .category-item__count!= props.count
+      .category-item__img
+        img(src=props.img alt=props.title)
+      .category-item__content 
+        - if (props.title)
+          .category-item__title!= props.title
+      
