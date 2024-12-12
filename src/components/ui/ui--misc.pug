@@ -7,6 +7,7 @@ include ../person-item/person-item
 include ../avatar/avatar
 include ../abitur-status/abitur-status
 include ../notifications-meter/notifications-meter
+include ../loading-icon/loading-icon
 
 mixin ui--misc()
   +ui__section(title="Общие компоненты")&attributes(attributes)#misc
@@ -72,10 +73,15 @@ mixin ui--misc()
     //-       +abitur-status(status="submitted")
     //-       +abitur-status(status="no-application")
 
-    //- +ui__subsection(title="notifications-meter")#notifications-meter
-    //-   +ui__box()
-    //-     +ui__sequence(mod="4")
-    //-       +notifications-meter(count="")
-    //-       +notifications-meter(count="1")
-    //-       +notifications-meter(count="23")
-    //-       +notifications-meter(count="123")
+    +ui__subsection(title="notifications-meter")#notifications-meter
+      +ui__box()
+        +ui__sequence(mod="4")
+          +notifications-meter(count="")
+          +notifications-meter(count="1")
+          +notifications-meter(count="23")
+          +notifications-meter(count="123")
+
+    +ui__subsection(title="loading-icon")#loading-icon
+      +ui__box()
+        +ui__sequence()
+          +loading-icon().loading
