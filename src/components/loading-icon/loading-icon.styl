@@ -1,0 +1,44 @@
+.loading-icon
+  position relative
+  right 15px
+  display flex
+  align-items center
+  justify-content flex-end
+  &:not(&.loading)
+    display none
+  &.loading
+    & ^[0]__dot
+      animation dotFlashing 1s infinite linear alternate
+      animation-delay .5s
+
+  &__dot
+    position relative
+    flex 0 0 auto
+    width 10px
+    height 10px
+    color var(--color-dark)
+    background-color var(--color-dark)
+    border-radius 5px
+    &::before
+    &::after
+      position absolute
+      top 0
+      display inline-block
+      width 10px
+      height 10px
+      color var(--color-dark)
+      background-color var(--color-dark)
+      border-radius 5px
+      content ''
+    &::before
+      left -15px
+    &::after
+      left 15px
+
+
+@keyframes dotFlashing
+  0%
+    background-color var(--color-dark)
+  50%
+  100%
+    background-color var(--color-gray)
