@@ -1,0 +1,10 @@
+include ../search-form/search-form
+
+mixin search-panel()
+  -
+    const props = initComponent('search-panel', attributes, []);
+
+  aside.search-panel&attributes(attributes)
+    .search-panel__container
+      button(type="button" data-search-panel-close).search-panel__btn-close
+      +search-form(mod="panel").search-panel__search-form

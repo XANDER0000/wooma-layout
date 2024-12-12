@@ -1,0 +1,26 @@
+.search-btn
+  display inline-flex
+  align-items center
+  justify-content center
+  size 24px
+  padding 0
+  color var(--color-dark)
+  background-color transparent
+  border none
+  border-radius 12px
+  outline-color var(--color-blue-400)
+  transition all .2s ease
+  &:hover
+  &:focus-visible
+    color var(--color-hover)
+  .page--nav-open &
+    color var(--color-grey-700)
+    background-color var(--color-grey-200)
+  +above(80em)
+    .page--nav-open &
+      color var(--color-grey-700)
+      background-color transparent
+
+  .icon
+    flex 0 0 auto
+    size 24px
