@@ -1,0 +1,15 @@
+include ../notifications-meter/notifications-meter
+
+mixin nav-page()
+  -
+    const props = initComponent('nav-page', attributes, []);
+
+  nav.nav-page&attributes(attributes)
+    .nav-page__inner 
+      .nav-page__items 
+        +notifications-meter(icon="left-circle" label="Главная").nav-page__item
+        +notifications-meter(icon="store" label="Каталог").nav-page__item
+        +notifications-meter(icon="cart" label="Корзина" count="1").nav-page__item
+        +notifications-meter(icon="user" label="Аккаунт" data-sidebar-after-toggle="sidebar-after-account").nav-page__item
+        +notifications-meter(icon="search" label="Поиск" data-toggle="search-panel").nav-page__item
+        +notifications-meter(icon="paper-search" label="Категории" data-sidebar-after-toggle="sidebar-after-categories").nav-page__item
