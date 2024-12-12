@@ -1,0 +1,36 @@
+include ../icon/icon
+
+mixin social()
+  -
+    const props = initComponent('social', attributes, []);
+
+  .social&attributes(attributes)
+    block
+
+mixin social--sidebar()
+  -
+    const props = initComponent('social', attributes, []);
+
+  .social&attributes(attributes)
+    ul.social__icons 
+      li
+        a(href="#")
+          +icon('vk')
+      li
+        a(href="#")
+          +icon('rutube')
+      li
+        a(href="#")
+          +icon('ok')
+      li
+        a(href="#")
+          +icon('tg')
+      li
+        a(href="#")
+          +icon('youtube')
+      li
+        a(href="#")
+          +icon('tiktok')
+      li
+        a(href="#")
+          +icon('instagram')
