@@ -1,0 +1,39 @@
+include ../logo/logo
+include ../social/social
+include ../notifications-meter/notifications-meter
+include ../search-form/search-form
+
+mixin sidebar()
+  -
+    const props = initComponent('sidebar', attributes, []);
+
+  aside.sidebar&attributes(attributes)
+    .sidebar__top
+      .sidebar__heading
+        +logo(href="home.html").sidebar__logo
+        button(type="button" data-sidebar-close).sidebar__btn-close
+      ul.sidebar__menu
+        li.sidebar__menu-item
+          a(href="home.html").sidebar__menu-link Главная
+        li.sidebar__menu-item
+          a(href="catalog.html").sidebar__menu-link Каталог
+        li.sidebar__menu-item
+          a(href="callback.html").sidebar__menu-link Обратная связь
+        li.sidebar__menu-item
+          a(href="contacts.html").sidebar__menu-link Контакты
+        li.sidebar__menu-item
+          a(href="about.html").sidebar__menu-link О нас
+        li.sidebar__menu-item
+          a(href="faq.html").sidebar__menu-link FAQ
+        li.sidebar__menu-item
+          a(href="blog.html").sidebar__menu-link Блог
+        li.sidebar__menu-item
+          a(href="cart.html").sidebar__menu-link Корзина
+      +social--sidebar().sidebar__social
+    .sidebar__bottom  
+      .sidebar__bottom-buttons 
+        +notifications-meter(icon="cart" count="4")
+        +notifications-meter(icon="love" count="4")
+        //- +notifications-meter(icon="compare" count="4")
+        +notifications-meter(icon="user" data-sidebar-after-toggle="sidebar-after-account")
+      +search-form().sidebar__search-form
