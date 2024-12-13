@@ -1,0 +1,140 @@
+.tabs
+
+  &__tabs
+    --gap rem(24px)
+    position relative
+    display inline-flex
+    max-width calc(100% + 24px)
+    margin-right -12px
+    margin-left -12px
+    padding 0 12px 0 12px
+    overflow-x auto
+    overflow-y hidden
+    +desktop()
+      --gap rem(40px)
+      width auto
+      margin 0
+      padding 0
+      custom-scrollbar-horizontal(4px, transparent, var(--color-dark))
+
+  &__items
+    position relative
+    display flex
+    flex-flow row nowrap
+    align-items flex-end
+    width auto
+    margin 0
+    padding 0 0 1px
+    list-style none
+
+  &__item
+    position relative
+    display flex
+    flex 0 0 auto
+    margin 0
+    padding 0 var(--gap) 0 0
+    &::after
+      position absolute
+      right 0
+      bottom 0
+      left 0
+      content ""
+    &:last-child
+      padding-right 12px
+      &::after
+        right 12px
+      +desktop()
+        padding-right 0
+        &::after
+          right 0
+
+  button&__tab
+  a&__tab
+    cursor pointer
+    &:hover
+    &:focus
+      color var(--color-hover)
+      text-decoration none
+      outline none
+
+  &__tab
+    position relative
+    display flex
+    flex 0 0 auto
+    flex-flow row nowrap
+    gap 8px
+    align-items center
+    width auto
+    margin 0
+    padding 0 0 rem(15px)
+    color var(--color-dark)
+    font-weight 500
+    font-size rem(18px)
+    line-height 1.25
+    text-align center
+    text-decoration none
+    background-color transparent
+    border none
+    .icon
+      size 16px
+      fill var(--color-primary)
+    &--icon-right
+      .icon
+        order 2
+    // &::after
+    //   position absolute
+    //   right 0
+    //   bottom 0
+    //   left 0
+    //   z-index 10
+    //   width 100%
+    //   height 4px
+    //   background-color var(--color-blue-400)
+    //   border-radius 10px
+    //   opacity 0
+    //   transition opacity .3s
+    //   content ""
+    // &.active
+    //   color var(--color-grey-800)
+    //   pointer-events none
+    //   &::after
+    //     opacity 1
+    // +desktop()
+    //   font-size rem(18px)
+
+  &__count
+    display inline-block
+    flex 0 0 auto
+    color var(--color-grey-500)
+
+  &__panel
+    margin-top rem(24px)
+    &.active
+      animation fadeIn .2s ease
+    &:not(.active)
+      display none
+
+  &--sidebar-after
+    width 100%
+    & ^[0]__tabs
+      width 100%
+      margin 0
+      padding 0
+    & ^[0]__items
+      justify-content space-between
+      width 100%
+    & ^[0]__item
+      &:last-child
+        padding 0
+    & ^[0]__tab
+      gap 2px
+
+.tabs-panel
+  &.active
+    animation fadeIn .2s ease
+  &:not(.active)
+    display none
+
+  &--slide
+    &.active
+      animation fadeInSlide .6s ease

@@ -1,0 +1,60 @@
+//-
+  +tabs(items=[
+    { id: "section-1", label: "Заголовок 1", active: true },
+    { id: "section-2", label: "Заголовок 2" },
+    { id: "section-3", label: "Заголовок 2" }
+  ]).document__tabs
+    +tabs__panel(id="section-1")
+    +tabs__panel(id="section-2")
+    +tabs__panel(id="section-3")
+
+  +tabs-panel(id="section-1")
+  +tabs-panel(id="section-2")
+  +tabs-panel(id="section-3")
+
+include ../icon/icon
+
+mixin tabs(items)
+  -
+    const props = initComponent('tabs', attributes, ['items', 'contentless', 'tag']);
+  
+    props.items = props.items || items || [];
+  
+  .tabs&attributes(attributes)
+    .tabs__tabs
+      ul.tabs__items
+        - if (Array.isArray(props.items))
+          each item in props.items
+            li.tabs__item
+              - if (item.href)
+                a(href=item.href class = item.active && "active").tabs__tab
+                  span!= item.label
+                  - if (item.count)
+                    | 
+                    span.tabs__count!= item.count
+              - else if (props.tag === "div")
+                .tabs__tab(class = item.active && "active")
+                  span!= item.label
+                  - if (item.count)
+                    | 
+                    span.tabs__count!= item.count
+              - else
+                button(type="button" data-target="#" + item.id aria-controls=(!props.contentless) && item.id aria-expanded=(!props.contentless ? (item.active ? "true" : "false") : undefined) class = (item.active ? "active " : "") + (item.class || "")).tabs__tab
+                  - if (item.icon)
+                    +icon(item.icon)
+                  span!= item.label
+                  - if (item.count)
+                    | 
+                    span.tabs__count!= item.count
+    block
+
+mixin tabs__panel()
+  .tabs__panel&attributes(attributes)
+    block
+
+mixin tabs-panel()
+  -
+    const props = initComponent('tabs-panel', attributes, []);
+
+  .tabs-panel&attributes(attributes)
+    block
