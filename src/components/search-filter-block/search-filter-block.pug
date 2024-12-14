@@ -1,0 +1,14 @@
+include ../search-filter/search-filter
+include ../icon/icon
+
+mixin search-filter-block()
+  -
+    const props = initComponent('search-filter-block', attributes, ['placeholder']);
+
+  .search-filter-block&attributes(attributes)
+    button(type="button" title="Поиск" data-toggle="search-filter").search-filter-block__trigger
+      +icon("search")
+
+    .search-filter-block__pane
+      button(type="button" aria-label="Закрыть").search-filter-block__close-btn
+      +search-filter(placeholder=props.placeholder).search-filter-block__filter

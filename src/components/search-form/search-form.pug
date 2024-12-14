@@ -2,6 +2,7 @@ include ../search-btn/search-btn
 include ../input/input
 include ../icon/icon
 include ../loading-icon/loading-icon
+include ../suggestion-item/suggestion-item
 
 mixin search-form()
   -
@@ -15,22 +16,24 @@ mixin search-form()
         +icon("search")
       //- button(type="button" aria-label="Сбросить поиск").search-form__btn-clear
       +loading-icon().search-form__loading-icon
-    .search-form__suggestions.is-open(style="display: none;")
-      a(href="#").search-form__suggestion
-        span.search-form__suggestion-img
-          img(src="assets/img/products/product-name-92-1-60x60.jpeg" alt="Свитер GUCCI")
-        span.search-form__suggestion-content 
-          span.search-form__suggestion-title Свитер GUCC
-            strong I
-          span.search-form__suggestion-price 
-            span.search-form__suggestion-price-old 280 000 ₽
-            span.search-form__suggestion-price-new 230 000 ₽
-      a(href="#").search-form__suggestion
-        span.search-form__suggestion-img
-          img(src="assets/img/products/product-name-125-60x60.jpeg" alt="Свитер GUCCI")
-        span.search-form__suggestion-content 
-          span.search-form__suggestion-title Кроссовки AD
-            strong I
-            | DAS 
-          span.search-form__suggestion-price 
-            span.search-form__suggestion-price-new 30 00 ₽ – 40 00 ₽
+    .search-form__suggestions
+      +suggestion-item(img="assets/img/products/product-name-92-1-60x60.jpeg" title="Свитер GUCCI" price-old="280 000 ₽" price-new="230 000 ₽")
+      +suggestion-item(img="assets/img/products/product-name-125-60x60.jpeg" title="Кроссовки ADIDAS" price-new="30 00 ₽ – 40 00 ₽")
+      //- a(href="#").search-form__suggestion
+      //-   span.search-form__suggestion-img
+      //-     img(src="assets/img/products/product-name-92-1-60x60.jpeg" alt="Свитер GUCCI")
+      //-   span.search-form__suggestion-content 
+      //-     span.search-form__suggestion-title Свитер GUCC
+      //-       strong I
+      //-     span.search-form__suggestion-price 
+      //-       span.search-form__suggestion-price-old 280 000 ₽
+      //-       span.search-form__suggestion-price-new 230 000 ₽
+      //- a(href="#").search-form__suggestion
+      //-   span.search-form__suggestion-img
+      //-     img(src="assets/img/products/product-name-125-60x60.jpeg" alt="Свитер GUCCI")
+      //-   span.search-form__suggestion-content 
+      //-     span.search-form__suggestion-title Кроссовки AD
+      //-       strong I
+      //-       | DAS 
+      //-     span.search-form__suggestion-price 
+      //-       span.search-form__suggestion-price-new 30 00 ₽ – 40 00 ₽

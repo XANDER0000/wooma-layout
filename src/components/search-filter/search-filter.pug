@@ -1,0 +1,8 @@
+mixin search-filter()
+  -
+    const props = initComponent('search-filter', attributes, ['placeholder', 'value']);
+
+  .search-filter&attributes(attributes)
+    +icon("search-thin").search-filter__icon-search
+    +input(type="search" placeholder=props.placeholder value=props.value).search-filter__input
+    button(type="button" aria-label="Очистить поиск").search-filter__btn-clear

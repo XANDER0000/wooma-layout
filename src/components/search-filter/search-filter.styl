@@ -1,0 +1,93 @@
+.search-filter
+  position relative
+  display block
+
+  input
+    display block
+    width 100%
+    height rem(50px)
+    padding 0 rem(32px) 0 rem(52px)
+    color var(--color-grey-800)
+    font-weight 400
+    font-size rem(16px)
+    font-family $font-family
+    font-variant-numeric lining-nums proportional-nums
+    line-height 1.5
+    background-color transparent
+    background-clip padding-box
+    border-color var(--color-grey-500)
+    border-style none none solid
+    border-width 2px
+    border-radius 0
+    transition all .2s ease
+    appearance none
+    ellipsis()
+    &:invalid
+      box-shadow none
+    &:hover
+      border-color var(--color-blue-300)
+    &:focus-visible
+      background-color transparent
+      border-color var(--color-blue-300)
+      outline none
+      // outline 1px solid var(--color-blue-500)
+    &::placeholder
+      color var(--color-grey-600)
+      opacity 1
+    &:disabled
+      color var(--color-grey-600)
+      background-color transparent
+      border-color var(--color-grey-400)
+      pointer-events none
+    &:-webkit-autofill
+      transition background-color 10000000s ease-out
+
+  &__icon-search
+    position absolute
+    top rem(25px)
+    left rem(10px)
+    size rem(20px)
+    transform translateY(-50%)
+
+  &__btn-clear
+    position absolute
+    top rem(25px)
+    right 0
+    display none
+    size 24px
+    flex 0 0 auto
+    background-color transparent
+    border none
+    border-radius 50%
+    transform translateY(-50%)
+    &::before
+    &::after
+      position absolute
+      top 50%
+      left 50%
+      display block
+      size 16px 2px
+      margin-top -1px
+      margin-left -8px
+      background-color var(--color-grey-600)
+      transition background-color .2s
+      content ""
+    &::before
+      transform rotate(45deg)
+    &::after
+      transform rotate(-45deg)
+
+    &:hover
+    &:focus-visible
+      &::before
+      &::after
+        background-color var(--color-hover)
+
+    input.is-touched:focus + &
+    input.is-touched:hover + &
+    input.is-touched + &:hover
+      display inline-flex
+
+  &:focus-within > input.is-touched + ^[0]__btn-clear
+    display inline-flex
+

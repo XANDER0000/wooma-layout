@@ -1,0 +1,106 @@
+.search-filter-block
+
+  &__trigger
+    display inline-flex
+    align-items center
+    justify-content center
+    size 40px
+    padding 0
+    color var(--color-grey-700)
+    background-color transparent
+    border none
+    border-radius 12px
+    .icon
+      flex 0 0 auto
+      size 20px
+    &:hover
+    &:focus-visible
+      color var(--color-blue-100)
+      background-color var(--color-blue-400)
+      border-color var(--color-blue-400)
+    &:active
+      color var(--color-blue-100)
+      background-color var(--color-blue-500)
+      border-color var(--color-blue-500)
+    &:disabled
+    &.disabled
+      color var(--color-blue-200)
+      background-color var(--color-blue-100)
+      border-color var(--color-blue-100)
+    +desktop()
+      display none
+
+  &__pane
+    position fixed
+    top 0
+    right 0
+    bottom 0
+    left 0
+    z-index 110
+    display flex
+    flex-direction column
+    width 100%
+    max-width 100%
+    padding 48px 12px 20px
+    overflow-y auto
+    background-color var(--color-white)
+    transform translateY(-100%)
+    opacity 0
+    transition transform 0s linear, opacity .3s ease
+    &:focus
+      outline none
+
+    &.is-open
+      transform none
+      opacity 1
+
+    +desktop()
+      position relative
+      display block
+      width 100%
+      padding 0
+      overflow visible
+      background-color transparent
+      transform none
+      opacity 1
+      transition none
+
+  &__close-btn
+    position absolute
+    top 12px
+    right 12px
+    display block
+    flex 0 0 auto
+    margin 0 0 0 auto
+    padding 0
+    background-color #e3eaf7
+    border none
+    border-radius 100px
+    transition all .2s ease
+    size 24px
+    &::before
+    &::after
+      position absolute
+      top 50%
+      left 50%
+      display block
+      margin-left -6px
+      background-color #7992b2
+      transition all .2s ease
+      content ""
+      size 12px 1px
+    &::before
+      transform rotate(45deg)
+    &::after
+      transform rotate(-45deg)
+    &:hover
+    &:focus-visible
+      background-color var(--color-blue-600)
+      &::before
+      &::after
+        background-color var(--color-white)
+    +desktop()
+      display none
+
+  &__filter
+    width 100%
