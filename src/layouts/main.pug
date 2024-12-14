@@ -7,6 +7,7 @@ include ../components/sidebar/sidebar
 include ../components/sidebar-after/sidebar-after
 include ../components/search-panel/search-panel
 include ../components/header/header
+include ../components/benefits/benefits
 include ../components/footer/footer
 
 block page
@@ -21,4 +22,5 @@ block page
     main.page__main
       block main
     block footer
+      +benefits()
       +footer().page__footer
