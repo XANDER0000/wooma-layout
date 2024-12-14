@@ -1,0 +1,251 @@
+.inputbox
+  position relative
+  display flex
+  flex-flow row nowrap
+  align-items center
+  width 100%
+  height rem(50px)
+  padding 0 rem(16px)
+  color var(--color-text)
+  font-weight 400
+  font-size rem(16px)
+  font-family $font-family
+  font-variant-numeric lining-nums proportional-nums
+  line-height 1
+  background-color var(--color-white)
+  background-clip padding-box
+  border 1px solid #ced4da
+  transition all .3s ease
+  appearance none
+  &:invalid
+    box-shadow none
+  &:focus
+    border-color var(--color-dark-soft)
+    outline none
+  &:focus-within
+    border-color var(--color-dark-soft)
+    outline none
+
+  &--disabled
+    opacity .5
+    pointer-events none
+
+  .is-invalid &
+    color var(--color-error)
+    border-color var(--color-error)
+
+  input
+  textarea
+    padding 0
+    color var(--color-text)
+    font-weight 400
+    font-size rem(16px)
+    border none
+    border-radius 0
+    font-variant-numeric lining-nums proportional-nums
+    &:focus-visible
+      outline none
+    &:hover
+      border-color transparent
+      box-shadow none
+    &:focus
+      border-color transparent
+      box-shadow none
+    &:disabled
+      background-color transparent
+      border-color transparent
+      box-shadow none
+      opacity .5
+      pointer-events none
+    &::placeholder
+      color var(--color-text-light)
+      opacity 1
+    &:-webkit-autofill
+      transition background-color 10000000s ease-out
+
+  textarea
+    resize none
+    custom-scrollbar(2px, var(--color-dark-soft), var(--color-dark))
+
+  &__label
+    position absolute
+    top rem(26px)
+    left rem(16px)
+    z-index 5
+    display inline-block
+    font-size rem(15px)
+    line-height 1.5
+    transform translateY(-50%)
+    transition all .4s ease
+    pointer-events none
+
+  &__btn-clear
+    position relative
+    display none
+    flex 0 0 auto
+    size 40px
+    padding 0
+    background-color transparent
+    border none
+    border-radius 50%
+    cursor pointer
+    &::before
+    &::after
+      position absolute
+      top 50%
+      left 50%
+      display block
+      size 14px 1px
+      margin-left -7px
+      background-color var(--color-grey-600)
+      transition background-color .2s
+      content ""
+    &::before
+      transform rotate(45deg)
+    &::after
+      transform rotate(-45deg)
+
+    &:hover
+    &:focus-visible
+      &::before
+      &::after
+        background-color var(--color-red)
+
+  &__btn-view
+    position relative
+    flex 0 0 auto
+    size 40px
+    padding 0
+    color var(--color-gray)
+    background-color transparent
+    border none
+    cursor pointer
+    transition all .2s ease
+    &:hover
+    &:focus-visible
+      color var(--color-dark)
+    .icon
+      size 20px
+
+  &__search-submit
+    display inline-flex
+    align-items center
+    justify-content center
+    size 56px
+    color var(--color-gray)
+    background-color transparent
+    border none
+    &:hover
+    &:focus-visible
+      color var(--color-hover)
+    .icon
+      flex 0 0 auto
+      size 20px
+
+  &--label
+    & input
+      padding-top rem(12px)
+      opacity 0
+      &:focus
+      &[value]
+      &:not(:placeholder-shown)
+        opacity 1
+        & + ^[0]__label
+          font-size rem(14px)
+          transform translateY(-110%)
+    & textarea
+      min-width 100%
+      padding-top 0
+      opacity 0
+      &:focus
+      &[value]
+      &:not(:placeholder-shown)
+        height calc(100% - 2rem)
+        margin-top 1.5rem
+        opacity 1
+        & + ^[0]__label
+          font-size rem(14px)
+          transform translateY(-110%)
+
+  &--search
+    height 64px
+    padding 0
+    border-color var(--color-grey-600)
+    border-style none none solid
+    border-width 1px
+    border-radius 0
+    &:hover
+      border-color var(--color-blue-400)
+    &:focus-within
+      border-color var(--color-blue-400)
+      outline none
+    ^[0] input
+      flex 0 1 100%
+      height 46px
+
+  &--search-wide
+    background-color transparent
+
+    & ^[0]__icon
+      flex 0 0 auto
+      size rem(24px)
+      order -1
+      margin-right rem(12px)
+      fill var(--color-grey-600)
+
+    & ^[0]__label
+      left rem(52px)
+
+  &--border-white
+    color var(--color-white)
+    background-color transparent
+    border-color var(--color-white)
+    &:hover
+      border-color var(--color-blue-200)
+    &:focus-within
+      border-color var(--color-blue-200)
+      outline 2px solid var(--color-blue-400)
+    input
+      color var(--color-white)
+      background-color transparent
+      &::placeholder
+        color var(--color-blue-200)
+
+    & ^[0]__label
+      color var(--color-blue-200)
+
+  &--blue
+    background-color #f3f7ff
+    border-color #f3f7ff
+    &:hover
+      border-color var(--color-blue-100)
+      box-shadow none
+    &:focus-within
+      border-color var(--color-blue-100)
+      box-shadow none
+    input
+      &::placeholder
+        color var(--color-grey-600)
+
+  &--tel
+    padding 0
+    input
+      border-radius 50px
+
+  &--label
+    gap 4px
+    height auto
+    padding 0
+    background-color transparent
+    border none
+    border-radius 0
+    & ^[0]__input
+      width 100%
+      height auto
+      padding 0
+      font-weight 500
+      background-color transparent
+    & ^[0]__label
+      position static
+      order -1
+      transform none !important
