@@ -1,0 +1,48 @@
+.counter
+  display flex
+  align-items center
+  justify-content center
+  width fit-content
+  border 1px solid var(--color-dark)
+
+  &__btn
+    position relative
+    size 32px 22px
+    display flex
+    align-items center
+    justify-content center
+    margin 0
+    padding 0
+    background none
+    border none
+    cursor pointer
+    transition all .2s ease
+    &:hover
+    &:focus-visible
+      background-color var(--color-gray)
+    &::after
+    &::before
+      position absolute
+      display block
+      background-color var(--color-dark)
+      content ""
+    &--minus
+      &::after
+        width 10px
+        height 2px
+    &--plus
+      &::before
+        width 2px
+        height 10px
+      &::after
+        width 10px
+        height 2px
+
+  &__input
+    width 50px
+    height auto
+    padding 0
+    font-size rem(12px)
+    text-align center
+    background none
+    border none
