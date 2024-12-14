@@ -1,0 +1,19 @@
+include ./form
+include ../field/field
+include ../input/input
+include ../button/button
+include ../inputbox/inputbox
+include ../checkbox/checkbox
+
+mixin form--footer()
+  +form(mod="footer" data-validate)&attributes(attributes)#form-footer
+    .form__messages(style="display: none")
+      .form__messages-item.form__messages-item--error
+        span.form__messages-item-label Неверный логин или пароль
+      .form__messages-item.form__messages-item--success
+        span.form__messages-item-label Введенные данные совпадают
+    .form__fields
+      +field(mod="linear black border-b" for="form-footer-input" label-hidden).form__field
+        +field__control()
+          +input(type="email" name="footer" id="form-footer-input" placeholder="Ваша почта" required)
+          +button(mod="small" type="submit" label="Отправить").form__submit
