@@ -1,7 +1,64 @@
-include ./footer-data
+include ../social/social
+include ../form/form--footer
 
 mixin footer()
   footer.footer&attributes(attributes)
     .footer__main
-      .footer__container
-        .footer__main-grid
+      .footer__col
+        .footer__block
+          h2.footer__title Не идите на компромисс в отношении качества!
+          +social(mod="white transform")
+          +social--apps(mod="transform")
+        .footer__block
+          h3.footer__block-title Подпишитесь на рассылку новостей
+          +form--footer()
+          p.footer__block-text Подпишитесь, чтобы получать самую свежую информацию о новых продуктах, рекламных акциях, новостях дизайна и многом другом
+        .footer__block
+          .footer__contacts  
+            .footer__contact
+              span Тел: 
+              a(href="tel:+79559555555")!= '+7 (955) 955-55-55'
+            .footer__contact 
+              span Почта: 
+              a(href="mailto:wooma@gmail.com") wooma@gmail.com
+        .footer__block
+          img(src="assets/img/icons/payment.webp" alt="").footer__payments
+        .footer__block
+          p.footer__block-text Все права защищены
+      .footer__col
+        .footer__block
+          h3.footer__block-title О нас
+          ul.footer__links 
+            li.footer__links-item 
+              a(href="#").footer__links-link О нас
+            li.footer__links-item 
+              a(href="#").footer__links-link Компания
+            li.footer__links-item 
+              a(href="#").footer__links-link Бренды
+        .footer__block
+          h3.footer__block-title Категории
+          ul.footer__links 
+            li.footer__links-item 
+              a(href="#").footer__links-link Женские джинсовки
+            li.footer__links-item 
+              a(href="#").footer__links-link Аксессуары
+            li.footer__links-item 
+              a(href="#").footer__links-link Обувь
+        .footer__block
+          h3.footer__block-title Помощь
+          ul.footer__links 
+            li.footer__links-item 
+              a(href="#").footer__links-link Трекиинг заказа
+            li.footer__links-item 
+              a(href="#").footer__links-link Руководство
+            li.footer__links-item 
+              a(href="#").footer__links-link FAQ
+        .footer__block
+          h3.footer__block-title Кампании
+          ul.footer__links 
+            li.footer__links-item 
+              a(href="#").footer__links-link Зимная обувь
+            li.footer__links-item 
+              a(href="#").footer__links-link 50% Скидки
+            li.footer__links-item 
+              a(href="#").footer__links-link Женские майки

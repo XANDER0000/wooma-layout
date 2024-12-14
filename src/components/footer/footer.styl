@@ -1,138 +1,101 @@
 .footer
-  --color-text #d3ddf0
-  --color-hover var(--color-blue-300)
-  --color-border rgba(211,221,240,.3)
-  color var(--color-text)
-  background-color var(--color-grey-800)
-
-  &__container
-    container()
-
   &__main
-    padding-top rem(30px)
-    padding-bottom rem(30px)
-    +desktop()
-      padding-top rem(60px)
-      padding-bottom rem(60px)
-
-  &__main-grid
-    display grid
-    grid-template-areas "first" "second" "third" "fourth" "fifth" "sixth" "seventh"
-    grid-template-columns 100%
-    gap rem(40px) 0
-    +above(64em)
-      grid-template-areas "first second third" "fourth fifth sixth" "seventh . ."
-      grid-template-columns repeat(3, minmax(0, 1fr))
-      gap rem(90px) rem(40px)
-    +desktop()
-      grid-template-areas "first second second third" "fourth fifth sixth seventh"
-      grid-template-columns repeat(4, minmax(0, 1fr))
-    ^[0]--short &
-      display flex
-      flex-direction column
-      gap rem(40px)
-      +above(48em)
-        flex-flow row nowrap
-        gap rem(40px) rem(90px)
-        align-items flex-start
-      +above(64em)
-        gap rem(40px) rem(90px)
-      +desktop()
-        gap rem(40px) rem(120px)
-
-  &__main-col
-    &:nth-child(1)
-      grid-area first
-      +above(64em)
-        display flex
-        flex-direction column
-        justify-content space-between
-      ^[0]--short &
-        +above(48em)
-          flex 0 0 auto
+    display flex
+    flex-direction column
+    gap 60px
+    align-items flex-start
+    padding rem(40px) rem(15px) rem(90px) rem(15px)
+    background-color var(--color-dark)
+    +above(48em)
+      padding rem(70px) rem(60px) rem(90px) rem(60px)
+    +above(54em)
+      flex-direction row
+    +above(85em)
+      gap 80px
+      padding rem(90px) rem(80px)
+  &__col
+    display flex
+    flex-direction column
+    gap 40px
+    &:first-child
+      +above(54em)
+        max-width 60%
     &:nth-child(2)
-      grid-area second
-      ^[0]--short &
-        +above(48em)
-          flex 0 1 100%
-    &:nth-child(3)
-      grid-area third
-    &:nth-child(4)
-      grid-area fourth
-    &:nth-child(5)
-      grid-area fifth
-    &:nth-child(6)
-      grid-area sixth
-    &:nth-child(7)
-      grid-area seventh
-
-  &__logo
-    max-width 168px
-    margin-bottom rem(60px)
-    color var(--color-white)
-    a:hover
-    a:focus-visible
-      color var(--color-blue-400)
-    ^[0]--short &
-      margin-bottom rem(24px)
-
-
-  &__contacts-title
-    margin 0 0 rem(12px)
-    color var(--color-white)
-    font-weight 600
-    font-size rem(18px)
-
-
-  &__contact
+      flex-direction row
+      flex-wrap wrap
+      gap 24px
+      width 100%
+      +above(54em)
+        width 40%
+      +above(85em)
+        gap 40px
+        & ^[0]__block
+          width calc(50% - 20px)
+      & ^[0]__block
+        width calc(50% - 12px)
+  &__title
     margin 0
     color var(--color-white)
-    font-weight 500
-    font-size rem(15px)
-    &:not(:last-child)
-      margin-bottom rem(12px)
-    +desktop()
-      font-size rem(16px)
+    font-weight 700
+    font-size rem(26px)
+  &__block
+    display flex
+    flex-direction column
+    gap 24px
+    &-title
+      margin 0
+      color var(--color-white)
+      font-weight 700
+    &-text
+      &:last-child
+        margin-bottom 0
+      p
+        &:last-child
+          margin-bottom 0
 
+  &__contacts
+    display flex
+    flex-direction column
+    gap 15px
+
+  &__contact
+    color var(--color-white)
     a
-      color inherit
-      text-decoration none
+      color var(--color-white)
+      transition all .2s ease
       &:hover
       &:focus-visible
-        color var(--color-blue-400)
+        color var(--color-gray-dark)
         text-decoration none
 
-  &__bottom
-    position relative
-    +above(64em)
-      padding-top 1px
-      &::before
+  &__payments
+    width fit-content
+    max-height 21px
+
+  &__links
+    margin 0
+    padding 0
+    list-style none
+    &-item
+      &:not(&:last-child)
+        margin-bottom 10px
+    &-link
+      position relative
+      padding-bottom 5px
+      color var(--color-gray-dark)
+      &:after
         position absolute
-        top 0
-        right 0
+        bottom 0
         left 0
+        width 0
         height 1px
-        background-color var(--color-border)
-        content ""
-
-  &__bottom-grid
-    display flex
-    flex-flow row wrap
-    gap rem(20px)
-    align-items flex-start
-    justify-content space-between
-    padding rem(24px) 0
-    font-size rem(14px)
-    +desktop()
-      padding rem(32px) 0
-    p
-      margin 0
-    a
-      color inherit
-      text-decoration none
+        background-color #fff
+        transition all .2s ease
+        content ''
       &:hover
-        color var(--color-blue-400)
+      &:focus-visible
+        color var(--color-white)
         text-decoration none
+        &:after
+          width 100%
 
-  // &__social
-  //   margin-bottom rem(26px)
