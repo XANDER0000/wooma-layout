@@ -8,6 +8,7 @@ include ../avatar/avatar
 include ../abitur-status/abitur-status
 include ../notifications-meter/notifications-meter
 include ../loading-icon/loading-icon
+include ../goal-progress/goal-progress
 
 mixin ui--misc()
   +ui__section(title="Общие компоненты")&attributes(attributes)#misc
@@ -85,3 +86,9 @@ mixin ui--misc()
       +ui__box()
         +ui__sequence()
           +loading-icon().loading
+
+    +ui__subsection(title="goal-progress")#goal-progress
+      +ui__box()
+        +ui__sequence(mod="2")
+          +goal-progress(width="40%")
+          +goal-progress(mod="success" width="100%" text!="Поздравляю! У вас будет бесплатная доставка.")

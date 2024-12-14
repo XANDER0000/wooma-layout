@@ -27,9 +27,15 @@
     align-items center
     justify-content space-between
     min-height 60px
-    padding-left 25px
+    padding 0 25px
     +above(48em)
-      padding-left 30px
+      padding 0 30px
+    &-tabs
+      display flex
+      gap 24px
+
+    &--border
+      border-bottom 1px solid var(--color-gray)
 
   &__btn-close
     position relative
@@ -71,17 +77,23 @@
       gap 12px
       align-items center
       justify-content space-between
-      margin-bottom 20px
       padding-bottom 10px
       color var(--color-dark)
       font-weight 500
       font-size rem(18px)
       text-transform capitalize
       border-bottom 1px solid var(--color-gray)
+      &--border-t
+        padding-top 10px
+        padding-bottom 0
+        border-top 1px solid var(--color-gray)
+        border-bottom 0
+
     &-action
-      position absolute
       z-index 3
+      display none
       flex-direction column
+      gap 20px
       width 100%
       height fit-content
       min-height 100%
@@ -94,11 +106,34 @@
       +above(48em)
         padding 35px 30px
       &.active
-        position relative
+        display flex
         transform translateX(0%)
         opacity 1
+        animation fadeInSlide .6s ease
+    &-buttons
+      display flex
+      flex-direction column
+      gap 10px
 
   &__categories
     display grid
     grid-template-columns repeat(3, 1fr)
     gap 15px
+
+  &__products
+    display flex
+    flex-direction column
+    gap 15px
+    +above(48em)
+      gap 25px
+
+    &-empty
+      display flex
+      flex-direction column
+      gap 10px
+      align-items center
+      color var(--color-dark)
+      font-size rem(16px)
+      .icon
+        size 100px
+        fill var(--color-gray)

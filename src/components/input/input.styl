@@ -22,6 +22,8 @@
     outline none
   &::placeholder
     color var(--color-gray-dark)
+    font-family $font-family-J
+    letter-spacing 1
     opacity 1
   &:disabled
     color var(--color-gray)
@@ -29,6 +31,8 @@
     pointer-events none
   &:-webkit-autofill
     transition background-color 10000000s ease-out
+  &[type="password"]
+    font-family $font-family-M
 
   .is-invalid &
     color var(--color-error)
@@ -75,47 +79,9 @@
       color var(--color-gray-dark)
 
   &--search
-    height 64px
-    padding 0 40px
-    color var(--color-grey-800)
-    font-weight 400
-    font-size rem(16px)
-    line-height 1
-    background-color transparent
-    border-color var(--color-grey-400)
+    height 52px
+    padding 0 30px
     border-style none none solid
-    border-width 1px
-    border-radius 0
-    &:hover
-      border-color var(--color-grey-400)
-      box-shadow none
-    &:focus
-      border-color var(--color-blue-400)
-      outline none
-      box-shadow none
-    &::placeholder
-      color var(--color-grey-500)
-    +above(80em)
-      height 52px
-      border-color var(--color-grey-600)
-      .header--transparent &
-        color var(--color-white)
-        border-color var(--color-white)
-        &:hover
-          border-color var(--color-white)
-        &:focus
-          border-color var(--color-blue-300)
-        &::placeholder
-          color var(--color-grey-600)
-      .header--transparent.header--scrolled &
-        color var(--color-grey-800)
-        border-color var(--color-grey-600)
-        &:hover
-          border-color var(--color-grey-600)
-        &:focus
-          border-color var(--color-blue-300)
-        &::placeholder
-          color var(--color-grey-600)
 
   &--lang-search
     height 64px

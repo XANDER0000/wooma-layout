@@ -1,5 +1,12 @@
 include ../form/form--login
+include ../form/form--reg
 include ../category-item/category-item
+include ../tabs/tabs
+include ../notifications-meter/notifications-meter
+include ../offer-time/offer-time
+include ../goal-progress/goal-progress
+include ../button/button
+include ../icon/icon
 
 mixin sidebar-after()
   -
@@ -25,12 +32,53 @@ mixin sidebar-after()
       button(type="button" data-sidebar-after-close).sidebar-after__btn-close
     .sidebar-after__content 
       .sidebar-after__content-action#sidebar-after-account
-        .sidebar-after__content-heading Войти
+        .sidebar-after__content-heading 
+          +tabs(mod="sidebar-after" items=[
+            { id: "form-login", label: "Вход", icon: "right-circle", class: "tabs__tab--icon-right", active: true },
+            { id: "form-reg", label: "Регистрация", icon: "user" },
+          ])
         .sidebar-after__content-inner   
-          +form--login()
+          +tabs-panel(mod="slide" id="form-login")
+            +form--login()
+          +tabs-panel(mod="slide" id="form-reg")
+            +form--reg()
       .sidebar-after__content-action#sidebar-after-categories
         .sidebar-after__content-heading Все категории продуктов
         .sidebar-after__content-inner   
           .sidebar-after__categories 
             each item in categories   
               +category-item(img=item.img count=item.count title=item.title)
+
+mixin sidebar-after--2()
+  -
+    const props = initComponent('sidebar-after', attributes, []);
+
+  aside.sidebar-after&attributes(attributes)
+    .sidebar-after__heading.sidebar-after__heading--border
+      button(type="button" data-sidebar-after-close).sidebar-after__btn-close
+      .sidebar-after__heading-tabs 
+        +notifications-meter(icon="cart" count="2" data-target="sidebar-after-cart").target-trigger
+        +notifications-meter(icon="love" count="2" data-target="sidebar-after-whishlist").target-trigger
+    .sidebar-after__content 
+      .sidebar-after__content-action.target#sidebar-after-cart
+        +offer-time()
+        +goal-progress(width="50%")
+        .sidebar-after__products.sidebar-after__products--border 
+          .sidebar-after__products-empty(style="display: none")
+            +icon("cart")
+            span Корзина пуста
+          +suggestion-item--cart(img="assets/img/products/product-name-92-1-60x60.jpeg" title="Свитер GUCCI" price-new="230 000 ₽" showCounter)
+          +suggestion-item--cart(img="assets/img/products/product-name-125-60x60.jpeg" title="Кроссовки ADIDAS" price-new="30 00 ₽" multiplier="2" showCounter)
+        .sidebar-after__content-heading.sidebar-after__content-heading--border-t Сумма
+          span 230 000р
+        .sidebar-after__content-buttons   
+          +button(mod="medium" tag="a" href="cart.html" label="Посмотреть корзину")
+          +button(mod="medium" tag="a" href="checkout.html" label="Заказать")
+      .sidebar-after__content-action.target#sidebar-after-whishlist
+        +offer-time()
+        .sidebar-after__content-heading Ваше избранное
+        .sidebar-after__products 
+          .sidebar-after__products-empty(style="display: none")
+            +icon("love")
+            span Избранных нет
+          +suggestion-item--cart(img="assets/img/products/product-name-125-60x60.jpeg" title="Кроссовки ADIDAS" price-new="30 00 ₽" showCartAdd)

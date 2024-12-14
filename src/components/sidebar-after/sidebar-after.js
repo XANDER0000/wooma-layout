@@ -24,24 +24,30 @@ document.querySelectorAll('.sidebar-after').forEach((component) => {
     component.style.visibility = '';
   };
 
-  const open = (action) => {
+  const open = (sidebarId, actionId) => {
+    const action = sidebarId && actionId ? component.querySelector(`#${actionId}`) : null;
+
     if (action) {
       action.classList.add('active');
     }
-    component.classList.add('is-open');
+    if (component.id === sidebarId) {
+      component.classList.add('is-open');
 
-    component.setAttribute('aria-hidden', 'false');
-    component.setAttribute('aria-modal', 'true');
-    component.setAttribute('role', 'dialog');
-    component.style.visibility = 'visible';
+      component.setAttribute('aria-hidden', 'false');
+      component.setAttribute('aria-modal', 'true');
+      component.setAttribute('role', 'dialog');
+      component.style.visibility = 'visible';
 
-    toggles.forEach((toggle) => {
-      toggle.classList.add('active');
-    });
+      toggles.forEach((toggle) => {
+        if (toggle.getAttribute('data-sidebar-after-toggle') === sidebarId) {
+          toggle.classList.add('active');
+        }
+      });
 
-    if (page) page.classList.add('page--overlay-show');
+      if (page) page.classList.add('page--overlay-show');
 
-    component.dispatchEvent(new CustomEvent('open'));
+      component.dispatchEvent(new CustomEvent('open'));
+    }
   };
 
   const close = () => {
@@ -75,12 +81,13 @@ document.querySelectorAll('.sidebar-after').forEach((component) => {
   toggles.forEach((toggle) => {
     toggle.addEventListener('click', (event) => {
       event.preventDefault();
-      const actionId = toggle.getAttribute('data-sidebar-after-toggle');
-      const action = component.querySelector(`#${actionId}`);
+      const sidebarId = toggle.getAttribute('data-sidebar-after-toggle');
+      const actionId = toggle.getAttribute('data-sidebar-after-action');
+
       if (isOpen()) {
         close();
       } else {
-        open(action);
+        open(sidebarId, actionId);
       }
     }, true);
   });
@@ -116,7 +123,6 @@ document.querySelectorAll('.sidebar-after').forEach((component) => {
     if (matchMedia('(min-width: 80em)').matches) {
       if (isOpen()) close();
       setTimeout(reset, 310);
-      // reset();
     }
   };
 

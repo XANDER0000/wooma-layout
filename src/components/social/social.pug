@@ -5,13 +5,6 @@ mixin social()
     const props = initComponent('social', attributes, []);
 
   .social&attributes(attributes)
-    block
-
-mixin social--sidebar()
-  -
-    const props = initComponent('social', attributes, []);
-
-  .social&attributes(attributes)
     ul.social__icons 
       li
         a(href="#")
@@ -34,3 +27,17 @@ mixin social--sidebar()
       li
         a(href="#")
           +icon('instagram')
+
+mixin social--apps()
+  -
+    const props = initComponent('social', attributes, []);
+
+  .social.social--apps&attributes(attributes)
+    .social__text Скачать приложение:
+    ul.social__icons 
+      li
+        a(href="#")
+          img(src="assets/img/icons/app-store.png" alt="App-store")
+      li
+        a(href="#")
+          img(src="assets/img/icons/google-play.png" alt="Google-play")

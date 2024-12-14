@@ -2,12 +2,23 @@
 
 extends core
 
+include ../components/nav-page/nav-page
+include ../components/sidebar/sidebar
+include ../components/sidebar-after/sidebar-after
+include ../components/search-panel/search-panel
 include ../components/header/header
 include ../components/footer/footer
 
 block page
-  .page__wrapper
+  +nav-page().page__nav-bottom.show-always
+  +search-panel().page__search-panel
+  +sidebar-after().page__sidebar-after#sidebar-after
+  +sidebar-after--2().page__sidebar-after#sidebar-after-2
+  +sidebar().page__sidebar
+  .page__overlay
+  .page__inner
     +header().page__header
-    .page__main
+    main.page__main
       block main
+    block footer
       +footer().page__footer

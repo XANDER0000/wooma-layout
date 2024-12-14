@@ -29,11 +29,11 @@ mixin sidebar()
           a(href="blog.html").sidebar__menu-link Блог
         li.sidebar__menu-item
           a(href="cart.html").sidebar__menu-link Корзина
-      +social--sidebar().sidebar__social
+      +social().sidebar__social
     .sidebar__bottom  
       .sidebar__bottom-buttons 
-        +notifications-meter(icon="cart" count="4")
-        +notifications-meter(icon="love" count="4")
+        +notifications-meter(icon="cart" count="4" data-sidebar-after-toggle="sidebar-after-2" data-sidebar-after-action="sidebar-after-cart")
+        +notifications-meter(icon="love" count="4" data-sidebar-after-toggle="sidebar-after-2" data-sidebar-after-action="sidebar-after-whishlist")
         //- +notifications-meter(icon="compare" count="4")
-        +notifications-meter(icon="user" data-sidebar-after-toggle="sidebar-after-account")
+        +notifications-meter(icon="user" data-sidebar-after-toggle="sidebar-after" data-sidebar-after-action="sidebar-after-account")
       +search-form().sidebar__search-form

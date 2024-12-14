@@ -7,16 +7,40 @@
   &--bg-white
     background-color var(--color-white)
 
+  &--overlay-show
+    & ^[0]__overlay
+      width 100%
+      height 100%
+      opacity .7
+
+  &__inner
+    display flex
+    flex 1 0 auto
+    flex-direction column
+    +desktop()
+      width calc(100% - 360px)
+      margin-left 360px
+
+  &__overlay
+    position fixed
+    top 0
+    right 0
+    z-index 103
+    width 0
+    height 0
+    background var(--color-bg-soft)
+    cursor pointer
+    cursor url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'%3E%3Cg transform='rotate(45 256 256)'%3E%3Crect x='16' y='216' width='480' height='80' rx='14'/%3E%3Crect x='216' y='16' width='80' height='480' rx='14'/%3E%3C/g%3E%3C/svg%3E") 16 16, pointer
+    opacity 0
+    transition opacity .45s cubic-bezier(.25,.46,.45,.94)
+
   &__main
   &__profile-main
     display flex
     flex 1 0 auto
     flex-direction column
     width 100%
-    min-height 100vh
-
-  &__main
-    background-color var(--color-grey-200)
+    // min-height 100vh
 
   &__content
     flex 1 0 auto
@@ -36,11 +60,3 @@
 
   &__container
     container()
-
-  &__flex
-    display flex
-    flex-direction column
-    gap rem(79px)
-    background-color var(--color-grey-200)
-    +above(48em)
-      flex-direction row

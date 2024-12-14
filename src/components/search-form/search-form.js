@@ -1,11 +1,16 @@
 document.querySelectorAll('.search-form').forEach((component) => {
   const baseClass = 'search-form';
   const suggestions = component.querySelector(`.${baseClass}__suggestions`);
+  const input = component.querySelector(`.${baseClass}__input`);
 
   if (!suggestions) return;
 
   const close = () => {
     suggestions.classList.remove('is-open');
+  };
+
+  const open = () => {
+    suggestions.classList.add('is-open');
   };
 
   const isOpen = () => suggestions.classList.contains('is-open');
@@ -14,6 +19,12 @@ document.querySelectorAll('.search-form').forEach((component) => {
   document.addEventListener('keydown', (event) => {
     if ((event.code === 'Escape') && isOpen()) {
       close();
+    }
+  }, false);
+
+  document.addEventListener('input', (event) => {
+    if (event.target === input) {
+      open();
     }
   }, false);
 

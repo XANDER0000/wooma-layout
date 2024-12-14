@@ -4,12 +4,10 @@
 
   &__label
     display block
-    margin 0 0 rem(15px)
-    color var(--color-dark)
+    margin 0 0 rem(5px)
     font-weight 500
-    font-size rem(12px)
+    font-size rem(15px)
     line-height 1
-    text-transform uppercase
 
   &__required
     color var(--color-red)
@@ -70,7 +68,7 @@
     justify-content center
     margin-top -20px
     padding 0
-    color var(--color-grey-500)
+    color var(--color-gray)
     background-color transparent
     border none
     size 40px
@@ -79,7 +77,6 @@
     &:focus-visible
       color var(--color-hover)
       outline none
-      box-shadow 0 0 0 4px var(--color-blue-300)
     input[type="text"] + &
       color var(--color-blue-400)
     input:placeholder-shown + &
@@ -119,6 +116,23 @@
       right 24px
       color var(--color-grey-600)
       font-size rem(12px)
+
+  &--linear
+    & ^[0]__control
+      display flex
+      flex 1 0 auto
+      flex-direction row
+
+  &--black
+    input
+      background-color var(--color-dark)
+      border-color #272727
+
+  &--border-b
+    & ^[0]__control
+      border-bottom 1px solid #272727
+    input
+      border none
 
   // &--label-bigger
   //   ^[0]__label
