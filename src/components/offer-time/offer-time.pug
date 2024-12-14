@@ -1,0 +1,9 @@
+include ../timer/timer
+
+mixin offer-time()
+  -
+    const props = initComponent('offer-time', attributes, []);
+
+  .offer-time&attributes(attributes)
+    p.offer-time__text Конец скидки через:
+    +timer(data-date="2024-12-16 18:20").offer-time__timer
