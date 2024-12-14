@@ -1,3 +1,11 @@
+include ../logo/logo
+include ../nav-btn/nav-btn
+include ../search-btn/search-btn
+
 mixin header()
   header.header&attributes(attributes)
     .header__container
+      +logo(href="home.html").header__logo
+      .header__actions
+        +search-btn(data-toggle="search-panel").header__search-btn
+        +nav-btn(data-toggle="sidebar").header__nav-btn
