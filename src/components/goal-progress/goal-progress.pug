@@ -1,0 +1,14 @@
+include ../icon/icon
+
+mixin goal-progress()
+  -
+    const props = initComponent('goal-progress', attributes, ['text', 'width']);
+
+    props.text = props.text || "Приобретите вещей на сумму больше 280 тысяч рублей для скидки"
+
+  .goal-progress&attributes(attributes)
+    p.goal-progress__text!= props.text
+    .goal-progress__wrap 
+      .goal-progress__bar(style=`width: ${props.width}`)
+        .goal-progress__icon
+          +icon("delivery")
