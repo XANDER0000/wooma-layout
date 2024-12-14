@@ -1,0 +1,36 @@
+.team-card
+  display flex
+  flex-direction column
+  gap 20px
+  +above(48em)
+    gap 30px
+
+  &__img
+    max-height 307px
+    overflow hidden
+    img
+      object-fit cover
+      object-position center
+      vertical-align top
+
+  &__content
+    display flex
+    flex-direction column
+    gap 12px
+    +above(48em)
+      gap 24px
+
+  &__heading
+    display flex
+    flex-wrap wrap
+    gap 8px
+    align-items flex-end
+
+  &__name
+    margin 0
+    font-weight 700
+    font-size rem(16px)
+
+  &__post
+    font-weight 800
+    font-size rem(12px)

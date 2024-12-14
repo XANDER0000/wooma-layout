@@ -17,8 +17,8 @@ mixin search-form()
       //- button(type="button" aria-label="Сбросить поиск").search-form__btn-clear
       +loading-icon().search-form__loading-icon
     .search-form__suggestions
-      +suggestion-item(img="assets/img/products/product-name-92-1-60x60.jpeg" title="Свитер GUCCI" price-old="280 000 ₽" price-new="230 000 ₽")
-      +suggestion-item(img="assets/img/products/product-name-125-60x60.jpeg" title="Кроссовки ADIDAS" price-new="30 00 ₽ – 40 00 ₽")
+      +suggestion-item(img="assets/img/products/product-name-92-1-60x60.jpeg" title!="Свитер GUCC<strong>I</strong>" price-old="280 000 ₽" price-new="230 000 ₽")
+      +suggestion-item(img="assets/img/products/product-name-125-60x60.jpeg" title!="Кроссовки AD<strong>I</strong>DAS" price-new="30 00 ₽ – 40 00 ₽")
       //- a(href="#").search-form__suggestion
       //-   span.search-form__suggestion-img
       //-     img(src="assets/img/products/product-name-92-1-60x60.jpeg" alt="Свитер GUCCI")

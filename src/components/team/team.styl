@@ -1,0 +1,22 @@
+.team
+  display flex
+  flex-direction column
+  gap 30px
+  padding rem(60px) rem(20px)
+  +above(48em)
+    padding rem(80px) rem(50px)
+
+  &__cards
+    display flex
+    flex-wrap wrap
+    gap 30px
+    +above(48em)
+      gap 0
+
+    &-card
+      width 100%
+      +above(48em)
+        width 50%
+        padding 10px
+      +desktop()
+        width 25%

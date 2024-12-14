@@ -1,0 +1,19 @@
+include ../section-heading/section-heading
+include ../team-card/team-card
+
+mixin team()
+  -
+    const props = initComponent('team', attributes, []);
+
+    const cards = [
+      { img: 'assets/img/team/team-01.jpeg', name: "Евгений Петрушкин", post: "Дизайнер" },
+      { img: 'assets/img/team/team-02.jpeg', name: "Валентин Стрыга", post: "Дизайнер" },
+      { img: 'assets/img/team/team-03.jpeg', name: "Юлия Тасканская", post: "Дизайнер" },
+      { img: 'assets/img/team/team-04.jpeg', name: "Жанна Флорез", post: "Дизайнер" },
+    ]
+
+  section.team&attributes(attributes)
+    +section-heading(title="Креативная Команда" text!="<p>Лучшая команда специалистов со всего мира</p>")
+    .team__cards 
+      each card in cards
+        +team-card(img=card.img name=card.name post=card.post).team__cards-card

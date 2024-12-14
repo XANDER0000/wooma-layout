@@ -1,0 +1,15 @@
+include ../social/social
+
+mixin team-card()
+  -
+    const props = initComponent('team-card', attributes, ['img', 'post', 'name']);
+
+  article.team-card&attributes(attributes)
+    .team-card__img 
+      img(src=props.img alt=props.name)
+    .team-card__content 
+      .team-card__heading 
+        h2.team-card__name!= props.name
+        - if (props.post)
+          span.team-card__post!= props.post
+      +social--team(mod="circle").team-card__social

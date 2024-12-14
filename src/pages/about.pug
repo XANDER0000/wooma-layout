@@ -1,0 +1,10 @@
+extends ../layouts/main
+include ../components/team/team
+
+block append data
+  -
+    page.name = "about";
+    page.title = "О нас";
+
+block main
+  +team()
