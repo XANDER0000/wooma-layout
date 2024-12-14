@@ -1,0 +1,42 @@
+include ../counter/counter
+
+mixin suggestion-item()
+  -
+    const props = initComponent('suggestion-item', attributes, ['title', 'img', 'price-old', 'price-new']);
+
+  a(href="#").suggestion-item&attributes(attributes)
+    span.suggestion-item__img
+      img(src=props.img alt=props.title)
+    span.suggestion-item__content 
+      span.suggestion-item__title!= props.title
+      span.suggestion-item__price 
+        - if (props['price-old'])
+          span.suggestion-item__price-old!= props['price-old']
+        - if (props['price-new'])
+          span.suggestion-item__price-new!= props['price-new']
+            - if (props.multiplier)
+              span.span.suggestion-item__price-multiplier!= props.multiplier
+
+mixin suggestion-item--cart()
+  -
+    const props = initComponent('suggestion-item', attributes, ['title', 'img', 'price-old', 'price-new', 'multiplier', 'showCounter', 'showCartAdd']);
+
+  .suggestion-item.suggestion-item--cart&attributes(attributes)
+    a(href="#").suggestion-item__img
+      img(src=props.img alt=props.title)
+    span.suggestion-item__content 
+      a(href="#").suggestion-item__content-link
+        span.suggestion-item__title!= props.title
+        span.suggestion-item__price 
+          - if (props['price-old'])
+            span.suggestion-item__price-old!= props['price-old']
+          - if (props['price-new'])
+            span.suggestion-item__price-new!= props['price-new']
+            - if (props.multiplier)
+              span.span.suggestion-item__price-multiplier!= `X ${props.multiplier}`
+      - if (props.showCounter)
+        +counter().suggestion-item__counter
+      - if (props.showCartAdd)
+        a(href="#").suggestion-item__cart Добавить в корзину
+    button(type="button").suggestion-item__del 
+      +icon('trash')
