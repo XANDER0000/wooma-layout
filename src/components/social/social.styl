@@ -19,6 +19,7 @@
         text-decoration none
     .icon
     img
+      transition all .2s ease
       size 20px
 
   &--white
@@ -44,3 +45,19 @@
     & ^[0]__icons
       flex-direction row
       gap 12px
+
+  &--circle
+    a
+      display flex
+      align-items center
+      justify-content center
+      size 30px
+      border 1px solid var(--color-dark)
+      border-radius 50%
+      &:hover
+      &:focus-visible
+        background-color var(--color-dark)
+        .icon
+          fill var(--color-white)
+    .icon
+      fill var(--color-dark)

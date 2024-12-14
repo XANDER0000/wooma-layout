@@ -41,3 +41,19 @@ mixin social--apps()
       li
         a(href="#")
           img(src="assets/img/icons/google-play.png" alt="Google-play")
+
+mixin social--team()
+  -
+    const props = initComponent('social', attributes, []);
+
+  .social&attributes(attributes)
+    ul.social__icons 
+      li
+        a(href="#")
+          +icon('vk')
+      li
+        a(href="#")
+          +icon('tg')
+      li
+        a(href="#")
+          +icon('instagram')
