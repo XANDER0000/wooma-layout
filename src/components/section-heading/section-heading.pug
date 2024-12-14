@@ -1,0 +1,8 @@
+mixin section-heading()
+  -
+    const props = initComponent('section-heading', attributes, ['title', 'text']);
+
+  .section-heading&attributes(attributes)
+    h2.section-heading__title!= props.title
+    - if (props.text)
+      .section-heading__text!= props.text

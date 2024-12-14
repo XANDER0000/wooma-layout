@@ -1,0 +1,21 @@
+.section-heading
+  display flex
+  flex-direction column
+  gap 12px
+  align-items center
+
+  &__title
+    margin 0
+    color var(--color-dark)
+    font-weight 700
+    font-size rem(28px)
+    text-transform capitalize
+    +above(48em)
+      font-size rem(32px)
+
+  &__text
+    &:last-child
+      margin-bottom 0
+    p
+      &:last-child
+        margin-bottom 0
