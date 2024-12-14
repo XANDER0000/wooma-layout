@@ -1,0 +1,28 @@
+include ./form
+include ../field/field
+include ../input/input
+include ../button/button
+include ../inputbox/inputbox
+include ../checkbox/checkbox
+
+mixin form--login()
+  +form(mod="login" data-validate)&attributes(attributes)#form-login
+    .form__messages(style="display: none")
+      .form__messages-item.form__messages-item--error
+        span.form__messages-item-label Неверный логин или пароль
+      .form__messages-item.form__messages-item--success
+        span.form__messages-item-label Введенные данные совпадают
+    .form__fields
+      +field(label="Логин *" for="form-login-input").form__field
+        +field__control()
+          +input(type="email" name="login" id="form-login-input" placeholder="Ваша почта" required)
+      +field(label="Пароль *" for="form-login-password")
+        +inputbox(mod="password" btn-view)
+          +input(type="password" name="password" id="form-login-password" placeholder="Ваш пароль" required)
+      +field()
+        +checkbox(for="form-login-remember" label="Запомнить меня")
+          +checkbox__input(name="remember" id="form-login-remember" value="1")
+    .form__tools
+      .form__tools-btns
+        +button(mod="medium" type="submit" label="Войти").form__submit
+      a(href="/recovery.html").form__link Забыли пароль?
