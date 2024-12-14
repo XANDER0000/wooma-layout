@@ -5,6 +5,24 @@
   .popup &
     padding-bottom 1px
 
+  &__messages
+    display flex
+    flex-direction column
+    gap 8px
+    &-item
+      padding 8px
+      color var(--color-dark)
+      border-radius 8px
+      &--error
+        background-color var(--color-error-bg)
+      &--success
+        background-color var(--color-success-bg)
+
+  &__text
+    p
+      &:last-child
+        margin-bottom 0
+
   &__fields
     display flex
     flex-direction column
@@ -76,3 +94,22 @@
   &--add-exam
     & ^[0]__section-title
       margin-bottom 0
+
+  &--login
+    & ^[0]__submit
+      width 100%
+    & ^[0]__tools
+      display flex
+      flex-direction column
+      gap 12px
+    & ^[0]__link
+      color var(--color-dark)
+      font-weight 500
+      &:hover
+      &:focus-visible
+        color var(--color-hover)
+        text-decoration none
+
+  &--reg
+    & ^[0]__submit
+      width 100%
