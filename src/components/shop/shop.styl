@@ -8,9 +8,27 @@
     display grid
     gap 20px
 
+    &--col-5
+      grid-template-columns repeat(2, 1fr)
+      +above(48em)
+        grid-template-columns repeat(3, 1fr)
+      +desktop()
+        grid-template-columns repeat(4, 1fr)
+      +above(85em)
+        grid-template-columns repeat(5, 1fr)
     &--col-4
       grid-template-columns repeat(2, 1fr)
       +above(48em)
         grid-template-columns repeat(3, 1fr)
       +desktop()
         grid-template-columns repeat(4, 1fr)
+    &--col-3
+      grid-template-columns repeat(2, 1fr)
+      +above(48em)
+        grid-template-columns repeat(3, 1fr)
+    &--col-2
+      grid-template-columns repeat(2, 1fr)
+    &--list
+      +above(48em)
+        & ^[0]__card
+          flex-direction row

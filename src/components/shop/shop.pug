@@ -15,4 +15,4 @@ mixin shop()
   .shop&attributes(attributes)
     .shop__grid.shop__grid--col-4
       each card in cards 
-        +product-card(img=card.img title=card.title hint=card.hint discount=card.discount priceNew=card.priceNew priceOld=card.priceOld stars=card.stars addCart=card.addCart addLink=card.addLink)
+        +product-card(img=card.img title=card.title hint=card.hint discount=card.discount priceNew=card.priceNew priceOld=card.priceOld stars=card.stars addCart=card.addCart addLink=card.addLink).shop__card
