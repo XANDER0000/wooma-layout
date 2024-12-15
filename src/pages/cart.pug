@@ -1,6 +1,6 @@
 extends ../layouts/main
 
-include ../components/shop/shop
+include ../components/hero-banner/hero-banner
 
 block append data
   -
@@ -8,4 +8,5 @@ block append data
     page.title = "Корзина";
 
 block main
-  h1.visually-hidden Корзина
+  h1.visually-hidden Ваша корзина
+  +hero-banner(title='Ваша корзина' breadcrumbs=[{label: "Главная", link: "home.html"},{label: "Корзина"}])

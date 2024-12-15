@@ -7,7 +7,7 @@ mixin hero-banner()
   section.hero-banner&attributes(attributes)
     .hero-banner__content 
       - if (props.breadcrumbs)
-        +breadcrumbs(items=[{label: "Главная", link: "home.html"},{label: "Личный кабинет"}] none-container)
+        +breadcrumbs(items=props.breadcrumbs none-container)
       h2.hero-banner__title!= props.title
     - if (props.img)
       img(src=props.img alt="").hero-banner__bg
