@@ -1,0 +1,16 @@
+include ../icon/icon
+
+mixin stars-row()
+  -
+    const props = initComponent('stars-row', attributes, ['stars']);
+
+    props.stars = props.stars || 0;
+
+  .stars-row&attributes(attributes)
+    .stars-row__icons
+      - for(let i = 0; i < 5; i++)
+        - if (i < props.stars)
+          +icon("star-filled")
+        - else
+          +icon("star-empty")
+    span.stars-row__text!= `${props.stars}/5`
