@@ -1,0 +1,11 @@
+extends ../layouts/main
+
+include ../components/shop/shop
+
+block append data
+  -
+    page.name = "contacts";
+    page.title = "Контакты";
+
+block main
+  h1.visually-hidden Контакты

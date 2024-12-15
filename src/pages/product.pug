@@ -1,0 +1,11 @@
+extends ../layouts/main
+
+include ../components/shop/shop
+
+block append data
+  -
+    page.name = "product";
+    page.title = "Конкретный продукт";
+
+block main
+  h1.visually-hidden Конкретный продукт

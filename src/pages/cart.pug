@@ -1,0 +1,11 @@
+extends ../layouts/main
+
+include ../components/shop/shop
+
+block append data
+  -
+    page.name = "cart";
+    page.title = "Корзина";
+
+block main
+  h1.visually-hidden Корзина

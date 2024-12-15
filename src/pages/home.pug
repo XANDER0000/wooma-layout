@@ -1,9 +1,12 @@
 extends ../layouts/main
 
+include ../components/reviews-single/reviews-single
+
 block append data
   -
     page.name = "home";
     page.title = "Главная страница";
 
 block main
-  .frfr 4t4t
+  h1.visually-hidden Главная
+  +reviews-single()

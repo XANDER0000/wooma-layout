@@ -1,0 +1,14 @@
+extends ../layouts/main
+
+include ../components/shop/shop
+include ../components/hero-banner/hero-banner
+
+block append data
+  -
+    page.name = "catalog";
+    page.title = "Каталог";
+
+block main
+  h1.visually-hidden Каталог
+  +hero-banner(title='Наш каталог' breadcrumbs=[{label: "Главная", link: "home.html"},{label: "Каталог"}])
+  +shop()
