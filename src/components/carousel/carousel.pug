@@ -1,0 +1,11 @@
+mixin carousel()
+  -
+    const props = initComponent('carousel', attributes, []);
+
+  .carousel.swiper&attributes(attributes)
+    .carousel__items.swiper-wrapper
+      block
+
+mixin carousel__item()
+  .carousel__item&attributes(attributes).swiper-slide
+    block
