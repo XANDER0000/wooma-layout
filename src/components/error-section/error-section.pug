@@ -1,0 +1,11 @@
+include ../button/button
+
+mixin error-section()
+  -
+    const props = initComponent('error-section', attributes, []);
+
+  section.error-section&attributes(attributes)
+    h2.error-section__title 404
+    .error-section__text 
+      p Извините, но страница, которую вы ищете, не существует или была удалена!
+    +button(href="home.html" label="Вернуться на главную").error-section__btn
