@@ -6,3 +6,13 @@ mixin avatar()
     - if (props.img)
       img(loading="lazy" src=props.img alt!=(props.name || ""))
     block
+
+mixin avatar--verify()
+  -
+    const props = initComponent('avatar', attributes, ['img', 'name']);
+    
+  .avatar-verify
+    .avatar&attributes(attributes)
+      - if (props.img)
+        img(loading="lazy" src=props.img alt!=(props.name || ""))
+      block
