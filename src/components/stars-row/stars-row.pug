@@ -2,7 +2,7 @@ include ../icon/icon
 
 mixin stars-row()
   -
-    const props = initComponent('stars-row', attributes, ['stars']);
+    const props = initComponent('stars-row', attributes, ['stars', 'hiddenCount']);
 
     props.stars = props.stars || 0;
 
@@ -13,4 +13,5 @@ mixin stars-row()
           +icon("star-filled")
         - else
           +icon("star-empty")
-    span.stars-row__text!= `${props.stars}/5`
+    - if (!props.hiddenCount)
+      span.stars-row__text!= `${props.stars}/5`
