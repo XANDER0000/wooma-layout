@@ -1,0 +1,36 @@
+.breadcrumbs
+  &__list
+    display flex
+    flex-wrap wrap
+    gap 8px
+    align-items center
+    margin 0
+    padding 0
+    list-style none
+
+  &__item
+    display flex
+    align-items center
+    margin 0
+    padding 0
+    color var(--color-gray)
+    font-weight 500
+    font-size rem(15px)
+    +desktop()
+      font-size rem(16px)
+    &:not(&:last-child)
+      &::after
+        display inline-block
+        size 5px
+        margin-left 8px
+        background-color var(--color-gray)
+        border-radius 50%
+        content ''
+    &.active
+      color var(--color-gray-dark)
+    a
+      text-decoration none
+      transition all .2s ease
+      &:hover
+      &:focus-visible
+        color rgba(#242424, .8)
