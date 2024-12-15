@@ -12,6 +12,8 @@
     size 50px
     overflow hidden
     transition all .2s ease
+    &--circle
+      border-radius 50%
     a&:hover
     a&:focus-visible
       opacity .8
@@ -72,3 +74,8 @@
       font-size rem(14px)
     & ^[0]__img
       size 80px
+
+  &--short
+    align-items center
+    & ^[0]__title
+      font-weight 700

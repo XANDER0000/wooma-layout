@@ -40,3 +40,14 @@ mixin suggestion-item--cart()
         a(href="#").suggestion-item__cart Добавить в корзину
     button(type="button").suggestion-item__del 
       +icon('trash')
+
+mixin suggestion-item--short()
+  -
+    const props = initComponent('suggestion-item', attributes, ['title', 'img']);
+
+  a(href="#").suggestion-item.suggestion-item--short&attributes(attributes)
+    .suggestion-item__img.suggestion-item__img--circle
+      img(src=props.img alt=props.title)
+    span.suggestion-item__content 
+      .suggestion-item__content-link
+        span.suggestion-item__title!= props.title
