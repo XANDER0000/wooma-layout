@@ -1,6 +1,7 @@
 extends ../layouts/main
 include ../components/team/team
 include ../components/reviews-single/reviews-single
+include ../components/reviews/reviews
 
 block append data
   -
@@ -9,4 +10,5 @@ block append data
 
 block main
   +reviews-single()
+  +reviews()
   +team()

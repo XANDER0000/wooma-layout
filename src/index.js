@@ -26,3 +26,5 @@ import './components/target/target.js';
 import './components/timer/timer.js';
 import './components/counter/counter.js';
 import './components/reviews-single/reviews-single.js';
+import './components/carousel/carousel.js';
+import './components/collapse/collapse.js';
