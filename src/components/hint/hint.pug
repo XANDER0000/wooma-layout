@@ -1,0 +1,6 @@
+mixin hint()
+  -
+    const props = initComponent('hint', attributes, ['text']);
+
+  span.hint&attributes(attributes)
+    != props.text
