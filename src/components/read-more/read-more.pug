@@ -1,0 +1,10 @@
+mixin read-more()
+  -
+    const props = initComponent('read-more', attributes, ['max-lines', 'expand-text', 'collapse-text']);
+
+    props['max-lines'] = props['max-lines'] || '7';
+    props['expand-text'] = props['expand-text'] || 'Читать полностью';
+    props['collapse-text'] = props['collapse-text'] || 'Свернуть';
+
+  .read-more(data-max-lines=props['max-lines'] data-expand-text=props['expand-text'] data-collapse-text=props['collapse-text'])&attributes(attributes)
+    block

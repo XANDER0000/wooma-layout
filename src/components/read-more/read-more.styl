@@ -1,0 +1,37 @@
+.read-more
+
+  &__content
+    ^[0].is-collapsed &
+      display -webkit-box
+      overflow hidden
+      -webkit-line-clamp var(--max-lines, 10)
+      -webkit-box-orient vertical
+      line-clamp var(--max-lines, 10)
+
+  &__toggle
+    display flex
+    align-items center
+    margin-top rem(10px)
+    padding 0
+    color var(--color-dark)
+    font-weight 600
+    font-size rem(16px)
+    line-height 1.4
+    text-align left
+    background-color transparent
+    border none
+    &:hover
+    &:focus-visible
+      color var(--color-hover)
+      text-decoration none
+    span
+      &:nth-child(1)
+        display none
+      &:nth-child(2)
+        display inline-block
+    ^[0].is-collapsed &
+      span
+        &:nth-child(1)
+          display inline-block
+        &:nth-child(2)
+          display none

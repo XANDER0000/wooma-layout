@@ -1,7 +1,7 @@
 include ../avatar/avatar
 include ../stars-row/stars-row
 include ../suggestion-item/suggestion-item
-include ../collapse/collapse
+include ../read-more/read-more
 
 mixin reviews-card()
   -
@@ -15,10 +15,9 @@ mixin reviews-card()
         span.reviews-card__user-status Рецензент
     +stars-row(stars=3).reviews-card__stars
     .reviews-card__content 
-      .reviews-card__text!= props.text
-        +collapse-collapse(id=`reviews-card-collapsed-${props.num}`)!= 'Какой-то еще оставшийся текст.'
-        button(type="button" data-collapse=`#reviews-card-collapsed-${props.num}` aria-expanded="false" aria-controls=`reviews-card-collapsed-${props.num}`).reviews-card__toggle
-          span Смотреть всё
+      .reviews-card__text
+        +read-more(max-lines="7")
+          != props.text
       .reviews-card__date 3 года назад
     .reviews-card__products
       +suggestion-item--short(img="assets/img/products/product-name-92-1-60x60.jpeg" title="Свитер GUCCI").reviews-card__product
