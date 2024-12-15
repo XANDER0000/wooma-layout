@@ -1,4 +1,5 @@
 .carousel
+  max-width 100%
 
   &__item
     box-sizing border-box
@@ -9,44 +10,3 @@
 
   &--wide
     overflow visible
-
-  &--offers
-    & ^[0]__item
-      width 280px
-      +desktop()
-        width 520px
-
-  &--videos
-    & ^[0]__item
-      width 300px
-      +desktop()
-        width 460px
-
-  &--programs
-    & ^[0]__item
-      width 280px
-      +desktop()
-        width 320px
-
-  &--partners
-    overflow visible
-    +desktop()
-      overflow hidden
-
-  &--brochures
-    & ^[0]__item
-      width 305px
-      +above(30em)
-        width 400px
-      +desktop()
-        width 400px
-
-  &--articles
-    & ^[0]__item
-      width 300px
-      +desktop()
-        width 460px
-
-  &--reels
-    & ^[0]__item
-      width 200px

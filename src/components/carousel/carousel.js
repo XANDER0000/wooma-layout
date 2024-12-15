@@ -39,10 +39,19 @@ const initCarousel = (component) => {
     };
   }
 
-  if (component.classList.contains('carousel--offers')) {
+  if (component.classList.contains('carousel--reviews')) {
+    carouselOptions.spaceBetween = 20;
+    carouselOptions.slidesPerView = 1;
     carouselOptions.breakpoints = {
-      1280: {
-        spaceBetween: 40,
+      768: {
+        spaceBetween: 20,
+        slidesPerView: 2,
+      },
+      1100: {
+        slidesPerView: 3,
+      },
+      1400: {
+        slidesPerView: 4,
       },
     };
   }
