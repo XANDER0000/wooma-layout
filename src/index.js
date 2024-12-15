@@ -25,3 +25,4 @@ import './components/tabs/tabs.js';
 import './components/target/target.js';
 import './components/timer/timer.js';
 import './components/counter/counter.js';
+import './components/reviews-single/reviews-single.js';

@@ -1,0 +1,37 @@
+include ../avatar/avatar
+
+mixin reviews-single()
+  -
+    const props = initComponent('reviews-single', attributes, []);
+
+  .reviews-single&attributes(attributes)
+    .reviews-single__swiper.swiper
+      .reviews-single__wrapper.swiper-wrapper
+        article.reviews-single__card.swiper-slide
+          .reviews-single__card-heading 
+            +avatar(img="assets/img/users/user-01.jpg").reviews-single__card-avatar
+            .reviews-single__card-heading-content 
+              h2.reviews-single__card-heading-title Артур Васильев
+              span.reviews-single__card-heading-status Покупатель
+          .reviews-single__card-content 
+            .reviews-single__card-text 
+              p Это связано с их превосходным сервисом, конкурентоспособными ценами и поддержкой клиентов. Приятно, что у них такой индивидуальный подход. Это просто бесплатный текст, который вызывает сожаление при отправке, и который, по сути, равен нулю.
+        article.reviews-single__card.swiper-slide
+          .reviews-single__card-heading 
+            +avatar(img="assets/img/users/user-01.jpg").reviews-single__card-avatar
+            .reviews-single__card-heading-content 
+              h2.reviews-single__card-heading-title Артур Васильев
+              span.reviews-single__card-heading-status Покупатель
+          .reviews-single__card-content 
+            .reviews-single__card-text 
+              p Это связано с их превосходным сервисом, конкурентоспособными ценами и поддержкой клиентов. Приятно, что у них такой индивидуальный подход. Это просто бесплатный текст, который вызывает сожаление при отправке, и который, по сути, равен нулю.
+        article.reviews-single__card.swiper-slide
+          .reviews-single__card-heading 
+            +avatar().reviews-single__card-avatar
+            .reviews-single__card-heading-content 
+              h2.reviews-single__card-heading-title Вася Алтуфьев
+              span.reviews-single__card-heading-status Покупатель
+          .reviews-single__card-content 
+            .reviews-single__card-text 
+              p Самый лучший сервис в мире!
+      .reviews-single__swiper-pagination

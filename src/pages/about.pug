@@ -1,5 +1,6 @@
 extends ../layouts/main
 include ../components/team/team
+include ../components/reviews-single/reviews-single
 
 block append data
   -
@@ -7,4 +8,5 @@ block append data
     page.title = "О нас";
 
 block main
+  +reviews-single()
   +team()
