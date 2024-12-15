@@ -1,0 +1,16 @@
+.shop
+  display block
+  padding rem(60px) rem(20px)
+  +desktop()
+    padding rem(80px) rem(50px)
+
+  &__grid
+    display grid
+    gap 20px
+
+    &--col-4
+      grid-template-columns repeat(2, 1fr)
+      +above(48em)
+        grid-template-columns repeat(3, 1fr)
+      +desktop()
+        grid-template-columns repeat(4, 1fr)

@@ -1,0 +1,45 @@
+include ../icon/icon
+include ../hint/hint
+include ../stars-row/stars-row
+
+mixin product-card()
+  -
+    const props = initComponent('product-card', attributes, ['img', 'title', 'priceOld', 'priceNew', 'hint', 'discount', 'addLink', 'addCart', 'stars']);
+
+    console.log(props.addCart)
+
+  article.product-card&attributes(attributes)
+    .product-card__img
+      .product-card__labels 
+        - if (props.hint)
+          .product-card__labels-item!= props.hint
+        - if (props.discount)
+          .product-card__labels-item.product-card__labels-item--red!= props.discount
+      .product-card__btns 
+        button(type="button").product-card__btn
+          +hint(mod="left" text!="В избранное").product-card__btn-hint
+          +icon("love")
+        button(type="button" data-popup-open="#product-preview").product-card__btn.product-card__btn--hidden
+          +hint(mod="left" text!="Просмотр").product-card__btn-hint
+          +icon("eye")
+        button(type="button").product-card__btn.product-card__btn--hidden.product-card__btn.product-card__btn--success
+          +hint(mod="left" text!="В корзину").product-card__btn-hint
+          +icon("cart")
+      a(href="product.html").product-card__img-link
+        img(src=props.img alt=props.title loading="lazy")
+    .product-card__content 
+      - if (props.addLink || props.addCart)
+        .product-card__title-transform
+          h2.product-card__title.product-card__title-transform-first!= props.title
+          - if (props.addLink)
+            a(href="product.html").product-card__title.product-card__title-transform-second Читать больше
+          - if (props.addCart)
+            button(type="button").product-card__title.product-card__title-transform-second Добавить в корзину
+      - else 
+        h2.product-card__title!= props.title
+      .product-card__price 
+        - if (props.priceOld)
+          .product-card__price-old!= props.priceOld
+        - if (props.priceNew)
+          .product-card__price-new!= props.priceNew
+        +stars-row(mod="small yellow" stars=4 hiddenCount).product-card__stars
