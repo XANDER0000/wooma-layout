@@ -1,0 +1,14 @@
+include ../breadcrumbs/breadcrumbs
+
+mixin hero-banner()
+  -
+    const props = initComponent('hero-banner', attributes, ['title', 'breadcrumbs', 'img']);
+
+    props.img = props.img || 'assets/img/banners/banner-01.png'
+
+  section.hero-banner&attributes(attributes)
+    .hero-banner__content 
+      - if (props.breadcrumbs)
+        +breadcrumbs(items=[{label: "Главная", link: "home.html"},{label: "Личный кабинет"}] none-container)
+      h2.hero-banner__title!= props.title
+    img(src=props.img alt="").hero-banner__bg
