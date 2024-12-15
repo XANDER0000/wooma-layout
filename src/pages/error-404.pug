@@ -1,6 +1,8 @@
 extends ../layouts/main
 
 include ../components/shop/shop
+include ../components/hero-banner/hero-banner
+include ../components/error-section/error-section
 
 block append data
   -
@@ -9,3 +11,5 @@ block append data
 
 block main
   h1.visually-hidden Страница не найдена
+  +hero-banner(title='Ошибка 404' breadcrumbs=[{label: "Главная", link: "home.html"},{label: "Страница не найдена"}])
+  +error-section()
