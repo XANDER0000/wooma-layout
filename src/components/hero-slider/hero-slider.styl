@@ -1,0 +1,114 @@
+.hero-slider
+  position relative
+  max-width 100%
+  height 77vh
+  +above(48em)
+    height 100vh
+
+  &__slide
+    position relative
+    display flex
+    flex-direction column
+    gap 30px
+    align-items center
+    justify-content center
+    padding rem(40px)
+    +above(48em)
+      padding rem(80px)
+    &--filter
+      & ^[1]-bg
+        &::after
+          position absolute
+          top 0
+          left 0
+          width 100%
+          height 100%
+          background-color var(--color-dark)
+          opacity .4
+          content ''
+    &-content
+      position relative
+      z-index 3
+      display flex
+      flex-direction column
+      gap 30px
+      align-items center
+
+    &-title
+      margin 0
+      color var(--color-white)
+      font-weight 700
+      font-size rem(34px)
+      text-transform capitalize
+      +desktop()
+        font-size rem(48px)
+
+    &-text
+      color var(--color-white)
+      font-size rem(16px)
+      &:last-child
+        margin-bottom 0
+      p
+        &:last-child
+          margin-bottom 0
+
+    &-buttons
+      display flex
+      flex-wrap wrap
+      gap 10px
+      justify-content center
+
+    &-bg
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      img
+        width 100%
+        height 100%
+        object-fit cover
+
+  &__pagination
+    position absolute
+    bottom 40px !important
+    z-index 2
+    display flex
+    gap 10px
+    justify-content center
+    +above(48em)
+      bottom 60px !important
+
+  &__navigation
+    position absolute
+    top 50%
+    left 10px
+    z-index 2
+    display none
+    justify-content space-between
+    width calc(100% - 20px)
+    transform translateY(-50%)
+    +above(48em)
+      display flex
+
+  &__prev
+  &__next
+    display flex
+    align-items center
+    justify-content center
+    size 50px
+    background-color #f8f9fa1a
+    border 1px solid #e2e2e21a
+    border-radius 50%
+    cursor pointer
+    transition all .2s ease
+    &:hover
+    &:focus-visible
+      background-color var(--color-white)
+      .icon
+        fill var(--color-dark)
+    .icon
+      size 25px
+      transition all .2s ease
+      fill var(--color-white)
+

@@ -1,0 +1,44 @@
+include ../button/button
+include ../icon/icon
+
+mixin hero-slider()
+  -
+    const props = initComponent('hero-slider', attributes, []);
+
+  .hero-slider.swiper(data-autoplay="5000")&attributes(attributes)
+    .hero-slider__wrapper.swiper-wrapper 
+      article.hero-slider__slide.hero-slider__slide--filter.swiper-slide  
+        .hero-slider__slide-content
+          h2.hero-slider__slide-title Сезонные простые мужские футболки
+          .hero-slider__slide-text 
+            p Мода должна радовать ваш глаз. Формы и пропорции — это для вашего интеллекта. Я одержима деталями и рисунком.
+          .hero-slider__slide-buttons 
+            +button(href="catalog.html" label!="Посмотреть коллекцию")
+            +button(href="catalog.html" mod="transparent" label!="Купить сейчас")
+        .hero-slider__slide-bg 
+          img(src="assets/img/banners/banner-hero-01.jpg" alt="")
+      article.hero-slider__slide.hero-slider__slide--filter.swiper-slide  
+        .hero-slider__slide-content
+          h2.hero-slider__slide-title Парные футболки
+          .hero-slider__slide-text 
+            p Элегантность определяется не только тем, что вы носите. Важно то, как вы себя ведете, как говорите, что читаете.
+          .hero-slider__slide-buttons 
+            +button(href="catalog.html" label!="Купить сейчас")
+        .hero-slider__slide-bg 
+          img(src="assets/img/banners/banner-hero-02.jpg" alt="")
+      article.hero-slider__slide.hero-slider__slide--filter.swiper-slide  
+        .hero-slider__slide-content
+          h2.hero-slider__slide-title Женские джинсовые куртки 
+            u нового сезона
+          .hero-slider__slide-text 
+            p Элегантность определяется не только тем, что вы носите. Важно то, как вы себя ведете, как говорите, что читаете.
+          .hero-slider__slide-buttons 
+            +button(href="catalog.html" label!="Купить сейчас")
+        .hero-slider__slide-bg 
+          img(src="assets/img/banners/banner-hero-03.jpg" alt="")
+    .hero-slider__pagination
+    .hero-slider__navigation  
+      .hero-slider__prev
+        +icon('chevron-left')
+      .hero-slider__next
+        +icon('chevron-right')

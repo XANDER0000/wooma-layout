@@ -11,18 +11,24 @@ const initReviewsSingleSwiper = (el) => {
     centeredSlides: true,
     spaceBetween: 30,
     speed: 1200,
-    autoplay: {
-      delay: '3000',
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-      reverseDirection: false,
-    },
+    autoplay: false,
     navigation: false,
     pagination: {
       el: el.querySelector('.reviews-single__swiper-pagination'),
       clickable: true,
     },
   };
+
+  const dataAutoplay = el.hasAttribute('data-autoplay')
+    ? +el.getAttribute('data-autoplay') || 5000
+    : false;
+  if (dataAutoplay) {
+    carouselOptions.autoplay = {
+      delay: dataAutoplay,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    };
+  }
 
   carouselEl.swiper = new Swiper(carouselEl, carouselOptions);
 };

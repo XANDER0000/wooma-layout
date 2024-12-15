@@ -1,6 +1,7 @@
 extends ../layouts/main
 
 include ../components/reviews-single/reviews-single
+include ../components/hero-slider/hero-slider
 
 block append data
   -
@@ -9,4 +10,5 @@ block append data
 
 block main
   h1.visually-hidden Главная
+  +hero-slider()
   +reviews-single()

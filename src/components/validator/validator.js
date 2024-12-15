@@ -14,7 +14,9 @@ const addFormValidation = (formEl) => {
     const firstInvalidField = el.querySelector('.is-invalid');
     const isMobile = true; // !matchMedia('(min-width: 80em)').matches;
     if (firstInvalidField && isMobile) {
-      scrollto(firstInvalidField, { duration: 700, offset: 100 });
+      if (!el.closest('.sidebar') && !el.closest('.sidebar-after')) {
+        scrollto(firstInvalidField, { duration: 700, offset: 100 });
+      }
     }
   }
 

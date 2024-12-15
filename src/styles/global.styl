@@ -38,6 +38,8 @@ body
   +desktop()
     custom-scrollbar(10px, transparent, var(--color-dark))
     overflow-y scroll
+    &::-webkit-scrollbar-thumb
+      border-radius 0
 
 :focus:not(:focus-visible)
   outline none

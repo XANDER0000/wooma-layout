@@ -5,7 +5,7 @@ mixin reviews-single()
     const props = initComponent('reviews-single', attributes, []);
 
   .reviews-single&attributes(attributes)
-    .reviews-single__swiper.swiper
+    .reviews-single__swiper.swiper(data-autoplay="6000")
       .reviews-single__wrapper.swiper-wrapper
         article.reviews-single__card.swiper-slide
           .reviews-single__card-heading 
