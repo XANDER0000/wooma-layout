@@ -57,8 +57,8 @@ mixin sidebar-after--2()
     .sidebar-after__heading.sidebar-after__heading--border
       button(type="button" data-sidebar-after-close).sidebar-after__btn-close
       .sidebar-after__heading-tabs 
-        +notifications-meter(icon="cart" count="2" data-target="sidebar-after-cart").target-trigger
-        +notifications-meter(icon="love" count="2" data-target="sidebar-after-whishlist").target-trigger
+        +notifications-meter--button(icon="cart" count="2" data-target="sidebar-after-cart").target-trigger
+        +notifications-meter--button(icon="love" count="2" data-target="sidebar-after-whishlist").target-trigger
     .sidebar-after__content 
       .sidebar-after__content-action.target#sidebar-after-cart
         +offer-time()

@@ -12,3 +12,17 @@ mixin notifications-meter()
         span.notifications-meter__label!= props.label
     - if (props.count)
       span.notifications-meter__count!= props.count
+
+mixin notifications-meter--button()
+  -
+    const props = initComponent('notifications-meter', attributes, ['count', 'icon']);
+
+    props.icon = props.icon || 'bell';
+    props.href = props.href || '#';
+
+  button(type="button").notifications-meter.notifications-meter--button&attributes(attributes)
+    +icon(props.icon).notifications-meter__icon
+    - if (props.label)
+      span.notifications-meter__label!= props.label
+    - if (props.count)
+      span.notifications-meter__count!= props.count
