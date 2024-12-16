@@ -28,6 +28,7 @@ const handleCollapseToggleClick = (event) => {
         if (collapse.classList.contains('show')) {
           collapse.classList.add('is-collapsing');
           toggle.setAttribute('aria-expanded', false);
+          if (toggle.closest('.collapse-item')) toggle.closest('.collapse-item').classList.remove('active');
           slideUp(collapse, speed, () => {
             collapse.classList.remove('is-collapsing');
             collapse.classList.remove('show');
@@ -40,6 +41,7 @@ const handleCollapseToggleClick = (event) => {
           }
           collapse.classList.add('is-collapsing');
           toggle.setAttribute('aria-expanded', true);
+          if (toggle.closest('.collapse-item')) toggle.closest('.collapse-item').classList.add('active');
           slideDown(collapse, speed, () => {
             collapse.classList.remove('is-collapsing');
             collapse.classList.add('show');
