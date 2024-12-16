@@ -1,6 +1,6 @@
 extends ../layouts/main
 
-include ../components/shop/shop
+include ../components/faq-section/faq-section
 
 block append data
   -
@@ -9,3 +9,4 @@ block append data
 
 block main
   h1.visually-hidden FAQ
+  +faq-section()
