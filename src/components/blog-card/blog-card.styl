@@ -1,0 +1,66 @@
+.blog-card
+  display flex
+  flex-direction column
+  gap 20px
+
+  &__img
+    position relative
+    display block
+    padding-top 75%
+    overflow hidden
+    a&:hover
+    a&:focus-visible
+      img
+        opacity .8
+    img
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0
+      width 100%
+      min-height 100%
+      object-fit cover
+      transition all .2s ease
+
+  &__content
+    display flex
+    flex-direction column
+    gap 10px
+
+  &__tags
+    display flex
+    flex-wrap wrap
+    gap 5px
+
+  &__tag
+    color var(--color-dark-soft)
+    font-weight 500
+    font-size rem(12px)
+    text-transform uppercase
+    transition all .2s ease
+    a&:hover
+    a&:focus-visible
+      color var(--color-dark)
+      text-decoration none
+
+  &__title
+    margin 0
+    font-size rem(18px)
+    +above(48em)
+      font-size rem(20px)
+    a
+      color var(--color-dark)
+      &:hover
+      &:focus-visible
+        color var(--color-hover)
+        text-decoration none
+
+  &__text
+    display -webkit-box
+    margin-bottom 0
+    overflow hidden
+    -webkit-line-clamp 4
+    -webkit-box-orient vertical
+    line-clamp 4
+

@@ -1,0 +1,14 @@
+mixin blog-card()
+  -
+    const props = initComponent('blog-card', attributes, ['img', 'title', 'text']);
+
+  article.blog-card&attributes(attributes)
+    a(href="#").blog-card__img 
+      img(src=props.img alt=props.title)
+    .blog-card__content 
+      .blog-card__tags 
+        a(href="#" title="Nine Nine").blog-card__tag Nine Nine
+        a(href="#" title="December 15, 2021").blog-card__tag December 15, 2021
+      h2.blog-card__title
+        a(href="#")!= props.title
+      p.blog-card__text!= props.text
