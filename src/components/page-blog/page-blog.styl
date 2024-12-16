@@ -1,0 +1,54 @@
+.page-blog
+  padding rem(60px) rem(20px)
+  +desktop()
+    padding rem(80px) rem(50px)
+
+  &__main
+    display flex
+    flex-direction column
+    gap 60px
+    align-items flex-start
+    +above(48em)
+      flex-direction row
+
+  &__grid
+    display grid
+    gap 24px
+    +desktop()
+      grid-template-columns repeat(2, 1fr)
+
+  &__sidebar
+    display flex
+    flex 0 0 auto
+    flex-direction column
+    gap 40px
+    width 100%
+    +above(48em)
+      width 35%
+    +desktop()
+      width 25%
+    &-block
+      display flex
+      flex-direction column
+      gap 20px
+    &-title
+      margin 0
+      font-size rem(18px)
+    &-items
+      display flex
+      flex-direction column
+      gap 10px
+
+    &-item
+      display flex
+      gap 5px
+      align-items center
+      justify-content space-between
+      color var(--color-dark)
+      span
+        color var(--color-text)
+      a&:hover
+      a&:focus-visible
+        color var(--color-hover)
+        text-decoration none
+

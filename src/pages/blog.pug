@@ -1,6 +1,7 @@
 extends ../layouts/main
 
-include ../components/shop/shop
+include ../components/hero-banner/hero-banner
+include ../components/page-blog/page-blog
 
 block append data
   -
@@ -9,3 +10,5 @@ block append data
 
 block main
   h1.visually-hidden Блог
+  +hero-banner(title='Наш блог' breadcrumbs=[{label: "Главная", link: "home.html"},{label: "Блог"}])
+  +page-blog()

@@ -1,0 +1,61 @@
+include ../blog-card/blog-card
+include ../suggestion-item/suggestion-item
+include ../form/form
+include ../field/field
+include ../input/input
+include ../button/button
+include ../loading-icon/loading-icon
+
+mixin page-blog()
+  -
+    const props = initComponent('page-blog', attributes, []);
+
+    const cards = [
+      { img: "assets/img/banners/banner-hero-01.jpg", title: "Черный тренд: выбирайте новые модели", text: "Никогда не думайте о том, чтобы сдаться. Победители никогда не сдаются, а слабаки никогда не побеждают. Вычеркните все негативные слова из своего ментального словаря и сосредоточьтесь на решениях с максимальной убежденностью… Никогда не думайте о том, чтобы сдаться. Победители никогда не сдаются, а слабаки никогда не побеждают."},
+      { img: "assets/img/banners/banner-hero-03.jpg", title: "Черный тренд: выбирайте новые модели", text: "Никогда не думайте о том, чтобы сдаться. Победители никогда не сдаются, а слабаки никогда не побеждают. Вычеркните все негативные слова из своего ментального словаря и сосредоточьтесь на решениях с максимальной убежденностью… Никогда не думайте о том, чтобы сдаться. Победители никогда не сдаются, а слабаки никогда не побеждают."},
+      { img: "assets/img/banners/banner-hero-02.jpg", title: "Черный тренд: выбирайте новые модели", text: "Никогда не думайте о том, чтобы сдаться. Победители никогда не сдаются, а слабаки никогда не побеждают. Вычеркните все негативные слова из своего ментального словаря и сосредоточьтесь на решениях с максимальной убежденностью… Никогда не думайте о том, чтобы сдаться. Победители никогда не сдаются, а слабаки никогда не побеждают."},
+      { img: "assets/img/banners/banner-hero-01.jpg", title: "Черный тренд: выбирайте новые модели", text: "Никогда не думайте о том, чтобы сдаться. Победители никогда не сдаются, а слабаки никогда не побеждают. Вычеркните все негативные слова из своего ментального словаря и сосредоточьтесь на решениях с максимальной убежденностью… Никогда не думайте о том, чтобы сдаться. Победители никогда не сдаются, а слабаки никогда не побеждают."},
+    ]
+
+  .page-blog&attributes(attributes)
+    .container 
+      .page-blog__main
+        .page-blog__grid 
+          each item in cards
+            +blog-card(img=item.img title!=item.title text!=item.text)
+        .page-blog__sidebar
+          .page-blog__sidebar-block
+            h3.page-blog__sidebar-title Категории
+            .page-blog__sidebar-items 
+              a(href="#").page-blog__sidebar-item Мода
+                span 2
+              a(href="#").page-blog__sidebar-item Новости
+                span 5
+              a(href="#").page-blog__sidebar-item Футболки
+                span 3
+          .page-blog__sidebar-block
+            h3.page-blog__sidebar-title Продукты
+            .page-blog__sidebar-items 
+              +suggestion-item--cart(mod="medium" img="assets/img/products/product-name-92-1-60x60.jpeg" title!="Свитер GUCCI" price-old="280 000 ₽" price-new="230 000 ₽" stars=5 del-hidden)
+              +suggestion-item--cart(mod="medium" img="assets/img/products/product-name-125-60x60.jpeg" title!="Кроссовки ADIDAS" price-new="30 00 ₽ – 40 00 ₽" stars=3 del-hidden)
+          .page-blog__sidebar-block
+            h3.page-blog__sidebar-title Последние посты
+            .page-blog__sidebar-items 
+              a(href="#").page-blog__sidebar-item Черный тренд: выбирайте новые модели
+              a(href="#").page-blog__sidebar-item Давайте расслабимся, прибыли наши банные принадлежности.
+              a(href="#").page-blog__sidebar-item Черный тренд: выбирайте новые модели
+              a(href="#").page-blog__sidebar-item Давайте расслабимся, прибыли наши банные принадлежности.
+          .page-blog__sidebar-block
+            +form(data-validate)#form-page-blog
+              +field(mod="linear" for="form-page-blog-search" label-hidden).form__field
+                +field__control()
+                  +input(type="text" name="search" id="form-page-blog-search" placeholder="Найти товар" required)
+                  +button(mod="small" type="submit" label="Найти").form__submit
+                  +loading-icon--spinner().form__field-loading
+          .page-blog__sidebar-block
+            h3.page-blog__sidebar-title Архивы
+            .page-blog__sidebar-items 
+              a(href="#").page-blog__sidebar-item Декабрь 2021
+                span 2
+              a(href="#").page-blog__sidebar-item Декабрь 2022
+                span 5
