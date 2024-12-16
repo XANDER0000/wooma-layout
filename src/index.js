@@ -30,3 +30,4 @@ import './components/carousel/carousel.js';
 import './components/collapse/collapse.js';
 import './components/read-more/read-more.js';
 import './components/hero-slider/hero-slider.js';
+import './components/bg-slider/bg-slider.js';

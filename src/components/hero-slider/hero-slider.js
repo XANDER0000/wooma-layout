@@ -7,7 +7,6 @@ document.querySelectorAll('.hero-slider').forEach((component) => {
 
   const carouselOptions = {
     modules: [Navigation, Autoplay, Pagination],
-    effect: 'fade',
     speed: 1200,
     autoplay: false,
     navigation: false,

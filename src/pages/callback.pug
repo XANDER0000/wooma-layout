@@ -1,11 +1,21 @@
-extends ../layouts/main
+extends ../layouts/callback
 
-include ../components/shop/shop
+include ../components/bg-slider/bg-slider
+include ../components/callback-widget/callback-widget
 
 block append data
   -
     page.name = "callback";
     page.title = "Обратная связь";
 
+    const slides = [
+      { img: "assets/img/banners/banner-callback-01.jpg" },
+      { img: "assets/img/banners/banner-callback-02.jpg" },
+      { img: "assets/img/banners/banner-callback-03.jpg" },
+    ]
+
 block main
   h1.visually-hidden Обратная связь
+  .page__callback
+    +callback-widget()
+    +bg-slider(items=slides)
