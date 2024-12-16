@@ -4,3 +4,9 @@ mixin loading-icon()
 
   .loading-icon&attributes(attributes)
     span.loading-icon__dot
+
+mixin loading-icon--spinner()
+  -
+    const props = initComponent('loading-icon', attributes, []);
+
+  .loading-icon.loading-icon--spinner&attributes(attributes)

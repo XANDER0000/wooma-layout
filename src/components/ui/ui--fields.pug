@@ -3,7 +3,7 @@ include ./ui
 include ../button/button
 include ../form/form
 include ../field/field
-//- include ../inputbox/inputbox
+include ../inputbox/inputbox
 include ../input/input
 include ../textarea/textarea
 include ../select/select
@@ -57,8 +57,8 @@ mixin ui--fields()
               +field__control()
                 +input(type="email" name="email" id="fields-email" placeholder="login@domain.ru")
 
-            +field(for="fields-password" label="Пароль" hint!="Пароль с&nbsp;перключателем видимости" required)
-              +field__control()
+            +field(label="Пароль" for="fields-password" hint!="Пароль с&nbsp;перключателем видимости")
+              +inputbox(mod="password" btn-view)
                 +input(type="password" name="password" id="fields-password" placeholder="Пароль" required)
 
       +ui__subsection(title="textarea")#textarea
@@ -106,12 +106,12 @@ mixin ui--fields()
             +field(label="URL" for="fields-url" hint="Валидация URL" required)
               +field__control()
                 +input(type="url" name="url" id="fields-url" placeholder="https://example.com")
-            +field(label="UUID" for="fields-uuid" hint="Пример валидного uuid: C73BCDCC-2669-4Bf6-81d3-E4AE73FB11FD" required)
-              // Источник pattern(regexp) для uuid: https://ihateregex.io/expr/uuid/
-              // ^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$
-              // Пример валидного uuid: C73BCDCC-2669-4Bf6-81d3-E4AE73FB11FD
-              +field__control()
-                +input(type="text" name="uuid" id="fields-uuid" pattern="\^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")
+            //- +field(label="UUID" for="fields-uuid" hint="Пример валидного uuid: C73BCDCC-2669-4Bf6-81d3-E4AE73FB11FD" required)
+            //-   // Источник pattern(regexp) для uuid: https://ihateregex.io/expr/uuid/
+            //-   // ^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$
+            //-   // Пример валидного uuid: C73BCDCC-2669-4Bf6-81d3-E4AE73FB11FD
+            //-   +field__control()
+            //-     +input(type="text" name="uuid" id="fields-uuid" pattern="\^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$")
         
     +ui__subsection(title="custom-select")#custom-select
       .ui__box

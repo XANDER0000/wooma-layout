@@ -84,8 +84,9 @@ mixin ui--misc()
 
     +ui__subsection(title="loading-icon")#loading-icon
       +ui__box()
-        +ui__sequence()
-          +loading-icon().loading
+        +ui__sequence(mod="2")
+          +loading-icon(style="justify-content: flex-start").loading
+          +loading-icon--spinner().loading
 
     +ui__subsection(title="goal-progress")#goal-progress
       +ui__box()
