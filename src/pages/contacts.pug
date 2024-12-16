@@ -1,6 +1,6 @@
 extends ../layouts/main
 
-include ../components/shop/shop
+include ../components/contacts-section/contacts-section
 
 block append data
   -
@@ -9,3 +9,4 @@ block append data
 
 block main
   h1.visually-hidden Контакты
+  +contacts-section()

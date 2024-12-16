@@ -1,0 +1,52 @@
+.contacts-section
+  display grid
+  grid-template-columns 100%
+  gap 35px
+  padding rem(60px) rem(20px)
+  +desktop()
+    grid-template-columns repeat(2, 1fr)
+    padding rem(80px) rem(50px)
+  +above(85em)
+    gap 55px
+
+  &__map
+    min-height 350px
+
+  &__main
+    display flex
+    flex-direction column
+    gap 30px
+
+  &__cols
+    display grid
+    grid-template-columns 100%
+    gap 25px
+    +above(48em)
+      grid-template-columns repeat(2, 1fr)
+    +above(85em)
+      gap 30px
+
+  &__col
+    display flex
+    flex-direction column
+    gap 25px
+    &-title
+      margin 0
+      font-weight 700
+      font-size rem(24px)
+      +above(85em)
+        font-size rem(26px)
+    &-content
+      display flex
+      flex-direction column
+      gap 5px
+    &-address
+      display flex
+      flex-wrap wrap
+      margin 0
+      color var(--color-dark)
+      font-size rem(15px)
+      font-style normal
+      column-gap 5px
+    &-text
+      margin 0

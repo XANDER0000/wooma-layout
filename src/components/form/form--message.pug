@@ -1,0 +1,25 @@
+include ./form
+include ../field/field
+include ../input/input
+include ../button/button
+include ../textarea/textarea
+include ../select/select
+
+mixin form--message()
+  +form(mod="message" data-validate)&attributes(attributes)#form-message
+    .form__fields
+      +field(label="Ваше имя" for="form-message-name" label-hidden).form__field
+        +field__control()
+          +input(type="text" name="name" id="form-message-name" placeholder="Ваше имя" required)
+      +field(label="Ваша почта" for="form-message-email" label-hidden).form__field
+        +field__control()
+          +input(type="email" name="email" id="form-message-email" placeholder="Ваша почта" required)
+      +field(label="Тип сообщения" for="form-message-type" label-hidden).form__field
+        +field__control()
+          +select(name="type" id="form-message-type" options=optionsMessageType selected="1" data-custom-select="true")
+      +field(for="form-message-description" label="Ваше сообщение" label-hidden)
+        +field__control()
+          +textarea(name="description" id="form-message-description" placeholder="Ваше сообщение" required)
+    .form__tools
+      .form__tools-btns
+        +button(mod="medium" type="submit" label!="Отправить").form__submit

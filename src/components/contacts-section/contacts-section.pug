@@ -1,0 +1,29 @@
+include ../form/form--message
+
+mixin contacts-section()
+  -
+    const props = initComponent('contacts-section', attributes, []);
+
+  section.contacts-section&attributes(attributes)
+    .contacts-section__map 
+      iframe(src="https://yandex.ru/map-widget/v1/?um=constructor%3A5d6cba3f82e1407de9e53d5e8f23994fe2bbd3714595891a92519746d5a16a9a&amp;source=constructor" width="100%" height="100%" frameborder="0")
+    .contacts-section__main 
+      .contacts-section__cols 
+        .contacts-section__col(itemscope itemtype="https://schema.org/LocalBusiness")
+          h2.contacts-section__col-title Наш выставочный зал
+          .contacts-section__col-content
+            address.contacts-section__col-address(itemprop="address" itemscope itemtype="https://schema.org/PostalAddress")
+              span(itemprop="postalCode") 123100
+              span(itemprop="addressCountry") Россия
+              span(itemprop="addressRegion" style="display: none;") Москва
+              span(itemprop="addressLocality") Москва
+              span(itemprop="streetAddress") Пресненская набережная, дом 10, строение 2
+            a.contacts-section__col-link(href="tel:+79559555555" itemprop="telephone") +7 (955) 955-55-55
+            a.contacts-section__col-link(href="tel:+79559555555" itemprop="telephone") +7 (955) 955-55-55
+        .contacts-section__col(itemscope itemtype="https://schema.org/Organization")
+          h2.contacts-section__col-title Быстрая помощь
+          .contacts-section__col-content
+            p.contacts-section__col-text Вы можете задать все интересующие вас вопросы о наших продуктах
+            a.contacts-section__col-link(href="mailto:wooma@gmail.com" itemprop="email") wooma@gmail.com
+            a.contacts-section__col-link(href="mailto:wooma@gmail.com" itemprop="email") wooma@gmail.com
+      +form--message(data-validate).contacts-section__form
