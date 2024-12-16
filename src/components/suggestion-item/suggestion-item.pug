@@ -1,25 +1,28 @@
 include ../counter/counter
+include ../stars-row/stars-row
 
 mixin suggestion-item()
   -
-    const props = initComponent('suggestion-item', attributes, ['title', 'img', 'price-old', 'price-new']);
+    const props = initComponent('suggestion-item', attributes, ['title', 'img', 'price-old', 'price-new', 'stars']);
 
   a(href="#").suggestion-item&attributes(attributes)
     span.suggestion-item__img
       img(src=props.img alt=props.title)
     span.suggestion-item__content 
       span.suggestion-item__title!= props.title
+      - if (props.stars)
+        +stars-row(mod="small yellow" stars=props.stars hiddenCount).suggestion-item__stars
       span.suggestion-item__price 
         - if (props['price-old'])
           span.suggestion-item__price-old!= props['price-old']
         - if (props['price-new'])
           span.suggestion-item__price-new!= props['price-new']
             - if (props.multiplier)
-              span.span.suggestion-item__price-multiplier!= props.multiplier
+              span.suggestion-item__price-multiplier!= props.multiplier
 
 mixin suggestion-item--cart()
   -
-    const props = initComponent('suggestion-item', attributes, ['title', 'img', 'price-old', 'price-new', 'multiplier', 'showCounter', 'showCartAdd']);
+    const props = initComponent('suggestion-item', attributes, ['title', 'img', 'price-old', 'price-new', 'multiplier', 'showCounter', 'showCartAdd', 'stars', 'del-hidden']);
 
   .suggestion-item.suggestion-item--cart&attributes(attributes)
     a(href="#").suggestion-item__img
@@ -27,6 +30,8 @@ mixin suggestion-item--cart()
     span.suggestion-item__content 
       a(href="#").suggestion-item__content-link
         span.suggestion-item__title!= props.title
+        - if (props.stars)
+          +stars-row(mod="small yellow" stars=props.stars hiddenCount).suggestion-item__stars
         span.suggestion-item__price 
           - if (props['price-old'])
             span.suggestion-item__price-old!= props['price-old']
@@ -38,8 +43,9 @@ mixin suggestion-item--cart()
         +counter().suggestion-item__counter
       - if (props.showCartAdd)
         a(href="#").suggestion-item__cart Добавить в корзину
-    button(type="button").suggestion-item__del 
-      +icon('trash')
+    - if (!props['del-hidden'])
+      button(type="button").suggestion-item__del 
+        +icon('trash')
 
 mixin suggestion-item--short()
   -
