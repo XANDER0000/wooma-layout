@@ -1,0 +1,10 @@
+mixin bg-slider()
+  -
+    const props = initComponent('bg-slider', attributes, ['items']);
+
+  .bg-slider.swiper(data-autoplay="5000")&attributes(attributes)
+    .bg-slider__wrapper.swiper-wrapper
+      - if (Array.isArray(props.items))
+        each item in props.items
+          .bg-slider__slide.bg-slider__slide--filter.swiper-slide 
+            img(src=item.img alt="").bg-slider__slide-bg
