@@ -1,0 +1,45 @@
+.callback-widget
+  position relative
+  z-index 2
+  display flex
+  flex-direction column
+  gap 40px
+  width 100%
+  +above(48em)
+    width 70%
+  +desktop()
+    gap 50px
+    width 38%
+
+  &__content
+    display flex
+    flex-direction column
+    gap 20px
+    align-items center
+    +desktop()
+      gap 30px
+
+  &__logo
+    color var(--color-white)
+    font-size rem(32px)
+    a
+      color var(--color-white)
+      font-size rem(32px)
+
+  &__title
+    margin 0
+    color var(--color-white)
+    font-size 24px
+    +above(32em)
+      font-size 28px
+    +above(48em)
+      font-size rem(32px)
+
+  &__text
+    color var(--color-white)
+    font-weight 800
+    font-size rem(10px)
+    text-transform uppercase
+    +above(32em)
+      font-size rem(12px)
+

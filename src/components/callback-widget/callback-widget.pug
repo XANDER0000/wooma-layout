@@ -1,0 +1,14 @@
+include ../logo/logo
+include ../form/form--callback
+
+mixin callback-widget()
+  -
+    const props = initComponent('callback-widget', attributes, []);
+
+  section.callback-widget&attributes(attributes)
+    .callback-widget__content
+      +logo(href="home.html").callback-widget__logo
+      h2.callback-widget__title Мы скоро вернемся
+      .callback-widget__text 
+        p Наша команда работает над чем-то потрясающим
+    +form--callback()
