@@ -1,6 +1,12 @@
+include ../section-heading/section-heading
+
 mixin faq-section()
   -
     const props = initComponent('faq-section', attributes, []);
 
-  .faq-section&attributes(attributes)
-    block
+  section.faq-section&attributes(attributes)
+    +section-heading(title="FAQ" text!="Ответы на все популярные вопросы")
+    .faq-section__grid
+      .faq-section__col 
+        h3.faq-section__col-title Возврат средств
+        .faq-section__collapses 
