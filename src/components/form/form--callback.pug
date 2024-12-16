@@ -1,0 +1,16 @@
+include ./form
+include ../field/field
+include ../input/input
+include ../button/button
+include ../inputbox/inputbox
+include ../checkbox/checkbox
+include ../loading-icon/loading-icon
+
+mixin form--callback()
+  +form(mod="callback" data-validate)&attributes(attributes).form__callback#form-callback
+    .form__fields
+      +field(mod="linear" for="form-callback-email" label-hidden).form__field
+        +field__control()
+          +input(type="email" name="callback" id="form-callback-email" placeholder="Ваша почта" required)
+          +button(mod="small" type="submit" label="Отправить").form__submit
+          +loading-icon--spinner().form__field-loading
