@@ -1,0 +1,10 @@
+include ../section-heading/section-heading
+
+mixin featured-section()
+  -
+    const props = initComponent('featured-section', attributes, []);
+
+  section.featured-section&attributes(attributes)
+    .container
+      .featured-section__wrapper
+        +section-heading(mod="linear" title!="Рекомендуемые товары")
