@@ -21,6 +21,7 @@ mixin categories()
     ]
 
   .categories&attributes(attributes)
-    +carousel(mod="categories" data-autoplay="5000").categories__carousel
-      each item in categories   
-        +category-item(mod="circle slide" img=item.img count=item.count title=item.title).categories__slide.swiper-slide
+    .container
+      +carousel(mod="categories" data-autoplay="5000").categories__carousel
+        each item in categories   
+          +category-item(mod="circle slide" img=item.img count=item.count title=item.title).categories__slide.swiper-slide

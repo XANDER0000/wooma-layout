@@ -15,8 +15,10 @@ mixin reviews()
     ]
 
   section.reviews&attributes(attributes)
-    +section-heading(mod="linear" title="Отзывы покупаталей" text="Наши рекомендации: Несколько из тысяч довольных отзывов клиентов...")
-    +carousel(mod="reviews" data-autoplay="5000").reviews__carousel
-      each item, num in cards
-        +reviews-card(num=num mod="slide" name!=item.name text!=item.text).carousel__item.swiper-slide
+    .container
+      .reviews__wrapper
+        +section-heading(mod="linear" title="Отзывы покупаталей" text="Наши рекомендации: Несколько из тысяч довольных отзывов клиентов...")
+        +carousel(mod="reviews" data-autoplay="5000").reviews__carousel
+          each item, num in cards
+            +reviews-card(num=num mod="slide" name!=item.name text!=item.text).carousel__item.swiper-slide
   

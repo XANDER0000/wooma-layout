@@ -4,6 +4,7 @@ include ../components/reviews-single/reviews-single
 include ../components/hero-slider/hero-slider
 include ../components/reviews/reviews
 include ../components/categories/categories
+include ../components/featured-section/featured-section
 
 block append data
   -
@@ -14,5 +15,6 @@ block main
   h1.visually-hidden Главная
   +hero-slider()
   +categories()
+  +featured-section()
   +reviews()
   +reviews-single()
