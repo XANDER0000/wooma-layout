@@ -56,6 +56,27 @@ const initCarousel = (component) => {
     };
   }
 
+  if (component.classList.contains('carousel--categories')) {
+    carouselOptions.spaceBetween = 20;
+    carouselOptions.slidesPerView = 3;
+    carouselOptions.loop = true;
+    carouselOptions.breakpoints = {
+      600: {
+        spaceBetween: 30,
+        slidesPerView: 5,
+      },
+      900: {
+        slidesPerView: 6,
+      },
+      1200: {
+        slidesPerView: 7,
+      },
+      1600: {
+        slidesPerView: 8,
+      },
+    };
+  }
+
   component.swiper = new Swiper(component, carouselOptions);
 };
 
