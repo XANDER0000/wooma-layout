@@ -1,7 +1,7 @@
 {
-  "name": "sir-lk-university-layout",
+  "name": "vavu",
   "version": "1.1.0",
-  "description": "Интернет магазин 'WOOMA'",
+  "description": "Интернет магазин 'VAVU'",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -55,6 +55,7 @@
     "gulp-svg-sprite": "^2.0.3",
     "gulp-svgmin": "^4.1.0",
     "gulp-vinyl-zip": "^2.5.0",
+    "gulp-zip": "^6.0.0",
     "gulp-watch": "^5.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",

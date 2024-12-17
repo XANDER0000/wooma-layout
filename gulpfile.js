@@ -25,7 +25,7 @@ import posthtmlInlineSvg from 'posthtml-inline-svg';
 
 import svgSprite from 'gulp-svg-sprite';
 import svgmin from 'gulp-svgmin';
-import gulpZip from 'gulp-vinyl-zip';
+import gulpZip from 'gulp-zip';
 
 import webpackStream from 'webpack-stream';
 import { setup as emittySetup } from '@zoxon/emitty';
@@ -193,6 +193,7 @@ const publicAssets = () => gulp.src(['src/public/**/*.*'], { encoding: false })
   .pipe(gulp.dest('dist/'));
 
 // ZIP
+// ZIP
 const require = createRequire(import.meta.url);
 const projectName = require('./package.json').name;
 
@@ -210,27 +211,37 @@ const getDateTime = () => {
 
 const zipDist = () => {
   const datetime = getDateTime();
-  const zipName = `${projectName}_${datetime}.zip`;
-  return gulp.src('dist/**/*', { encoding: false })
+  const zipName = `${projectName}_${datetime}_Prod.zip`;
+  return gulp.src('dist/**/*')
     .pipe(plumber())
-    .pipe(gulpZip.zip(zipName))
+    .pipe(gulpZip(zipName))
     .pipe(gulp.dest('zip'));
 };
 
 const zipSrc = () => {
   const datetime = getDateTime();
-  const zipName = `${projectName}_src_${datetime}.zip`;
-  return gulp.src(['**/*', '**/.*', '!desktop.ini', '!yarn.lock', '!*.log',
-    '!_project/**/*', '!_project',
-    '!zip/**/*', '!zip',
-    '!node_modules/**/*', '!node_modules',
-    '!.git'], { encoding: false })
+  const zipName = `${projectName}_${datetime}_Dev.zip`;
+
+  return gulp.src([
+    '**/*',
+    '**/.*',
+    '!node_modules/**', '!node_modules',
+    '!dist/**', '!dist',
+    '!.git/**', '!.git',
+    '!*.log',
+    '!yarn.lock',
+    '!zip/**', '!zip',
+    '!desktop.ini',
+  ], { dot: true })
     .pipe(plumber())
-    .pipe(gulpZip.zip(zipName))
+    .pipe(gulpZip(zipName))
     .pipe(gulp.dest('zip'));
 };
 
 export const zip = gulp.series(zipSrc, zipDist);
+
+export const zipDev = zipSrc;
+export const zipProd = zipDist;
 
 // Server
 const server = () => {
