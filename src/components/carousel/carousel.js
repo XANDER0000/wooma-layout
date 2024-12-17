@@ -74,6 +74,9 @@ const initCarousel = (component) => {
       1600: {
         slidesPerView: 8,
       },
+      1890: {
+        slidesPerView: 10,
+      },
     };
   }
 
