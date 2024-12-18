@@ -1,0 +1,78 @@
+.product-banner
+  position relative
+  display flex
+  flex-direction column
+  gap 30px
+  align-items flex-end
+  justify-content center
+  min-height 450px
+  padding 30px
+  +desktop()
+    min-height 600px
+
+  &__bg
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    background-color var(--color-gray-soft)
+    // &::after
+    //   position absolute
+    //   top 0
+    //   left 0
+    //   width 100%
+    //   height 100%
+    //   background-color var(--color-dark)
+    //   opacity .1
+    //   transition all .3s ease
+    //   content ''
+    img
+      display none
+      width 100%
+      height 100%
+      object-fit cover
+      object-position center
+      vertical-align top
+      +above(48em)
+        display block
+
+  &__content
+    position relative
+    display flex
+    flex 1 0 auto
+    flex-direction column
+    gap 30px
+    align-items flex-end
+    justify-content center
+    text-align right
+    +above(48em)
+      align-items flex-start
+      max-width 40%
+      text-align right
+      text-align left
+
+
+  &__subtitle
+  &__title
+    margin-bottom 0
+
+  &__subtitle
+    font-weight 800
+    font-size rem(12px)
+    letter-spacing 2px
+    text-transform uppercase
+
+  &__title
+    font-weight 500
+    font-size rem(28px)
+    +above(48em)
+      font-size rem(32px)
+
+  &__text
+    &:last-child
+      margin-bottom 0
+    p
+      &:last-child
+        margin-bottom 0
+

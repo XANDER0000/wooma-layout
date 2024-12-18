@@ -1,0 +1,14 @@
+include ../button/button
+
+mixin product-banner()
+  -
+    const props = initComponent('product-banner', attributes, ['img', 'subtitle', 'title', 'text']);
+
+  article.product-banner&attributes(attributes)
+    .product-banner__bg 
+      img(src=props.img alt="")
+    .product-banner__content 
+      h3.product-banner__subtitle!= props.subtitle
+      h2.product-banner__title!= props.title
+      .product-banner__text!= props.text
+      +button(mod="link" href="catalog.html" label!="Купить одежду").product-banner__link
