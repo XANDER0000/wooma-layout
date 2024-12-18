@@ -1,0 +1,17 @@
+include ../words-slider/words-slider
+include ../button/button
+
+mixin parallax-banner()
+  -
+    const props = initComponent('parallax-banner', attributes, ['img', 'label', 'title', 'text']);
+
+    const words = [ 'Кожаные рюкзаки', 'Кожаная обувь', 'Кожаные куртки' ]
+
+  section.parallax-banner(style=`background-image: url(${props.img})`)&attributes(attributes)
+    .container
+      .parallax-banner__content 
+        span.parallax-banner__label!= props.label
+        h2.parallax-banner__title!= props.title
+          +words-slider(items=words)
+        .parallax-banner__text!= props.text
+        +button(mod="large outline-white" href="catalog.html" label!="Посмотреть все кожаные изделия")
