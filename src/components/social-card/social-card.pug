@@ -1,6 +1,9 @@
 mixin social-card()
   -
-    const props = initComponent('social-card', attributes, []);
+    const props = initComponent('social-card', attributes, ['img']);
 
   .social-card&attributes(attributes)
-    block
+    a(href="#").social-card__link
+      img(src="assets/img/icons/insta.svg" alt="").social-card__icon
+      img(src=props.img alt="").social-card__bg
+      span.social-card__text @vavu
