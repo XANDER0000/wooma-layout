@@ -6,6 +6,7 @@ include ../components/reviews/reviews
 include ../components/categories/categories
 include ../components/featured-section/featured-section
 include ../components/parallax-banner/parallax-banner
+include ../components/insta-section/insta-section
 
 block append data
   -
@@ -20,3 +21,4 @@ block main
   +reviews()
   +parallax-banner(img="assets/img/banners/banner-parallax.jpg" label!="Новый сезон" title!="Назад в прошлое:" text!="Вы можете многое скрыть за театральностью, а мне больше не нужно этого делать. Мои отношения с продюсерами или фотографами — это отношения, на которые ушли годы.")
   +reviews-single()
+  +insta-section()
