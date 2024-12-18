@@ -1,2 +1,37 @@
 .featured-section
-  display block
+  padding rem(60px) rem(20px)
+  +desktop()
+    padding rem(80px) rem(50px)
+
+  &__wrapper
+    display flex
+    flex-direction column
+    gap 30px
+    +desktop()
+      gap 60px
+
+  &__products
+    display grid
+    grid-template-columns repeat(calc(1 + 1), 1fr)
+    gap 20px
+    &-item
+      .product-card__img
+        flex 1 0 auto
+    +above(48em)
+      grid-template-columns repeat(calc(2 + 1), 1fr)
+    +above(56em)
+      grid-template-columns repeat(calc(3 + 1), 1fr)
+    +desktop()
+      grid-template-columns repeat(calc(1 + 1), 1fr)
+      &-item
+        .product-card__img
+          max-height unset
+        &:first-child
+          grid-row span 2
+          grid-column span 2
+    +above(85em)
+      grid-template-columns repeat(calc(4 + 1), 1fr)
+      &-item
+        &:first-child
+          .product-card__img
+            height calc(100% - 60px)

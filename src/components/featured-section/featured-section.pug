@@ -1,10 +1,22 @@
 include ../section-heading/section-heading
+include ../product-card/product-card
 
 mixin featured-section()
   -
     const props = initComponent('featured-section', attributes, []);
 
+    const cards = [
+      { img: "assets/img/banners/banner-hero-03.jpg", title: "Свитер GUCCI", hint: "Распродажа", discount: "-15%", priceNew: '230 000', priceOld: '290 000', stars: 3, addCart: true },
+      { img: "assets/img/products/product-name-92-1.jpeg", title: "Свитер GUCCI", hint: "Распродажа", discount: "-15%", priceNew: '230 000', priceOld: '290 000', stars: 5 },
+      { img: "assets/img/products/product-name-92-1.jpeg", title: "Свитер GUCCI", hint: "Распродажа", discount: "-15%", priceNew: '230 000', priceOld: '290 000', stars: 1 },
+      { img: "assets/img/banners/banner-callback-03.jpg", title: "Свитер GUCCI", priceNew: '230 000' },
+      { img: "assets/img/products/product-name-125-450x450.jpeg", title: "Кроссовки AIDAS", hint: "Распродажа", discount: "-25%", priceNew: '530 000', addLink: true },
+    ]
+
   section.featured-section&attributes(attributes)
     .container
       .featured-section__wrapper
         +section-heading(mod="linear" title!="Рекомендуемые товары")
+        .featured-section__products 
+          each card in cards 
+            +product-card(img=card.img title=card.title hint=card.hint discount=card.discount priceNew=card.priceNew priceOld=card.priceOld stars=card.stars addCart=card.addCart addLink=card.addLink).featured-section__products-item
