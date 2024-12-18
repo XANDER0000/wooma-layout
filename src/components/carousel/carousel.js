@@ -80,6 +80,37 @@ const initCarousel = (component) => {
     };
   }
 
+  if (component.classList.contains('carousel--insta')) {
+    carouselOptions.spaceBetween = 20;
+    carouselOptions.slidesPerView = 1;
+    carouselOptions.loop = true;
+    const btnPrev = component.querySelector('.carousel__navigation-prev');
+    const btnNext = component.querySelector('.carousel__navigation-next');
+    if (btnPrev && btnNext) {
+      carouselOptions.navigation = {
+        prevEl: btnPrev,
+        nextEl: btnNext,
+      };
+    }
+    carouselOptions.breakpoints = {
+      540: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      1100: {
+        slidesPerView: 4,
+      },
+      1300: {
+        slidesPerView: 5,
+      },
+      1600: {
+        slidesPerView: 7,
+      },
+    };
+  }
+
   component.swiper = new Swiper(component, carouselOptions);
 };
 
