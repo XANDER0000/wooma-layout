@@ -1,6 +1,7 @@
 include ../section-heading/section-heading
 include ../product-card/product-card
 include ../product-widget/product-widget
+include ../product-banner/product-banner
 
 mixin featured-section()
   -
@@ -30,3 +31,5 @@ mixin featured-section()
         .featured-section__widgets
           each widget in widgets 
             +product-widget(img=widget.img title=widget.title href=widget.href).featured-section__widgets-item
+        .featured-section__banner
+          +product-banner(img="assets/img/banners/banner-product-01.png" subtitle!="Выгодные предложения недели" title!="Зимние разноцветные женские рубашки <u>лесоруба</u>" text!="<p>Мода заключается в том, чтобы одеваться в соответствии с модой. Стиль — это прежде всего умение оставаться самим собой. Дизайн — это постоянная задача найти баланс между комфортом и роскошью, практичностью и желанностью.</p>").featured-section__banner-item
