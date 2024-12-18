@@ -1,0 +1,8 @@
+mixin words-slider()
+  -
+    const props = initComponent('words-slider', attributes, ['items']);
+    
+  span.words-slider(data-autoplay="2000")&attributes(attributes)
+    - if (Array.isArray(props.items))
+      each item in props.items
+        span.words-slider__item!= item

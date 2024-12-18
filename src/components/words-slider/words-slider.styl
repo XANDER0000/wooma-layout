@@ -1,0 +1,20 @@
+.words-slider
+  position relative
+  display inline-block
+
+  &__item
+    position absolute
+    bottom 0
+    left 0
+    display inline-block
+    white-space nowrap
+    transition all .6s linear
+    &.is-hidden
+      top .2em
+      opacity 0
+      animation slideTextOut .6s
+    &.is-visible
+      top 0
+      opacity 1
+      animation slideTextIn .6s
+
