@@ -35,3 +35,19 @@
         &:first-child
           .product-card__img
             height calc(100% - 60px)
+
+  &__widgets
+    display grid
+    grid-template-columns 100%
+    gap 20px
+    &-item
+      min-height 345px
+    +above(48em)
+      grid-template-columns repeat(calc(3 + 1), 1fr)
+      &-item
+        min-height 245px
+        &:not(&:first-child)
+          grid-column span 2
+        &:first-child
+          grid-row span 2
+          grid-column span 2

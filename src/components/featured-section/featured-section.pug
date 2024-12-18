@@ -1,5 +1,6 @@
 include ../section-heading/section-heading
 include ../product-card/product-card
+include ../product-widget/product-widget
 
 mixin featured-section()
   -
@@ -13,6 +14,12 @@ mixin featured-section()
       { img: "assets/img/products/product-name-125-450x450.jpeg", title: "Кроссовки AIDAS", hint: "Распродажа", discount: "-25%", priceNew: '530 000', addLink: true },
     ]
 
+    const widgets = [
+      { img: "assets/img/widgets/widget-01.png", title: "Бесплатная Доставка на сумму более 50 Долларов", href: "catalog.html" },
+      { img: "assets/img/products/product-name-92-1.jpeg", title: "Новый подход к зиме", href: "catalog.html" },
+      { img: "assets/img/widgets/widget-02.png", title: "Бесплатная Доставка на сумму более 50 Долларов", href: "catalog.html" },
+    ]
+
   section.featured-section&attributes(attributes)
     .container
       .featured-section__wrapper
@@ -20,3 +27,6 @@ mixin featured-section()
         .featured-section__products 
           each card in cards 
             +product-card(img=card.img title=card.title hint=card.hint discount=card.discount priceNew=card.priceNew priceOld=card.priceOld stars=card.stars addCart=card.addCart addLink=card.addLink).featured-section__products-item
+        .featured-section__widgets
+          each widget in widgets 
+            +product-widget(img=widget.img title=widget.title href=widget.href).featured-section__widgets-item
