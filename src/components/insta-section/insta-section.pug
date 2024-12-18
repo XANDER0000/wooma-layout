@@ -1,6 +1,32 @@
+include ../section-heading/section-heading
+include ../social-card/social-card
+include ../icon/icon
+
 mixin insta-section()
   -
     const props = initComponent('insta-section', attributes, []);
 
-  .insta-section&attributes(attributes)
-    block
+    const cards = [
+      { img: "assets/img/banners/banner-hero-01.jpg" },
+      { img: "assets/img/banners/banner-hero-02.jpg" },
+      { img: "assets/img/banners/banner-hero-03.jpg" },
+      { img: "assets/img/banners/banner-callback-01.jpg" },
+      { img: "assets/img/banners/banner-callback-02.jpg" },
+      { img: "assets/img/banners/banner-callback-03.jpg" },
+      { img: "assets/img/banners/banner-callback-01.jpg" },
+      { img: "assets/img/banners/banner-01.png" },
+    ]
+
+  section.insta-section&attributes(attributes)
+    .container
+      .insta-section__wrapper
+        +section-heading(title="#Vavu" text!='Тег <a href="https://www.instagram.com/vavu/">@vavu</a> наш главный Istragram аккаунт')
+        .carousel.carousel--insta.swiper.insta-section__carousel
+          .carousel__items.swiper-wrapper
+            each item in cards
+              +social-card(img=item.img).insta-section__slide.swiper-slide
+          .insta-section__navigation.carousel__navigation
+            .insta-section__prev.carousel__navigation-prev
+              +icon('chevron-left')
+            .insta-section__next.carousel__navigation-next
+              +icon('chevron-right')

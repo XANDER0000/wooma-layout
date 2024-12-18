@@ -1,2 +1,46 @@
 .insta-section
-  display block
+  padding rem(60px) rem(20px)
+  +desktop()
+    padding rem(80px) rem(50px)
+
+  &__wrapper
+    display flex
+    flex-direction column
+    gap 30px
+
+  &__carousel
+    position relative
+    width 100%
+
+  &__navigation
+    position absolute
+    top 50%
+    left 10px
+    z-index 2
+    display flex
+    justify-content space-between
+    width calc(100% - 20px)
+    transform translateY(-50%)
+    +above(52em)
+      display none
+
+  &__prev
+  &__next
+    display flex
+    align-items center
+    justify-content center
+    size 50px
+    background-color #f8f9fa1a
+    border 1px solid #e2e2e21a
+    border-radius 50%
+    cursor pointer
+    transition all .2s ease
+    &:hover
+    &:focus-visible
+      background-color var(--color-white)
+      .icon
+        fill var(--color-dark)
+    .icon
+      size 25px
+      transition all .2s ease
+      fill var(--color-white)
