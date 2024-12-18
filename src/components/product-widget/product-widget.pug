@@ -1,0 +1,11 @@
+mixin product-widget()
+  -
+    const props = initComponent('product-widget', attributes, ['img', 'title', 'href']);
+
+  article.product-widget&attributes(attributes)
+    a(href=props.href).product-widget__link
+    .product-widget__bg 
+      img(src=props.img alt=props.title)
+    .product-widget__content 
+      h2.product-widget__title!= props.title
+      span.product-widget__hint Смотреть больше товаров
