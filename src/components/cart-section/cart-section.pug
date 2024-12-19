@@ -1,6 +1,52 @@
+include ../form/form
+include ../product-row/product-row
+include ../field/field
+include ../input/input
+include ../button/button
+include ../collapse/collapse
+include ../select/select
+
 mixin cart-section()
   -
     const props = initComponent('cart-section', attributes, []);
 
   .cart-section&attributes(attributes)
-    block
+    .container 
+      .cart-section__wrapper 
+        +form().cart-section__form#form-cart
+          .cart-section__rows 
+            +product-row(img="assets/img/widgets/widget-01.png" title="Свитер GUCCI").cart-section__row
+          .cart-section__form-coupon
+            +field(for="form-cart-coupon" label="Купон" label-hidden)
+              +field__control()
+                +input(type="text" name="form-cart-coupon" id="form-cart-coupon" placeholder="Введите купон")
+            +button(type="submit" label="Подтвердить купон")
+        article.cart-section__total 
+          h3.cart-section__total-title Корзина
+          .cart-section__total-heading 
+            span.cart-section__total-heading-title Промежуточная цена 
+            span.cart-section__total-heading-sum 230 00 ₽ 
+          .cart-section__total-content  
+            .cart-section__total-content-row 
+              span Доставка
+            .cart-section__total-content-row 
+              span Фиксированная ставка 
+              span 30 00 ₽ 
+            .cart-section__total-content-row 
+              span Доставка в Москву
+            button(type="button" data-collapse="#card-address" aria-expanded="false" aria-controls="card-address").cart-section__total-toggle
+              span Сменить адрес
+            +collapse-collapse(id="card-address")
+              .form__fields
+                +form()#form-cart-address
+                  +field(label="Город" for="form-cart-address-city" label-hidden)
+                    +select(name="cities" id="form-cart-address-city" placeholder="Выберите город" options=optionsCities selected="vladivostok" data-custom-select="true" data-custom-select-search="true" data-custom-select-search-placeholder="Поиск по городам...")
+                  +field(for="form-cart-address-street" label="Улица" label-hidden)
+                    +field__control()
+                      +input(type="text" name="Улица" id="form-cart-address-street" placeholder="Улица")
+                +button(mod="outline" type="submit" label="Изменить")
+          .cart-section__total-heading 
+            span.cart-section__total-heading-title Общая цена
+            span.cart-section__total-heading-sum 260 00 ₽ 
+          +button(href="#" label="Перейти к оформлению")
+  
