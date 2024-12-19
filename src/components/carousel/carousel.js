@@ -111,6 +111,22 @@ const initCarousel = (component) => {
     };
   }
 
+  if (component.classList.contains('carousel--interested')) {
+    carouselOptions.spaceBetween = 20;
+    carouselOptions.slidesPerView = 2;
+    carouselOptions.breakpoints = {
+      900: {
+        slidesPerView: 3,
+      },
+      1300: {
+        slidesPerView: 4,
+      },
+      1400: {
+        slidesPerView: 5,
+      },
+    };
+  }
+
   component.swiper = new Swiper(component, carouselOptions);
 };
 

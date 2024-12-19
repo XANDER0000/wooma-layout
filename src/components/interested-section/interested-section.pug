@@ -1,0 +1,23 @@
+include ../section-heading/section-heading
+include ../carousel/carousel
+include ../product-card/product-card
+
+mixin interested-section()
+  -
+    const props = initComponent('interested-section', attributes, []);
+
+    const cards = [
+      { img: "assets/img/products/product-name-92-1.jpeg", title: "Свитер GUCCI", hint: "Распродажа", discount: "-15%", priceNew: '230 000', priceOld: '290 000', stars: 3, addCart: true },
+      { img: "assets/img/products/product-name-92-1.jpeg", title: "Свитер GUCCI", hint: "Распродажа", discount: "-15%", priceNew: '230 000', priceOld: '290 000', stars: 5 },
+      { img: "assets/img/products/product-name-92-1.jpeg", title: "Свитер GUCCI", hint: "Распродажа", discount: "-15%", priceNew: '230 000', priceOld: '290 000', stars: 1 },
+      { img: "assets/img/products/product-name-92-1.jpeg", title: "Свитер GUCCI", priceNew: '230 000' },
+      { img: "assets/img/products/product-name-125-450x450.jpeg", title: "Кроссовки AIDAS", hint: "Распродажа", discount: "-25%", priceNew: '530 000', addLink: true },
+    ]
+
+  section.interested-section&attributes(attributes)
+    .container 
+      .interested-section__wrapper
+        +section-heading(mod="linear" title="Может быть интересно...")
+        +carousel(mod="interested").interested-section__carouesel
+          each card in cards 
+            +product-card(img=card.img title=card.title hint=card.hint discount=card.discount priceNew=card.priceNew priceOld=card.priceOld stars=card.stars addCart=card.addCart addLink=card.addLink).interested-section__slide.swiper-slide
