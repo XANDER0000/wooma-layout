@@ -1,6 +1,7 @@
 extends ../layouts/main
 
 include ../components/hero-banner/hero-banner
+include ../components/checkout/checkout
 
 block append data
   -
@@ -10,3 +11,4 @@ block append data
 block main
   h1.visually-hidden Заказ
   +hero-banner(title='Ваш заказ' breadcrumbs=[{label: "Главная", link: "home.html"},{label: "Заказ"}])
+  +checkout()
