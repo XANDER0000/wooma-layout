@@ -8,6 +8,6 @@ mixin collapse-item()
     .collapse-item__top
       button(type="button" data-collapse=`#${props['content-id']}` aria-expanded="false" aria-controls=props['content-id']).collapse-item__toggle
         span.collapse-item__icon
-        h3.collapse-item__title!= props.heading
+        span.collapse-item__title!= props.heading
     +collapse-collapse(id=props['content-id'] data-expanded="false").collapse-item__content
       block

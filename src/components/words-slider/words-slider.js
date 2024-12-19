@@ -14,8 +14,10 @@ const initWordsSlider = (items) => {
       slide.classList.remove('is-visible');
       slide.classList.add('is-hidden');
     });
+
     slides[count].classList.remove('is-hidden');
     slides[count].classList.add('is-visible');
+
     item.style.width = `${width}px`;
     item.style.height = `${height}px`;
 

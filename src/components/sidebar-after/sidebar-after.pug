@@ -34,13 +34,13 @@ mixin sidebar-after()
       .sidebar-after__content-action#sidebar-after-account
         .sidebar-after__content-heading 
           +tabs(mod="sidebar-after" items=[
-            { id: "form-login", label: "Вход", icon: "right-circle", class: "tabs__tab--icon-right", active: true },
-            { id: "form-reg", label: "Регистрация", icon: "user" },
+            { id: "sidebar-after-form-login", label: "Вход", icon: "right-circle", class: "tabs__tab--icon-right", active: true },
+            { id: "sidebar-after-form-reg", label: "Регистрация", icon: "user" },
           ])
         .sidebar-after__content-inner   
-          +tabs-panel(mod="slide" id="form-login")
+          +tabs-panel(mod="slide" id="sidebar-after-form-login")
             +form--login()
-          +tabs-panel(mod="slide" id="form-reg")
+          +tabs-panel(mod="slide" id="sidebar-after-form-reg")
             +form--reg()
       .sidebar-after__content-action#sidebar-after-categories
         .sidebar-after__content-heading Все категории продуктов

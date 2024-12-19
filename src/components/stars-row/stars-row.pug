@@ -6,8 +6,8 @@ mixin stars-row()
 
     props.stars = props.stars || 0;
 
-  .stars-row&attributes(attributes)
-    .stars-row__icons
+  span.stars-row&attributes(attributes)
+    span.stars-row__icons
       - for(let i = 0; i < 5; i++)
         - if (i < props.stars)
           +icon("star-filled")

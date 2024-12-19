@@ -27,7 +27,7 @@ mixin suggestion-item--cart()
   .suggestion-item.suggestion-item--cart&attributes(attributes)
     a(href="#").suggestion-item__img
       img(src=props.img alt=props.title)
-    span.suggestion-item__content 
+    .suggestion-item__content 
       a(href="#").suggestion-item__content-link
         span.suggestion-item__title!= props.title
         - if (props.stars)
@@ -42,7 +42,7 @@ mixin suggestion-item--cart()
       - if (props.showCounter)
         +counter().suggestion-item__counter
       - if (props.showCartAdd)
-        a(href="#").suggestion-item__cart Добавить в корзину
+      a(href="#").suggestion-item__cart Добавить в корзину
     - if (!props['del-hidden'])
       button(type="button").suggestion-item__del 
         +icon('trash')
@@ -55,5 +55,5 @@ mixin suggestion-item--short()
     .suggestion-item__img.suggestion-item__img--circle
       img(src=props.img alt=props.title)
     span.suggestion-item__content 
-      .suggestion-item__content-link
+      span.suggestion-item__content-link
         span.suggestion-item__title!= props.title
