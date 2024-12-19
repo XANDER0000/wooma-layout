@@ -3,27 +3,21 @@
   flex-direction column
   background-color var(--color-white)
 
-  &__top
-    padding rem(12px) rem(15px)
-    border solid #d5d8dc
-    border-width 1px 1px 0px 1px
-    +desktop()
-      padding rem(15px) rem(20px)
-    ^[0].active &
-      border-bottom-width 0px !important
-
   &__toggle
     display flex
     flex-flow row nowrap
     gap rem(8px)
     align-items center
     width 100%
-    padding 0
+    padding rem(12px) rem(15px)
     background none
-    border none
-    border-radius 50%
+    border solid #d5d8dc
+    border-width 1px 1px 0px 1px
     transition all .3s ease
+    +desktop()
+      padding rem(15px) rem(20px)
     ^[0].active &
+      border-bottom-width 0px !important
       & ^[0]__title
         color var(--color-primary)
       & ^[0]__icon
