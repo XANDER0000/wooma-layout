@@ -1,0 +1,19 @@
+include ../counter/counter
+include ../icon/icon
+
+mixin product-row()
+  -
+    const props = initComponent('product-row', attributes, ['img', 'title']);
+
+  .product-row&attributes(attributes)
+    .product-row__content 
+      .product-row__img 
+        img(src=props.img alt="")
+      .product-row__info 
+        a(href="product.html").product-row__info-title!= props.title
+        span.product-row__info-price 230 000
+          span.product-row__info-price-multiple X 1
+    +counter().product-row__counter
+    span.product-row__total 230 000
+    button(type="button").product-row__del 
+      +icon('trash')
