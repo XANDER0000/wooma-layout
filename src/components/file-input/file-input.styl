@@ -3,6 +3,72 @@
   input[type="file"]
     visually-hidden()
 
+  &__files
+    display flex
+    flex-flow row wrap
+    gap 16px
+    margin rem(16px) 0 rem(16px)
+    color var(--color-dark)
+    font-size rem(16px)
+    &:empty
+      display none
+      margin 0
+    +below(80em)
+      min-height 0px !important
+
+  &__file
+    display inline-flex
+    flex 0 1 auto
+    flex-flow row nowrap
+    gap 10px
+    align-items center
+    cursor pointer
+
+  &__file-img
+    display block
+    flex 0 0 auto
+    size 50px
+    overflow hidden
+    border 1px solid var(--color-dark-soft)
+    border-radius 8px
+    img
+      width 100%
+      height 100%
+      object-fit cover
+      object-position center
+
+  &__file-icon
+    display inline-flex
+    flex 0 0 auto
+    align-items center
+    justify-content center
+    size 50px
+    border 1px solid var(--color-dark-soft)
+    border-radius 8px
+    svg
+      size 32px
+      fill var(--color-dark)
+
+  &__file-title
+    margin 0
+    color var(--color-dark)
+    font-weight 400
+    font-size rem(14px)
+    text-break()
+    &:not(:last-child)
+      margin-bottom 4px
+
+  &__file-size
+    margin 0
+    color var(--color-dark-soft)
+    font-weight 400
+    font-size rem(14px)
+
+  &__file-file
+    size 60px
+    overflow hidden
+
+
   &--img
     padding rem(16px) rem(12px)
     background-color var(--color-grey-200)

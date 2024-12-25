@@ -113,7 +113,7 @@ export default class FileInputComponent {
 
   handleInputChange() {
     this.#updateFilesOnChange();
-    // this.removeNotAcceptableFiles();
+    this.removeNotAcceptableFiles();
     this.removeFilesOverMaxCount();
     this.removeFilesOverMaxSize();
     this.emitChange();

@@ -135,6 +135,71 @@ const initFileInputProfilePhoto = (element) => {
   }
 };
 
+const initFileInputReview = (element) => {
+  const filesContainer = element.querySelector('.file-input__files');
+  if (!filesContainer) return;
+
+  function getFileExtension(filename) {
+    const extension = filename.substring(filename.lastIndexOf('.') + 1, filename.length);
+    return extension;
+  }
+  const fileInput = element.FileInput;
+  if (fileInput) {
+    fileInput.on('change', () => {
+      filesContainer.innerHTML = '';
+      for (let i = 0; i < fileInput.items.length; i += 1) {
+        const item = fileInput.items[i];
+        const { file } = item;
+        const fileItem = document.createElement('div');
+        fileItem.classList.add('file-input__file');
+        filesContainer.append(fileItem);
+
+        fileItem.addEventListener('click', () => {
+          fileItem.remove();
+          fileInput.removeFile(file);
+        });
+
+        const ext = getFileExtension(file.name).toLowerCase();
+        const acceptableImgExts = ['png', 'jpg', 'svg', 'gif', 'jpeg'];
+
+        if (file.type.startsWith('image/') && acceptableImgExts.includes(ext)) {
+          const fileImg = document.createElement('div');
+          fileImg.classList.add('file-input__file-img');
+          fileItem.append(fileImg);
+
+          const img = document.createElement('img');
+          fileImg.append(img);
+
+          img.alt = file.name;
+          img.src = URL.createObjectURL(file);
+          img.onload = () => {
+            URL.revokeObjectURL(img.src);
+          };
+        } else {
+          const fileIcon = document.createElement('div');
+          fileIcon.classList.add('file-input__file-icon');
+          fileIcon.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.3 7.3-5.5-5.5c-.3-.4-.8-.5-1.3-.5H5.6c-.6 0-1.3.2-1.7.7s-.8 1.1-.8 1.8v12.5c0 .7.3 1.3.7 1.8.5.5 1.1.7 1.8.7h8.8c.7 0 1.3-.3 1.8-.7.5-.5.7-1.1.7-1.8V8.6c0-.5-.2-.9-.6-1.3zm-1.6.2h-3.5c-.2 0-.3-.1-.4-.2s-.2-.3-.2-.4V3.4l4.1 4.1zm.6 9.6c-.2.2-.6.4-.9.4H5.6c-.3 0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9V3.8c0-.3.1-.7.4-.9s.6-.4.9-.4h3.8v4.4c0 .5.2 1 .5 1.3s.8.5 1.3.5h4.4v7.5c0 .4-.1.7-.3.9z"/></svg>';
+          fileItem.append(fileIcon);
+        }
+
+        const fileCaption = document.createElement('div');
+        fileCaption.classList.add('file-input__file-caption');
+        fileItem.append(fileCaption);
+
+        const fileTitle = document.createElement('div');
+        fileTitle.classList.add('file-input__file-title');
+        fileTitle.textContent = file.name;
+        fileCaption.append(fileTitle);
+
+        // const fileSize = document.createElement('div');
+        // fileSize.classList.add('input-file__file-size');
+        // fileSize.textContent = returnFileSize(file.size);
+        // fileCaption.append(fileSize);
+      }
+    });
+  }
+};
+
 const initFileInput = (element) => {
   if (!element.FileInput) {
     element.FileInput = new FileInputComponent(element, {});
@@ -153,6 +218,9 @@ const initFileInput = (element) => {
     }
     if (element.classList.contains('file-input--profile-photo-small')) {
       initFileInputProfilePhoto(element);
+    }
+    if (element.classList.contains('file-input--review')) {
+      initFileInputReview(element);
     }
   }
 };
