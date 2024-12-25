@@ -1,5 +1,6 @@
 include ../counter/counter
 include ../icon/icon
+include ../checkbox/checkbox
 
 mixin product-row()
   -
@@ -17,3 +18,18 @@ mixin product-row()
     span.product-row__total 230 000
     button(type="button").product-row__del 
       +icon('trash')
+
+mixin product-row--short()
+  -
+    const props = initComponent('product-row', attributes, ['img', 'title', 'checkbox']);
+
+  .product-row.product-row--short&attributes(attributes)
+    .product-row__content 
+      - if (props.checkbox)
+        +checkbox(for="product-id")
+          +checkbox__input(name="product-id" id="product-id" value="1" checked)
+      .product-row__img 
+        img(src=props.img alt="")
+      .product-row__info 
+        .product-row__info-title!= `${props.title} X 1`
+    span.product-row__total 230 000
