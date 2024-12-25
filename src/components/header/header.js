@@ -4,6 +4,8 @@ import { getScrollTop, getDocumentHeight } from '../../scripts/utils/document.js
 const getVeiwportHeight = () => window.innerHeight || document.documentElement.clientHeight;
 
 const handleScroll = () => {
+  if (window.innerWidth >= 1200) return;
+
   const scrollTop = getScrollTop();
   const header = document.querySelector('.header');
   if (getDocumentHeight() > getVeiwportHeight() + 40) {

@@ -3,6 +3,9 @@ extends ../layouts/main
 include ../components/team/team
 include ../components/reviews-single/reviews-single
 include ../components/reviews/reviews
+include ../components/about-intro/about-intro
+include ../components/about-populated/about-populated
+include ../components/about-policy/about-policy
 
 block append data
   -
@@ -11,6 +14,9 @@ block append data
 
 block main
   h1.visually-hidden О нас
+  +about-intro()
+  +about-populated()
+  +about-policy()
   +reviews-single()
   +reviews()
   +team()

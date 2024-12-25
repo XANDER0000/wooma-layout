@@ -34,3 +34,5 @@ import './components/bg-slider/bg-slider.js';
 import './components/words-slider/words-slider.js';
 import './components/product-section/product-section.js';
 import './components/product-section-slider/product-section-slider.js';
+import './components/animated/animated.js';
+import './components/about-policy/about-policy.js';
