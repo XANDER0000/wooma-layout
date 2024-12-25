@@ -9,7 +9,7 @@
     display flex
     flex-flow row nowrap
     gap 10px
-    align-items flex-start
+    align-items center
     width auto
     margin 0
     color var(--color-dark)
@@ -69,4 +69,7 @@
     opacity .5
 
 
-
+  &--large
+    & ^[0]__label
+      font-weight 600
+      font-size rem(18px)

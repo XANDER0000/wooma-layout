@@ -1,6 +1,140 @@
+include ../collapse/collapse
+include ../form/form
+include ../form/form--login
+include ../field/field
+include ../button/button
+include ../select/select
+include ../checkbox/checkbox
+include ../product-row/product-row
+include ../radio/radio
+include ../textarea/textarea
+
 mixin checkout()
   -
     const props = initComponent('checkout', attributes, []);
 
   .checkout&attributes(attributes)
-    block
+    .container
+      .checkout__wrapper 
+        .checkout__top
+          .checkout__toggle 
+            .checkout__toggle-trigger 
+              span Ещё не вошли в аккаунт?
+              button(type="button" data-collapse="#checkout-login" aria-expanded="false" aria-controls="checkout-login")
+                span Кликните сюда, чтоб войти
+            +collapse-collapse(id="checkout-login").checkout__toggle-collapse
+              +form--login-checkout(data-validate="true").checkout__toggle-form
+          .checkout__toggle 
+            .checkout__toggle-trigger 
+              span У вас есть купон?
+              button(type="button" data-collapse="#checkout-coupon" aria-expanded="false" aria-controls="checkout-coupon")
+                span Кликните сюда, чтоб ввести его номер
+            +collapse-collapse(id="checkout-coupon").checkout__toggle-collapse
+              +form(mod="checkout-coupon" data-validate="true").checkout__toggle-form#form-coupon
+                p.form__text Если у вас есть код купона, пожалуйста, примените его ниже.
+                .form__row
+                  +field(for="form-checkout-coupon" label="Купон" label-hidden)
+                    +field__control()
+                      +input(type="text" name="form-checkout-coupon" id="form-checkout-coupon" placeholder="Введите купон")
+                  +button(type="submit" label="Подтвердить купон")
+        +form(data-validate="true").checkout__form#form-checkout
+          .checkout__form-col
+            h2.checkout__form-title Платежные реквизиты
+            +field(for="form-checkout-name" label="Имя *")
+              +field__control()
+                +input(type="text" name="name" id="form-checkout-name" placeholder="Ваше имя" required)
+            +field(for="form-checkout-surname" label="Фамилия *")
+              +field__control()
+                +input(type="text" name="surname" id="form-checkout-surname" placeholder="Ваша фамилия" required)
+            +field(for="form-checkout-company" label="Компания (не обязательно)")
+              +field__control()
+                +input(type="text" name="company" id="form-checkout-company" placeholder="Название компании")
+            +field(label="Регион *" for="form-checkout-region")
+              +field__control()
+                +select(name="region" id="form-checkout-region" placeholder="Выберите регион" options=optionsRegions data-custom-select="true" data-custom-select-search="true" data-custom-select-search-placeholder="Поиск по регионам..." required)
+            +field(for="form-checkout-street" label="Улица *")
+              +field__control()
+                +input(type="text" name="street" id="form-checkout-street" placeholder="Название улицы и номер дома" required)
+            +field(for="form-checkout-appartament" label="Аппартаменты (не обязательно)")
+              +field__control()
+                +input(type="text" name="appartament" id="form-checkout-appartament" placeholder="Аппартаменты")
+            +field(for="form-checkout-post" label="Почтовый индекс *")
+              +field__control()
+                +input(type="text" name="post" id="form-checkout-post" placeholder="Почтовый индекс" required)
+            +field(for="form-checkout-phone" label="Телефон *" required)
+              +field__control()
+                +input(type="tel" name="phone" id="form-checkout-phone" placeholder="+7 (123) 456-78-90" data-mask="+7 (999) 999-99-99" required)
+            +field(label="Почта *" for="form-checkout-email")
+              +field__control()
+                +input(type="email" name="email" id="form-checkout-email" placeholder="Ваша почта" required)
+            +field()
+              +checkbox(for="form-checkout-add" label="Создать аккаунт?")
+                +checkbox__input(name="add" id="form-checkout-add" value="1")
+          .checkout__form-col
+            +field(data-collapse="#form-checkout-different-collapse" aria-expanded="false" aria-controls="form-checkout-different-collapse")
+              +checkbox(mod="large" for="form-checkout-different" label="Доставить на другой адрес")
+                +checkbox__input(name="different" id="form-checkout-different" value="1")
+            +field(for="form-checkout-different-description" label="Комментарий (не обязательно)")
+              +field__control()
+                +textarea(name="description" id="form-checkout-different-description" placeholder="Комментарий к заказу")
+            +collapse-collapse(id="form-checkout-different-collapse").checkout__form-collapse
+              .checkout__form-col
+                +field(for="form-checkout-name-different" label="Имя *")
+                  +field__control()
+                    +input(type="text" name="name-different" id="form-checkout-name-different" placeholder="Ваше имя")
+                +field(for="form-checkout-surname-different" label="Фамилия *")
+                  +field__control()
+                    +input(type="text" name="surname-different" id="form-checkout-surname-different" placeholder="Ваша фамилия")
+                +field(for="form-checkout-company-different" label="Компания (не обязательно)")
+                  +field__control()
+                    +input(type="text" name="company-different" id="form-checkout-company-different" placeholder="Название компании")
+                +field(label="Регион *" for="form-checkout-region-different")
+                  +field__control()
+                    +select(name="region" id="form-checkout-region-different" placeholder="Выберите регион" options=optionsRegions data-custom-select="true" data-custom-select-search="true" data-custom-select-search-placeholder="Поиск по регионам...")
+                +field(for="form-checkout-street-different" label="Улица *")
+                  +field__control()
+                    +input(type="text" name="street-different" id="form-checkout-street-different" placeholder="Название улицы и номер дома")
+                +field(for="form-checkout-appartamen-differentt" label="Аппартаменты (не обязательно)")
+                  +field__control()
+                    +input(type="text" name="appartament-different" id="form-checkout-appartament" placeholder="Аппартаменты")
+                +field(for="form-checkout-post-different" label="Почтовый индекс *")
+                  +field__control()
+                    +input(type="text" name="post-different" id="form-checkout-post-different" placeholder="Почтовый индекс")
+            .checkout__form-order 
+              h2.checkout__form-title Ваш заказ
+              +product-row--short(img="assets/img/widgets/widget-01.png" title="Свитер GUCCI").checkout__form-order-product
+              .checkout__form-order-heading 
+                span.checkout__form-order-title Промежуточная сумма
+                span 230 000
+              .checkout__form-order-block 
+                .checkout__form-order-block-row 
+                  span Доставка
+                .checkout__form-order-block-row 
+                  span Фиксировнная ставка
+                  span 30 000
+              .checkout__form-order-heading 
+                span.checkout__form-order-title Полная сумма
+                span 260 000
+              .checkout__form-order-collapses(data-parent) 
+                .checkout__form-order-collapses-block
+                  +field(data-collapse="#form-checkout-payment-1-collapse" aria-expanded="false" aria-controls="form-checkout-payment-1-collapse")
+                    +radio(for="form-checkout-payment-1" label='Прямой банковский перевод')
+                      +radio__input(name="form-checkout-payment-group" id="form-checkout-payment-1" value="1" checked)
+                  +collapse-collapse(id="form-checkout-payment-1-collapse").checkout__form-collapse.show Произведите оплату непосредственно на наш банковский счет. Пожалуйста, используйте свой идентификатор заказа в качестве ссылки для оплаты. Ваш заказ не будет отправлен, пока средства не поступят на наш счет.
+                .checkout__form-order-collapses-block
+                  +field(data-collapse="#form-checkout-payment-2-collapse" aria-expanded="false" aria-controls="form-checkout-payment-2-collapse")
+                    +radio(for="form-checkout-payment-2" label='Проверяйте платежи')
+                      +radio__input(name="form-checkout-payment-group" id="form-checkout-payment-2" value="2")
+                  +collapse-collapse(id="form-checkout-payment-2-collapse").checkout__form-collapse Пожалуйста, отправьте чек на адрес: Название магазина, улица, город, штат / округ, почтовый индекс.
+                .checkout__form-order-collapses-block
+                  +field(data-collapse="#form-checkout-payment-3-collapse" aria-expanded="false" aria-controls="form-checkout-payment-3-collapse")
+                    +radio(for="form-checkout-payment-3" label='Платеж при получении')
+                      +radio__input(name="form-checkout-payment-group" id="form-checkout-payment-2" value="2")
+                  +collapse-collapse(id="form-checkout-payment-3-collapse").checkout__form-collapse Оплачивайте заказ при получении
+              .checkout__form-order-text 
+                p Ваши персональные данные будут использованы для обработки вашего заказа, поддержки вашей работы на этом веб-сайте и для других целей, описанных в нашей 
+                  a(href="#") политике конфиденциальности
+              +field()
+                +checkbox(for="form-checkout-policy" label="Я согласен с политикой конфиденциальности")
+                  +checkbox__input(name="policy" id="form-checkout-policy" value="1")
+              +button(type="submit" label="Оформить заказ").checkout__submit
