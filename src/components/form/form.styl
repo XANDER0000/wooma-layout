@@ -68,6 +68,28 @@
       +above(30em)
         --columns 3
 
+  &__cart
+    display flex
+    flex-direction row
+    flex-wrap wrap
+    gap 12px
+    align-items center
+    &-counter
+      button
+        height 37px
+    &-actions
+      display flex
+      flex 0 0 auto
+      gap 8px
+    &-action
+      position relative
+      &:hover
+      &:focus-visible
+        & ^[2]-hint
+          bottom 40px
+          visibility visible
+          opacity 1
+
   &--add-number
     position relative
 
@@ -129,3 +151,9 @@
       font-size rem(24px)
       +above(85em)
         font-size rem(26px)
+
+  &--checkout-coupon
+    align-items flex-start
+    & ^[0]__text
+      &:last-of-type
+        margin-bottom 0

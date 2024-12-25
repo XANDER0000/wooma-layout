@@ -7,7 +7,7 @@ include ../checkbox/checkbox
 include ../loading-icon/loading-icon
 
 mixin form--callback()
-  +form(mod="callback" data-validate)&attributes(attributes).form__callback#form-callback
+  +form(mod="callback" data-validate="true")&attributes(attributes).form__callback#form-callback
     .form__fields
       +field(mod="linear" for="form-callback-email" label-hidden).form__field
         +field__control()

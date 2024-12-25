@@ -6,7 +6,7 @@ include ../textarea/textarea
 include ../select/select
 
 mixin form--message()
-  +form(mod="message" data-validate)&attributes(attributes)#form-message
+  +form(mod="message" data-validate="true")&attributes(attributes)#form-message
     h2.form__title Отправить сообщение
     .form__fields
       +field(label="Ваше имя" for="form-message-name" label-hidden).form__field

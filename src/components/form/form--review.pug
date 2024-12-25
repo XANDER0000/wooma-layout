@@ -3,35 +3,37 @@ include ../field/field
 include ../input/input
 include ../textarea/textarea
 include ../select/select
-include ../file-input/file-input--profile-photo-small
+include ../file-input/file-input
 include ../stars-field/stars-field
 include ../alert/alert
+include ../button/button
 
 mixin form--review()
   -
     const props = initComponent('form', attributes, ['variant']);
 
-  +form(mod="review" data-validate)&attributes(attributes)#form-review
+  +form(mod="review" data-validate="true")&attributes(attributes)#form-review
     .form__fields
       - if (page.name === "university-reviews")
         +alert(icon="error" heading="Ваш отзыв отклонен от публикации" text="Опечатка в имени, а так же нецензурная брань в отзыве. Исправьте" mod="error" btn-close)
       .form__review-top
-        +file-input--profile-photo-small()
-          +file-input__input(name="photo" accept=".jpg,.jpeg,.png,.svg" data-max-file-size="2097152")
-        +field(label="Поставьте оценку")
+        +field(label="Поставьте оценку *")
           +stars-field()
-            +stars-field__input(name="rating" value="4")
-      .form__row.form__row--2
-        +field(for="form-review-second-name" label="Фамилия")
-          +field__control()
-            +input(type="text" name="second-name" id="form-review-second-name" placeholder="Фамилия")
-        +field(for="form-review-first-name" label="Имя")
-          +field__control()
-            +input(type="text" name="first-name" id="form-review-first-name" placeholder="Имя")
-      +field(for="form-review-country" label="Страна" required)
-        +field__control()
-          +select(name="country" id="form-review-country" placeholder="Выберите страну" options=optionsCountries selected="129" data-custom-select="true" data-custom-select-search="true" data-custom-select-search-placeholder="Поиск по странам...")
-      
-      +field(for="form-review-content" label="Содержание отзыва" required)
+            +stars-field__input(name="rating" value="5")
+      +field(for="form-review-content" label="Содержание отзыва *" required)
         +field__control()
           +textarea(name="content" id="form-review-content" placeholder="Напишите текст объемом не более 600 символов" maxlength="600" required)
+      +field(for="form-review-media" label!="Прикрепите фото или видео размером не более 5мб и в количестве не более 8шт")
+        +field__control()
+          +file-input().file-input--review
+            +file-input__files()
+            +file-input__input(id="form-review-media" name="media" accept=".png,.jpg,.jpeg,.webp,.mp4" data-max-file-size="5242880" multiple data-max-files-count="8")
+            +file-input__button(label="Загрузить файлы")
+      .form__row.form__row--2
+        +field(for="form-review-first-name" label="Имя *")
+          +field__control()
+            +input(type="text" name="first-name" id="form-review-first-name" placeholder="Имя" required)
+        +field(for="form-review-name" label="Email *")
+          +field__control()
+            +input(type="email" name="login" id="form-review-email" placeholder="Ваша почта" required)
+      +button(mod="medium" type="submit" label="Отправить" style="width: fit-content").form__submit

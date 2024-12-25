@@ -1,0 +1,16 @@
+include ./form
+include ../field/field
+include ../input/input
+include ../button/button
+include ../counter/counter
+include ../notifications-meter/notifications-meter
+include ../hint/hint
+
+mixin form--cart()
+  +form(mod="cart" data-validate="true")&attributes(attributes).form__cart#form-cart
+    +counter().form__cart-counter
+    +button(mod="outline" type="submit" label!="Добавить в корзину")
+    .form__cart-actions
+      .form__cart-action
+        +notifications-meter(icon="love" data-sidebar-after-toggle="sidebar-after-2" data-sidebar-after-action="sidebar-after-whishlist")
+        +hint(mod="top" text!="В избранное").form__cart-action-hint

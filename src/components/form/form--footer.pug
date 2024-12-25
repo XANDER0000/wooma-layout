@@ -6,7 +6,7 @@ include ../inputbox/inputbox
 include ../checkbox/checkbox
 
 mixin form--footer()
-  +form(mod="footer" data-validate)&attributes(attributes)#form-footer
+  +form(mod="footer" data-validate="true")&attributes(attributes)#form-footer
     .form__messages(style="display: none")
       .form__messages-item.form__messages-item--error
         span.form__messages-item-label Неверный логин или пароль

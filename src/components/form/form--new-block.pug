@@ -20,7 +20,7 @@ mixin form--new-block()
       src: 'https://placehold.co/600x400',
     };
   
-  +form(mod="new-block" data-validate)&attributes(attributes)#form-new-block
+  +form(mod="new-block" data-validate="true")&attributes(attributes)#form-new-block
     input(type="hidden" name="itemId" value="" id="form-new-block-item-id")
     .form__fields
       +field(for="form-new-block-title" label="Заголовок" required)
