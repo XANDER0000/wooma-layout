@@ -1,0 +1,151 @@
+include ../breadcrumbs/breadcrumbs
+include ../form/form--cart
+include ../form/form--review
+include ../icon/icon
+include ../product-row/product-row
+include ../social/social
+include ../tabs/tabs
+include ../loading-icon/loading-icon
+include ../icon/icon
+include ../product-section-slider/product-section-slider
+
+mixin product-section()
+  -
+    const props = initComponent('product-section', attributes, []);
+
+    const tabs = [
+      { id: "product-pan-desc", label: "Описание", active: true },
+      { id: "product-pan-info", label: "Дополнительная информация" },
+      { id: "product-pan-reviews", label: "Отзывы" },
+      { id: "product-pan-qa", label: "Ответы на вопросы" },
+    ]
+
+  section.product-section&attributes(attributes)
+    .product-section__container.container
+      .product-section__wrapper
+        .product-section__cols
+          +product-section-slider().product-section__slider
+          .product-section__col
+            +breadcrumbs(items=[{label: "Главная", link: "home.html"},{label: "Каталог", link: "catalog.html"},{label: "Свитер GUCCI"}] none-container)
+            h2.product-section__title Свитер GUCCI
+            .product-section__labels 
+              span.product-section__label Бестселлер
+              span.product-section__label.product-section__label--red -15%
+            .product-section__text 
+              p Безопаснее для окружающей среды: Наша джинсовая фабрика-па+ртнер перерабатывает 98% воды с помощью фильтрации методом обратного осмоса и не допускает попадания побочных продуктов в окружающую среду, смешивая их с бетоном для получения строительных материалов.
+            +offer-time--discount()
+            .product-section__price 
+              span.product-section__price-old 290 000
+              span.product-section__price-new 230 000
+            .product-section__info  
+              .product-section__info-top
+                +form--cart()
+              .product-section__info-bottom
+                .product-section__info-shipping 
+                  +icon("delivery")
+                  | 2 - Дня доставки
+                span.product-section__info-shipping-message!= "| Быстрая и надежная доставка посылок"
+            .product-section__message.product-section__message--red Ты вернешь 8% от стоимости заказа
+            .product-section__rows
+              +product-row--short(img="assets/img/widgets/widget-01.png" title="Свитер GUCCI" checkbox).product-section__row
+            .product-section__details 
+              .product-section__details-item  
+                +icon("delivery")
+                a(href="#") Доставка и возврат товара
+              .product-section__details-item  
+                +icon("ruler")
+                a(href="#") Руководство по выбору размера
+              .product-section__details-item  
+                +icon("shipping")
+                span Предполагаемая дата поставки: 29 Декабря
+            .product-section__warning 
+              +icon('cart')
+              span У 22 людей это уже есть в корзинах. Товар кончается!
+            .product-section__meta
+              .product-section__meta-row 
+                span Категории:
+                a(href="#") Базовая одежда,
+                a(href="#") Зимняя
+              .product-section__meta-row 
+                span Теги:
+                a(href="#") Бестселлер,
+                a(href="#") В тренде
+              .product-section__meta-row 
+                span Бренды:
+                a(href="#") GUCCI
+            .product-section__share 
+              span Поделиться
+              +social(mod="colored")
+            .product-section__payment 
+              img(src="assets/img/icons/payment.webp" alt="")
+              span Гарантированная безопасная оплата
+        .product-section__main
+          +tabs(items=tabs).product-section__tabs
+            +tabs__panel(id="product-pan-desc").tabs__panel--slideDown.product-section__tabs-panel
+              p Наши любимые джинсы соответствуют нашему любимому десятилетию. Джинсы Cheeky 90-х, сшитые из высококачественного неэластичного японского денима в винтажном стиле, имеют удобную прямую посадку, сверхвысокую посадку и 
+                a(href="#") облегают ягодицы 
+                | сзади. Житель Пеллентеса умирает в тринадцатом веке, когда он был еще жив, и в сети, и в мужских семьях, и известен как больной. Вестибулярный аппарат — это то, что нужно, его жизнеописание, состояние, когда он находится сейчас, раньше. Донец как либеро решает, что делать дальше. Последние матчи Энея — это моя жизнь. Маурис уступает место элейфенду Лео.
+              h3.title-4 Особенности
+              ul 
+                li Лекси ростом 5 футов 8 дюймов, размер 0, на лодыжке 23
+                li Прямой крой. Укороченный у щиколотки. Модель с завышенной талией. Высота подъема: 11 дюймов. Длина по внутреннему шву: 26,5 дюймов. Ширина штанины: 14 дюймов (размер 28).
+                li Состав: 100% хлопок, машинная стирка в холодной воде. Сушка в стиральной машине при низкой температуре.
+                li Ширинка на пуговицах
+                li Сделано в NineTheme
+                li Безопаснее для окружающей среды: Наша джинсовая фабрика-партнер перерабатывает 98% воды с помощью фильтрации методом обратного осмоса и не допускает попадания побочных продуктов в окружающую среду, смешивая их с бетоном для получения строительных материалов.
+                li Вопросы по поводу подгонки? 
+                  a(href="#") Свяжитесь с нами. 
+            +tabs__panel(id="product-pan-info").tabs__panel--slideDown.product-section__tabs-panel
+              table 
+                tr 
+                  td Вес
+                  td 1 кг
+                tr 
+                  td Замеры
+                  td 10 × 11 × 22 cm
+                tr 
+                  td Цвета
+                  td 
+                    a(href="#") Белый,
+                    a(href="#") Оранжевый,
+                    a(href="#") Черный,
+                tr 
+                  td Размеры
+                  td 
+                    a(href="#") XL,
+                    a(href="#") L,
+                    a(href="#") M,
+                    a(href="#") S,
+            +tabs__panel(id="product-pan-reviews").tabs__panel--slideDown.product-section__tabs-panel
+              h3 Отзывы
+              .product-section__warning(style="margin-bottom: 20px") 
+                span У этого товара пока нет отзывов!
+              +form--review()
+            +tabs__panel(id="product-pan-qa").tabs__panel--slideDown.product-section__tabs-panel
+              h3 Ответы на вопросы
+              +form(data-validate="true")#form-product-answer
+                +field(mod="linear" for="form-product-answer-search" label-hidden).form__field
+                  +field__control()
+                    +input(type="text" name="search" id="form-product-answer-search" placeholder="Найти ответы" required)
+                    +button(mod="small" type="submit" label="Найти").form__submit
+                    +loading-icon--spinner().form__field-loading
+          .product-section__about
+            .product-section__about-heading 
+              h2.title-3.product-section__about-title О наших материалах
+            .product-section__about-cols 
+              .product-section__about-col 
+                +icon("no-wash").product-section__about-col-icon
+                h3.product-section__about-col-title Не стирать
+                p.product-section__about-col-text Не стирать вручную
+              .product-section__about-col 
+                +icon("detergent").product-section__about-col-icon
+                h3.product-section__about-col-title Моющее средство
+                p.product-section__about-col-text Не стирать мылом 70%
+              .product-section__about-col 
+                +icon("dry-cleaner").product-section__about-col-icon
+                h3.product-section__about-col-title Химчистка
+                p.product-section__about-col-text Не сушить дольше 40 минут
+              .product-section__about-col 
+                +icon("can-be-ironed").product-section__about-col-icon
+                h3.product-section__about-col-title Можно гладить
+                p.product-section__about-col-text Можно гладить при температуре не более 60 градусов

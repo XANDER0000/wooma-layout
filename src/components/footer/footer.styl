@@ -41,11 +41,16 @@
   &__block
     display flex
     flex-direction column
-    gap 24px
+    gap 12px
+    +above(48em)
+      gap 24px
     &-title
       margin 0
       color var(--color-white)
       font-weight 700
+      font-size rem(18px)
+      +above(48em)
+        font-size rem(20px)
     &-text
       &:last-child
         margin-bottom 0

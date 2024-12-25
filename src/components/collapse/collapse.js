@@ -22,7 +22,29 @@ const handleCollapseToggleClick = (event) => {
   const toggle = event.target.closest('[data-collapse]');
   if (toggle) {
     if (isClick(event) === true) {
-      event.preventDefault();
+      const checkbox = toggle.querySelector('input[type="checkbox"]');
+      const radio = toggle.querySelector('input[type="radio"]');
+      if (!checkbox && !radio) {
+        event.preventDefault();
+      } else {
+        if (checkbox) {
+          checkbox.click();
+          checkbox.checked = !checkbox.checked;
+        }
+        if (radio) {
+          if (radio.checked === true) {
+            return;
+          }
+          if (radio.checked !== true) {
+            const collapse = document.querySelector(toggle.getAttribute('data-collapse'));
+            const parentSelector = collapse.closest('[data-parent]') || '';
+            if (parentSelector) {
+              collapseAll(parentSelector);
+            }
+            radio.click();
+          }
+        }
+      }
       const collapse = document.querySelector(toggle.getAttribute('data-collapse'));
       if (collapse && !collapse.classList.contains('is-collapsing')) {
         if (collapse.classList.contains('show')) {

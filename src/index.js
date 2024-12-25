@@ -32,3 +32,5 @@ import './components/read-more/read-more.js';
 import './components/hero-slider/hero-slider.js';
 import './components/bg-slider/bg-slider.js';
 import './components/words-slider/words-slider.js';
+import './components/product-section/product-section.js';
+import './components/product-section-slider/product-section-slider.js';

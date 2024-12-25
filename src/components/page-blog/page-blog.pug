@@ -46,7 +46,7 @@ mixin page-blog()
               a(href="#").page-blog__sidebar-item Черный тренд: выбирайте новые модели
               a(href="#").page-blog__sidebar-item Давайте расслабимся, прибыли наши банные принадлежности.
           .page-blog__sidebar-block
-            +form(data-validate)#form-page-blog
+            +form(data-validate="true")#form-page-blog
               +field(mod="linear" for="form-page-blog-search" label-hidden).form__field
                 +field__control()
                   +input(type="text" name="search" id="form-page-blog-search" placeholder="Найти товар" required)

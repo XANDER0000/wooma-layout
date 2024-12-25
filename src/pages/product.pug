@@ -1,6 +1,7 @@
 extends ../layouts/main
 
-include ../components/shop/shop
+include ../components/interested-section/interested-section
+include ../components/product-section/product-section
 
 block append data
   -
@@ -8,4 +9,6 @@ block append data
     page.title = "Конкретный продукт";
 
 block main
-  h1.visually-hidden Конкретный продукт
+  h1.visually-hidden Свитер GUCCI
+  +product-section()
+  +interested-section()

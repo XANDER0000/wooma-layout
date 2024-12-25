@@ -9,6 +9,15 @@
   border 1px solid var(--color-gray)
   border-radius 4px
 
+  &__wrapper
+    display flex
+    flex-wrap wrap
+    gap 4px
+    align-items center
+
+  &__icon
+    size 20px
+
   &__text
     margin 0
     color var(--color-dark)
@@ -16,3 +25,11 @@
 
   &__timer
     font-weight 500
+
+  &--discount
+    min-height 45px
+    & ^[0]__text
+      color var(--color-text)
+      font-weight 400
+    & ^[0]__timer
+      color var(--color-dark)

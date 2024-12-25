@@ -1,7 +1,7 @@
 .tabs
 
   &__tabs
-    --gap rem(24px)
+    --gap rem(20px)
     position relative
     display inline-flex
     max-width calc(100% + 24px)
@@ -11,16 +11,15 @@
     overflow-x auto
     overflow-y hidden
     +desktop()
-      --gap rem(40px)
       width auto
       margin 0
       padding 0
-      custom-scrollbar-horizontal(4px, transparent, var(--color-dark))
+      custom-scrollbar-horizontal(2px, transparent, var(--color-dark-soft))
 
   &__items
     position relative
     display flex
-    flex-flow row nowrap
+    flex-flow row wrap
     align-items flex-end
     width auto
     margin 0
@@ -52,7 +51,7 @@
   a&__tab
     cursor pointer
     &:hover
-    &:focus
+    &:focus-visible
       color var(--color-hover)
       text-decoration none
       outline none
@@ -66,41 +65,45 @@
     align-items center
     width auto
     margin 0
-    padding 0 0 rem(15px)
+    padding 0 0 rem(10px)
     color var(--color-dark)
     font-weight 500
-    font-size rem(18px)
+    font-size rem(15px)
     line-height 1.25
     text-align center
     text-decoration none
     background-color transparent
     border none
+    &.active
+      color var(--color-dark-soft)
     .icon
       size 16px
       fill var(--color-primary)
     &--icon-right
       .icon
         order 2
-    // &::after
-    //   position absolute
-    //   right 0
-    //   bottom 0
-    //   left 0
-    //   z-index 10
-    //   width 100%
-    //   height 4px
-    //   background-color var(--color-blue-400)
-    //   border-radius 10px
-    //   opacity 0
-    //   transition opacity .3s
-    //   content ""
-    // &.active
-    //   color var(--color-grey-800)
-    //   pointer-events none
-    //   &::after
-    //     opacity 1
-    // +desktop()
-    //   font-size rem(18px)
+    &::after
+      position absolute
+      right 0
+      bottom -1px
+      left 0
+      z-index 10
+      display none
+      width 100%
+      height 1px
+      background-color var(--color-dark)
+      border-radius 10px
+      opacity 0
+      transition opacity .3s
+      content ""
+      +above(48em)
+        display block
+    &.active
+      pointer-events none
+      &::after
+        opacity 1
+    +desktop()
+      font-size rem(18px)
 
   &__count
     display inline-block
@@ -108,11 +111,17 @@
     color var(--color-grey-500)
 
   &__panel
-    margin-top rem(24px)
+    margin-top rem(20px)
     &.active
       animation fadeIn .2s ease
     &:not(.active)
       display none
+    &--slide
+      &.active
+        animation fadeInSlide .6s ease
+    &--slideDown
+      &.active
+        animation fadeInSlideDown .6s ease
 
   &--sidebar-after
     width 100%
@@ -128,6 +137,8 @@
         padding 0
     & ^[0]__tab
       gap 2px
+      &::after
+        display none
 
 .tabs-panel
   &.active
@@ -138,3 +149,6 @@
   &--slide
     &.active
       animation fadeInSlide .6s ease
+  &--slideDown
+    &.active
+      animation fadeInSlideDown .6s ease

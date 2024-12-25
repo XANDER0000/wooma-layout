@@ -1,0 +1,241 @@
+.product-section
+
+  &__container
+    max-width 1550px
+
+  &__wrapper
+    display flex
+    flex-direction column
+    gap 50px
+
+  &__cols
+    position relative
+    display grid
+    grid-template-columns 100%
+    +desktop()
+      grid-template-columns 550px calc(100% - 550px)
+
+  &__main
+    display grid
+    grid-template-columns 100%
+    gap 30px
+    padding 0 rem(20px) rem(20px) rem(20px)
+    +desktop()
+      grid-template-columns repeat(2, minmax(0, 1fr))
+      padding 0 rem(50px) rem(50px) rem(50px)
+
+  &__col
+    display flex
+    flex-direction column
+    gap 30px
+    padding rem(20px) rem(20px) 0 rem(20px)
+    +desktop()
+      padding rem(50px) rem(50px) 0 rem(50px)
+
+  &__slider
+    height calc(100vh - 128px)
+    max-height 1080px
+    +desktop()
+      position sticky
+      top 0
+      order 2
+      width 100%
+      height 100vh
+      max-height 1080px
+
+  &__title
+    margin-bottom 0
+    color var(--color-dark)
+    font-weight 700
+    font-size rem(28px)
+    +above(48em)
+      font-size rem(32px)
+
+  &__labels
+    display flex
+    gap 10px
+
+  &__label
+    display flex
+    align-items center
+    min-height 20px
+    padding 0 7px
+    color var(--color-white)
+    font-weight 600
+    font-size rem(12px)
+    background-color var(--color-dark)
+    border-radius 3px
+    &--red
+      color var(--color-red)
+      background-color var(--color-red-bg)
+    &--green
+      color var(--color-white)
+      background-color var(--color-success-bg)
+    &--yellow
+      color var(--color-white)
+      background-color var(--color-warning-bg)
+
+  &__text
+    p
+      &:last-child
+        margin-bottom 0
+
+  &__price
+    display flex
+    flex-wrap wrap
+    gap 5px
+    width 100%
+    color var(--color-dark)
+    font-size rem(18px)
+    &-old
+      color var(--color-dark-soft)
+      text-decoration line-through
+
+  &__info
+    display flex
+    flex-direction column
+    border 1px solid var(--color-border)
+    &-top
+      padding rem(10px) rem(15px) rem(15px)
+      +above(48em)
+        padding rem(20px) rem(30px) rem(30px)
+    &-bottom
+      display flex
+      flex-wrap wrap
+      gap 4px
+      align-items center
+      padding 1.25rem
+      color var(--color-dark)
+      border-top 1px solid var(--color-border)
+    &-shipping
+      display flex
+      gap 5px
+      align-items center
+      color var(--color-dark)
+      .icon
+        size 16px
+
+  &__message
+    font-size rem(18px)
+    &--red
+      color var(--color-error)
+
+  &__rows
+    display flex
+    flex-direction column
+    & ^[0]__row
+      border-bottom 1px solid var(--color-border)
+      &:first-child
+        border-top 1px solid var(--color-border)
+
+  &__details
+    display flex
+    flex-direction column
+    gap 10px
+    &-item
+      display flex
+      flex-wrap wrap
+      gap 10px
+      color var(--color-dark)
+      .icon
+        flex 0 0 auto
+        size 20px
+
+  &__warning
+    display flex
+    gap 10px
+    max-width fit-content
+    padding rem(15px) rem(20px)
+    color var(--color-dark)
+    background-color var(--color-warning-bg)
+    border 1px solid var(--color-warning-border)
+    border-radius 4px
+    .icon
+      flex 0 0 auto
+      size 16px
+      fill var(--color-warning)
+
+  &__meta
+    display flex
+    flex-direction column
+    gap 10px
+    &-row
+      display flex
+      flex-wrap wrap
+      gap 5px
+      color var(--color-dark)
+
+  &__share
+    display flex
+    flex-wrap wrap
+    gap 10px
+    color var(--color-dark)
+    font-size 16px
+
+  &__payment
+    display flex
+    flex-direction column
+    gap 10px
+    align-items center
+    padding rem(15px)
+    color var(--color-dark)
+    font-size rem(16px)
+    background-color var(--color-gray-soft)
+    border 1px solid var(--color-border)
+    border-radius 4px
+    img
+      width 100%
+      max-width 360px
+
+  &__tabs
+    .tabs__tabs
+      width 100%
+      border-bottom 1px solid #e1e2e3
+    &-panel
+      p
+        &:last-child
+          margin-bottom 0
+      ul
+        &:last-child
+          li
+            &:last-child
+              margin-bottom 0
+
+  &__about
+    display flex
+    flex-direction column
+    gap 20px
+    height fit-content
+    padding 20px
+    border 1px solid #e1e2e3
+    +above(48em)
+      gap 30px
+      padding 30px
+    &-title
+      margin-bottom 0
+    &-cols
+      display grid
+      grid-template-columns 100%
+      gap 20px
+      +above(48em)
+        grid-template-columns repeat(2, 1fr)
+        gap 30px
+      +above(85em)
+        grid-template-columns repeat(3, 1fr)
+      +above(90em)
+        grid-template-columns repeat(4, 1fr)
+    &-col
+      display flex
+      flex-direction column
+      gap 15px
+      &-icon
+        size 50px
+        fill var(--color-dark)
+      &-title
+        margin 0
+        font-size rem(18px)
+        +above(48em)
+          font-size rem(20px)
+      &-text
+        &:last-child
+          margin-bottom 0

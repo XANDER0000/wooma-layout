@@ -7,3 +7,13 @@ mixin offer-time()
   .offer-time&attributes(attributes)
     p.offer-time__text Конец скидки через:
     +timer(data-date="2024-12-16 18:20").offer-time__timer
+
+mixin offer-time--discount()
+  -
+    const props = initComponent('offer-time', attributes, []);
+
+  .offer-time.offer-time--discount&attributes(attributes)
+    .offer-time__wrapper
+      img(src="assets/img/icons/flash.svg" alt="").offer-time__icon
+      p.offer-time__text Не упусти скидку:
+    +timer(data-date="2024-12-25 18:20").offer-time__timer

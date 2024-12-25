@@ -26,7 +26,7 @@ mixin insta-section()
             each item in cards
               +social-card(img=item.img).insta-section__slide.swiper-slide
           .insta-section__navigation.carousel__navigation
-            .insta-section__prev.carousel__navigation-prev
+            button(type="button").insta-section__prev.carousel__navigation-prev
               +icon('chevron-left')
-            .insta-section__next.carousel__navigation-next
+            button(type="button").insta-section__next.carousel__navigation-next
               +icon('chevron-right')
