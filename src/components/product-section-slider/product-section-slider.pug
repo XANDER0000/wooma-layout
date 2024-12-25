@@ -1,0 +1,31 @@
+mixin product-section-slider()
+  -
+    const props = initComponent('product-section-slider', attributes, []);
+
+  .product-section-slider&attributes(attributes)
+    .product-section-slider__swiper.swiper
+      .product-section-slider__wrapper.swiper-wrapper
+        .product-section-slider__slide.fancybox-trigger.swiper-slide(data-fancybox="gallery" data-src="assets/img/banners/banner-hero-01.jpg")
+          img(src="assets/img/banners/banner-hero-01.jpg" alt="")
+        .product-section-slider__slide.fancybox-trigger.swiper-slide(data-fancybox="gallery" data-src="assets/img/banners/banner-hero-02.jpg")
+          img(src="assets/img/banners/banner-hero-02.jpg" alt="")
+        .product-section-slider__slide.fancybox-trigger.swiper-slide(data-fancybox="gallery" data-src="assets/img/banners/banner-hero-03.jpg")
+          img(src="assets/img/banners/banner-hero-03.jpg" alt="")
+      .product-section-slider__tools 
+        a(href="https://www.youtube.com/watch?v=LlwRd6cylKQ" data-fancybox="video").product-section-slider__button.fancybox-trigger
+          +icon("play-empty")
+      .product-section-slider__navigation 
+        button(type="button").product-section-slider__navigation-prev 
+          +icon("chevron-left")
+        button(type="button").product-section-slider__navigation-next
+          +icon("chevron-right")
+      .product-section-slider__thumbs.swiper-container.thumbs-slider
+        .swiper-wrapper
+          .product-section-slider__thumbs-slide.swiper-slide
+            img(src="assets/img/banners/banner-hero-01.jpg" alt="")
+          .product-section-slider__thumbs-slide.swiper-slide
+            img(src="assets/img/banners/banner-hero-02.jpg" alt="")
+          .product-section-slider__thumbs-slide.swiper-slide
+            img(src="assets/img/banners/banner-hero-03.jpg" alt="")
+    .fancybox-video(style="display: none")#video01
+      iframe(src="https://rutube.ru/play/embed/0bc07d9befbd93eea166f2d0315876bd/" allow="clipboard-write; autoplay; fullscreen")
