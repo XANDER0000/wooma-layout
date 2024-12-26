@@ -71,12 +71,9 @@ mixin checkout()
               +checkbox(for="form-checkout-add" label="Создать аккаунт?")
                 +checkbox__input(name="add" id="form-checkout-add" value="1")
           .checkout__form-col
-            +field(data-collapse="#form-checkout-different-collapse" aria-expanded="false" aria-controls="form-checkout-different-collapse")
+            +field(data-collapse="#form-checkout-different-collapse" aria-expanded="false" aria-controls="form-checkout-different-collapse" role="complementary")
               +checkbox(mod="large" for="form-checkout-different" label="Доставить на другой адрес")
                 +checkbox__input(name="different" id="form-checkout-different" value="1")
-            +field(for="form-checkout-different-description" label="Комментарий (не обязательно)")
-              +field__control()
-                +textarea(name="description" id="form-checkout-different-description" placeholder="Комментарий к заказу")
             +collapse-collapse(id="form-checkout-different-collapse").checkout__form-collapse
               .checkout__form-col
                 +field(for="form-checkout-name-different" label="Имя *")
@@ -94,12 +91,15 @@ mixin checkout()
                 +field(for="form-checkout-street-different" label="Улица *")
                   +field__control()
                     +input(type="text" name="street-different" id="form-checkout-street-different" placeholder="Название улицы и номер дома")
-                +field(for="form-checkout-appartamen-differentt" label="Аппартаменты (не обязательно)")
+                +field(for="form-checkout-appartament-different" label="Аппартаменты (не обязательно)")
                   +field__control()
-                    +input(type="text" name="appartament-different" id="form-checkout-appartament" placeholder="Аппартаменты")
+                    +input(type="text" name="appartament-different" id="form-checkout-appartament-different" placeholder="Аппартаменты")
                 +field(for="form-checkout-post-different" label="Почтовый индекс *")
                   +field__control()
                     +input(type="text" name="post-different" id="form-checkout-post-different" placeholder="Почтовый индекс")
+            +field(for="form-checkout-different-description" label="Комментарий (не обязательно)")
+              +field__control()
+                +textarea(name="description" id="form-checkout-different-description" placeholder="Комментарий к заказу")
             .checkout__form-order 
               h2.checkout__form-title Ваш заказ
               +product-row--short(img="assets/img/widgets/widget-01.png" title="Свитер GUCCI").checkout__form-order-product
@@ -117,19 +117,19 @@ mixin checkout()
                 span 260 000
               .checkout__form-order-collapses(data-parent) 
                 .checkout__form-order-collapses-block
-                  +field(data-collapse="#form-checkout-payment-1-collapse" aria-expanded="false" aria-controls="form-checkout-payment-1-collapse")
+                  +field(data-collapse="#form-checkout-payment-1-collapse" aria-expanded="false" aria-controls="form-checkout-payment-1-collapse" role="complementary")
                     +radio(for="form-checkout-payment-1" label='Прямой банковский перевод')
                       +radio__input(name="form-checkout-payment-group" id="form-checkout-payment-1" value="1" checked)
                   +collapse-collapse(id="form-checkout-payment-1-collapse").checkout__form-collapse.show Произведите оплату непосредственно на наш банковский счет. Пожалуйста, используйте свой идентификатор заказа в качестве ссылки для оплаты. Ваш заказ не будет отправлен, пока средства не поступят на наш счет.
                 .checkout__form-order-collapses-block
-                  +field(data-collapse="#form-checkout-payment-2-collapse" aria-expanded="false" aria-controls="form-checkout-payment-2-collapse")
+                  +field(data-collapse="#form-checkout-payment-2-collapse" aria-expanded="false" aria-controls="form-checkout-payment-2-collapse" role="complementary")
                     +radio(for="form-checkout-payment-2" label='Проверяйте платежи')
                       +radio__input(name="form-checkout-payment-group" id="form-checkout-payment-2" value="2")
                   +collapse-collapse(id="form-checkout-payment-2-collapse").checkout__form-collapse Пожалуйста, отправьте чек на адрес: Название магазина, улица, город, штат / округ, почтовый индекс.
                 .checkout__form-order-collapses-block
-                  +field(data-collapse="#form-checkout-payment-3-collapse" aria-expanded="false" aria-controls="form-checkout-payment-3-collapse")
+                  +field(data-collapse="#form-checkout-payment-3-collapse" aria-expanded="false" aria-controls="form-checkout-payment-3-collapse" role="complementary")
                     +radio(for="form-checkout-payment-3" label='Платеж при получении')
-                      +radio__input(name="form-checkout-payment-group" id="form-checkout-payment-2" value="2")
+                      +radio__input(name="form-checkout-payment-group" id="form-checkout-payment-3" value="3")
                   +collapse-collapse(id="form-checkout-payment-3-collapse").checkout__form-collapse Оплачивайте заказ при получении
               .checkout__form-order-text 
                 p Ваши персональные данные будут использованы для обработки вашего заказа, поддержки вашей работы на этом веб-сайте и для других целей, описанных в нашей 

@@ -1,5 +1,3 @@
-const animatedItems = document.querySelectorAll('.animated-item');
-
 const applyAnimation = (item) => {
   const settings = JSON.parse(item.getAttribute('data-settings'));
   if (settings && settings.animation) {
@@ -20,15 +18,24 @@ const applyAnimation = (item) => {
   }
 };
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting && !entry.target.classList.contains('animation-complete')) {
-      applyAnimation(entry.target);
-      entry.target.classList.add('animated');
-    }
-  });
-}, {
-  threshold: 0.1,
-});
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animation-complete')) {
+        applyAnimation(entry.target);
+        entry.target.classList.add('animated');
+      }
+    });
+  },
+  {
+    threshold: 0.1,
+  },
+);
 
-animatedItems.forEach((item) => observer.observe(item));
+window.observeAnimations = (animatedItems) => {
+  animatedItems.forEach((item) => observer.observe(item));
+};
+
+const animatedItems = document.querySelectorAll('.animated-item');
+window.applyAnimation = applyAnimation;
+window.observeAnimations(animatedItems);

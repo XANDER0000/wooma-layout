@@ -36,3 +36,5 @@ import './components/product-section/product-section.js';
 import './components/product-section-slider/product-section-slider.js';
 import './components/animated/animated.js';
 import './components/about-policy/about-policy.js';
+import './components/shop-filters/shop-filters.js';
+import './components/range-fields/range-fields.js';
