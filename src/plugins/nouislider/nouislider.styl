@@ -1,0 +1,40 @@
+@import "nouislider/dist/nouislider.css"
+
+.noUi-target
+  position relative
+  height 16px
+  background none
+  border none
+  box-shadow none
+  &::before
+    position absolute
+    top 50%
+    right 0
+    left 0
+    display block
+    height 4px
+    margin-top -2px
+    background-color var(--color-gray)
+    content ""
+
+.noUi-connect
+  top 50%
+  height 2px
+  margin-top 0
+  background-color var(--color-gray)
+
+
+.noUi-handle
+  size 32px
+  background var(--color-gray)
+  border 2px solid var(--color-gray)
+  border-radius 50%
+  box-shadow none
+  &::before
+  &::after
+    display none
+
+.noUi-horizontal .noUi-handle
+  size 16px
+  top 0
+  right -8px

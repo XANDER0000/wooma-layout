@@ -1,0 +1,26 @@
+mixin range-fields()
+  -
+    const props = initComponent('range-fields', attributes, ['name', 'from', 'to', 'min', 'max', 'step']);
+
+    props.id = props.id || 'range-fields'
+
+    props.min   = props.min    || 0
+    props.from  = props.from   || 0
+    props.to    = props.to     || 750000
+    props.max   = props.max    || 1000000
+    props.step  = props.step   || 1000
+    props.name  = props.name   || "cost"
+
+  .range-fields(data-min=props.min data-max=props.max data-step=props.step)&attributes(attributes)
+    .range-fields__slider
+    .range-fields__fields
+      .range-fields__field
+        // Первый инпут здесь - только в "декоративных" целях: для форматирования пользовательского ввода в соответствии с дизайном (разделение разрядов числа и вывод знака валюты). Значение этого инпута с формой отправляться не будет - для этого у него специально отсутствует атрибут "name". Второй, скрытый (type="hidden"), инпут - будет содержать "чистое" (без форматирования) числовое значение. Программно следует работать именно со вторым (скрытым) инпутом.
+        +inputbox(label="от" for=`${props.id}-from`)
+          input(type="text" id=`${props.id}-from` value=props.from placeholder=" " data-filter-item="true").inputbox__input.range-fields__input
+        input(type="hidden" name=`${props.name}-from` value=props.from).range-fields__hidden-input
+      .range-fields__field
+        // По поводу двойного инпута см. комментарий выше
+        +inputbox(label="до" for=`${props.id}-to`)
+          input(type="text" id=`${props.id}-to` value=props.to placeholder=" " data-filter-item="true").inputbox__input.range-fields__input
+        input(type="hidden" name=`${props.name}-to` value=props.to).range-fields__hidden-input

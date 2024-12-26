@@ -1,0 +1,61 @@
+.range
+  width 100%
+  background transparent
+  -webkit-appearance none
+
+  &::-webkit-slider-thumb
+    -webkit-appearance none
+
+  &:focus
+    outline none
+
+  // thumb styles
+
+  &::-webkit-slider-thumb
+    width 16px
+    height 16px
+    margin-top -6px
+    background-color var(--color-gray)
+    border 1px solid var(--color-gray)
+    border-radius 50%
+    cursor ew-resize
+    -webkit-appearance none
+
+  &::-moz-range-thumb
+    width 16px
+    height 16px
+    margin-top -8px
+    background-color var(--color-gray)
+    border 1px solid var(--color-gray)
+    border-radius 50%
+    cursor ew-resize
+
+
+  // track styles
+
+  &::-webkit-slider-runnable-track
+    width 100%
+    height 4px
+    background var(--color-gray)
+    border none
+    box-shadow none
+    cursor pointer
+
+  &:focus::-webkit-slider-runnable-track
+    background var(--color-gray)
+
+  &::-moz-range-track
+    width 100%
+    height 4px
+    background var(--color-gray)
+    border none
+    box-shadow none
+    cursor pointer
+
+  &::-moz-range-progress
+    height 4px
+    background var(--color-gray)
+
+  &::-ms-fill-lower
+    height 4px
+    background var(--color-gray)

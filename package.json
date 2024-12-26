@@ -78,6 +78,7 @@
     "air-datepicker": "^3.5.3",
     "inputmask": "^5.0.9",
     "normalize.css": "^8.0.1",
+    "nouislider": "^15.8.1",
     "swiper": "^11.1.15"
   }
 }
