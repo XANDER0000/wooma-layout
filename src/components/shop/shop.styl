@@ -1,5 +1,7 @@
 .shop
-  display block
+  display flex
+  flex-direction column
+  gap 40px
   padding rem(60px) rem(20px)
   +desktop()
     padding rem(80px) rem(50px)
@@ -30,5 +32,7 @@
       grid-template-columns repeat(2, 1fr)
     &--list
       +above(48em)
+        .product-card__img
+          width 40%
         & ^[0]__card
           flex-direction row

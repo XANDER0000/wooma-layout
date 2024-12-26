@@ -110,6 +110,10 @@
         transform translateX(0%)
         opacity 1
         animation fadeInSlide .6s ease
+      &--lp
+        +above(48em)
+          padding 15px 25px 25px 25px
+
     &-buttons
       display flex
       flex-direction column
@@ -137,3 +141,8 @@
       .icon
         size 100px
         fill var(--color-gray)
+
+  &__filters
+    display flex
+    flex-direction column
+    gap 30px

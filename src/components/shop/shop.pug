@@ -1,4 +1,6 @@
 include ../product-card/product-card
+include ../animated/animated
+include ../shop-filters/shop-filters
 
 mixin shop()
   -
@@ -13,6 +15,7 @@ mixin shop()
     ]
 
   .shop&attributes(attributes)
+    +shop-filters()
     .shop__grid.shop__grid--col-4
-      each card in cards 
-        +product-card(img=card.img title=card.title hint=card.hint discount=card.discount priceNew=card.priceNew priceOld=card.priceOld stars=card.stars addCart=card.addCart addLink=card.addLink).shop__card
+      each card, num in cards
+        +product-card(img=card.img title=card.title hint=card.hint discount=card.discount priceNew=card.priceNew priceOld=card.priceOld stars=card.stars addCart=card.addCart addLink=card.addLink data-settings=`{"animation":"fadeInUp","animationDelay":${num * 100}}`).animated-item.shop__card

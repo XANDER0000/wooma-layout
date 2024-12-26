@@ -1,0 +1,101 @@
+.shop-filters-item
+  position relative
+  display flex
+  flex-direction column
+  & > ^[0]__button
+    z-index 2
+  &:hover
+  &:focus-visible
+    & > ^[0]__button
+      color var(--color-white)
+      text-decoration none
+      background-color var(--color-dark)
+    & > ^[0]__button--selected
+      color var(--color-warning)
+      background-color var(--color-warning-bg)
+      border-color var(--color-warning-border)
+    & ^[0]__submenu
+      display flex
+      animation fadeIn .2s ease
+  &__button
+    position relative
+    display flex
+    gap 10px
+    align-items center
+    min-height 35px
+    padding 5px 20px
+    font-weight 500
+    font-size rem(12px)
+    text-transform uppercase
+    background-color var(--color-white)
+    border 1px solid var(--color-border)
+    border-radius 20px
+    transition all .2s ease
+    &:hover
+    &:focus-visible
+      text-decoration none
+      & ^[0]__icon-cross
+        &:before
+        &:after
+          transform rotate(0deg)
+    &--clear
+      color var(--color-white)
+      background-color var(--color-dark)
+      & ^[0]__icon-cross
+        background-color var(--color-white)
+    &--selected
+      color var(--color-warning)
+      background-color var(--color-warning-bg)
+      border-color var(--color-warning-border)
+      & ^[0]__icon-cross
+        &:before
+        &:after
+          background-color var(--color-warning)
+      &:hover
+      &:focus-visible
+        color var(--color-warning)
+        background-color var(--color-warning-bg)
+        border-color var(--color-warning-border)
+
+  &__icon
+    flex 0 0 auto
+    size 17px
+  &__icon-cross
+    position relative
+    flex 0 0 auto
+    size 17px
+    border-radius 50%
+    &:before
+    &:after
+      position absolute
+      top 8px
+      left 5px
+      width 7px
+      height 1px
+      background-color var(--color-dark)
+      transition all .2s ease
+      content ""
+    &:before
+      transform rotate(45deg)
+    &:after
+      transform rotate(-45deg)
+  &__submenu
+    position absolute
+    top calc(100% - 35px)
+    left 0
+    z-index 1
+    display none
+    flex-direction column
+    gap 5px
+    align-items flex-start
+    width 100%
+    padding rem(45px) rem(10px) rem(10px) rem(10px)
+    background-color var(--color-white)
+    border 1px solid var(--color-border)
+    border-radius 20px 20px 0 0
+    & ^[0]__button
+      &:hover
+      &:focus-visible
+        color var(--color-white)
+        background-color var(--color-dark)
+

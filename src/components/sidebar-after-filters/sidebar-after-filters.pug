@@ -1,0 +1,70 @@
+include ../collapse/collapse
+include ../range-fields/range-fields
+
+mixin sidebar-after-filters()
+  -
+    const props = initComponent('sidebar-after-filters', attributes, []);
+
+  .sidebar-after-filters&attributes(attributes)
+    .sidebar-after-filters__section
+      button.sidebar-after-filters__section-toggle(data-collapse="#sidebar-after-filters-category" aria-expanded="true") Категории
+        span.sidebar-after-filters__section-toggle-icon
+      +collapse-collapse(id="sidebar-after-filters-category" data-expanded="true").sidebar-after-filters__section-content.show
+        .sidebar-after-filters__section-inner
+          a(href="#").sidebar-after-filters__item Базовая
+          a(href="#").sidebar-after-filters__item Джинсовки
+          a(href="#").sidebar-after-filters__item Женская
+          a(href="#").sidebar-after-filters__item Мужская
+          a(href="#").sidebar-after-filters__item Обувь
+          a(href="#").sidebar-after-filters__item Нижнее белье
+          a(href="#").sidebar-after-filters__item Для плавания
+    .sidebar-after-filters__section
+      button.sidebar-after-filters__section-toggle(data-collapse="#sidebar-after-filters-price" aria-expanded="true") Цена
+        span.sidebar-after-filters__section-toggle-icon
+      +collapse-collapse(id="sidebar-after-filters-price" data-expanded="true").sidebar-after-filters__section-content.show
+        .sidebar-after-filters__section-inner
+          +form()#sidebar-after-filters-form(style="align-items: flex-start;")
+            +range-fields(name="cost" id="sidebar-after-filters-form-cost" from="50000" to="750000" min="0" max="1000000" step="1000" data-format="currency" data-currency="RUB").sidebar-after-filters__range-fields
+            +button(type="submit" label!="Отфильтровать")
+    .sidebar-after-filters__section
+      button.sidebar-after-filters__section-toggle(data-collapse="#sidebar-after-filters-size" aria-expanded="true") Размеры
+        span.sidebar-after-filters__section-toggle-icon
+      +collapse-collapse(id="sidebar-after-filters-size" data-expanded="true").sidebar-after-filters__section-content.show
+        .sidebar-after-filters__section-inner
+          a(href="#").sidebar-after-filters__item L
+            span.sidebar-after-filters__item-count 2
+          a(href="#").sidebar-after-filters__item M
+            span.sidebar-after-filters__item-count 2
+          a(href="#").sidebar-after-filters__item S
+            span.sidebar-after-filters__item-count 2
+          a(href="#").sidebar-after-filters__item XL
+            span.sidebar-after-filters__item-count 2
+          a(href="#").sidebar-after-filters__item XS
+            span.sidebar-after-filters__item-count 2
+          a(href="#").sidebar-after-filters__item XXL
+            span.sidebar-after-filters__item-count 2
+    .sidebar-after-filters__section
+      button.sidebar-after-filters__section-toggle(data-collapse="#sidebar-after-filters-color" aria-expanded="true") Цвета
+        span.sidebar-after-filters__section-toggle-icon
+      +collapse-collapse(id="sidebar-after-filters-color" data-expanded="true").sidebar-after-filters__section-content.show
+        .sidebar-after-filters__section-inner
+          a(href="#").sidebar-after-filters__item
+            span.sidebar-after-filters__item-name 
+              span.sidebar-after-filters__item-color(style="background-color: #000;")
+              | Черный
+            span.sidebar-after-filters__item-count 2
+          a(href="#").sidebar-after-filters__item
+            span.sidebar-after-filters__item-name 
+              span.sidebar-after-filters__item-color(style="background-color: #a87323;")
+              | Коричневый
+            span.sidebar-after-filters__item-count 2
+          a(href="#").sidebar-after-filters__item
+            span.sidebar-after-filters__item-name 
+              span.sidebar-after-filters__item-color(style="background-color: #82c43c;")
+              | Зеленый
+            span.sidebar-after-filters__item-count 2
+          a(href="#").sidebar-after-filters__item
+            span.sidebar-after-filters__item-name 
+              span.sidebar-after-filters__item-color.is-white(style="background-color: #fff;")
+              | Белый
+            span.sidebar-after-filters__item-count 2

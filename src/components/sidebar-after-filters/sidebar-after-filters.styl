@@ -1,0 +1,70 @@
+.sidebar-after-filters
+  display flex
+  flex-direction column
+  gap 10px
+
+  &__section
+    display flex
+    flex-direction column
+    &-toggle
+      display flex
+      gap 10px
+      align-items center
+      justify-content space-between
+      margin 0
+      padding 10px 0
+      color var(--color-dark)
+      font-weight 700
+      font-size rem(18px)
+      background none
+      border none
+      &[aria-expanded="true"]
+        & ^[2]-icon
+          &::after
+            transform rotate(0)
+      &-icon
+        position relative
+        flex 0 0 auto
+        size 24px
+        background-color var(--color-bg-soft)
+        border-radius 50%
+        &::before
+        &::after
+          position absolute
+          top 11px
+          left 8px
+          display block
+          width 9px
+          height 2px
+          background-color var(--color-dark)
+          transition all .3s ease
+          content ""
+        &::after
+          transform rotate(-90deg)
+    &-inner
+      display flex
+      flex-direction column
+      gap 10px
+  &__item
+    display flex
+    align-items center
+    justify-content space-between
+    font-size rem(16px)
+    &:hover
+    &:focus-visible
+      text-decoration none
+    &-name
+      display flex
+      gap 5px
+      align-items center
+    &-color
+      flex 0 0 auto
+      size 12px
+      border-radius 50%
+      &.is-white
+        border 1px solid #000
+    &-count
+      min-width 14px
+      color var(--color-text)
+      font-weight 400
+      font-size rem(12px)

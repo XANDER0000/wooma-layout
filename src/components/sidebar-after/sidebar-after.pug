@@ -7,6 +7,7 @@ include ../offer-time/offer-time
 include ../goal-progress/goal-progress
 include ../button/button
 include ../icon/icon
+include ../sidebar-after-filters/sidebar-after-filters
 
 mixin sidebar-after()
   -
@@ -82,3 +83,14 @@ mixin sidebar-after--2()
             +icon("love")
             span Избранных нет
           +suggestion-item--cart(img="assets/img/products/product-name-125-60x60.jpeg" title!="Кроссовки AD<strong>I</strong>DAS" price-new="30 00 ₽" showCartAdd)
+
+mixin sidebar-after--3()
+  -
+    const props = initComponent('sidebar-after', attributes, []);
+
+  aside.sidebar-after&attributes(attributes)
+    .sidebar-after__heading
+      button(type="button" data-sidebar-after-close).sidebar-after__btn-close
+    .sidebar-after__content 
+      .sidebar-after__content-action.sidebar-after__content-action--lp#sidebar-after-filters
+        +sidebar-after-filters()

@@ -1,0 +1,79 @@
+include ../icon/icon
+include ../select/select
+
+mixin shop-filters()
+  -
+    const props = initComponent('shop-filters', attributes, []);
+
+  .shop-filters&attributes(attributes)
+    .shop-filters__top
+      .shop-filters-item
+        a.shop-filters-item__button.shop-filters-item__button--clear(href="#") 
+          .shop-filters-item__icon-cross
+          span Очистить все
+      .shop-filters-item
+        a.shop-filters-item__button.shop-filters-item__button--selected(href="#") 
+          .shop-filters-item__icon-cross
+          img(src="assets/img/icons/bestsellers.svg" alt="").shop-filters-item__icon
+          span Лучшие цены
+      .shop-filters-item
+        a.shop-filters-item__button(href="#") 
+          img(src="assets/img/icons/featured.svg" alt="").shop-filters-item__icon
+          span Рекомендуемые
+      .shop-filters-item
+        a.shop-filters-item__button(href="#") 
+          img(src="assets/img/icons/toprated.svg" alt="").shop-filters-item__icon
+          span Высокие оценки
+      .shop-filters-item
+        a.shop-filters-item__button(href="#") 
+          img(src="assets/img/icons/onsale.svg" alt="").shop-filters-item__icon
+          span Скидки
+      .shop-filters-item
+        a.shop-filters-item__button(href="#") 
+          img(src="assets/img/icons/instock.svg" alt="").shop-filters-item__icon
+          span В наличии
+      .shop-filters-item
+        a.shop-filters-item__button(href="#") 
+          span Выбрать цвет
+        .shop-filters-item__submenu 
+          a.shop-filters-item__button(href="#") 
+            span Жёлтый
+          a.shop-filters-item__button(href="#") 
+            span Чёрный
+      .shop-filters-item
+        a.shop-filters-item__button(href="#") 
+          span Большие размеры
+        .shop-filters-item__submenu 
+          a.shop-filters-item__button(href="#") 
+            span XL
+          a.shop-filters-item__button(href="#") 
+            span XXL
+
+    .shop-filters__bottom
+      .shop-filters__bottom-block
+        .shop-filters__bottom-action
+          span Фильтры
+          button(type="button" data-sidebar-after-toggle="sidebar-after-3" data-sidebar-after-action="sidebar-after-filters")
+            +icon("filter")
+        .shop-filters__bottom-action.shop-filters__bottom-action--tablet
+          span Показано 1-15 из 20 товаров
+      .shop-filters__bottom-block
+        .shop-filters__bottom-action.shop-filters__bottom-action--desktop
+          span Показать
+          a(href="?per_page=9") 9
+          a(href="?per_page=12") 12
+          a(href="?per_page=18") 18
+          a(href="?per_page=24") 24
+        .shop-filters__bottom-action.shop-filters__bottom-action--desktop
+          a(href="?column=1")
+            +icon("sort-list")
+          a(href="?column=2") 
+            +icon("sort-two-col")
+          a(href="?column=3") 
+            +icon("sort-three-col")
+          a(href="?column=4").active
+            +icon("sort-four-col")
+          a(href="?column=5") 
+            +icon("sort-five-col")
+        .shop-filters__bottom-action
+          +select(name="region" id="sort-shop" placeholder="Сортировать по" options=optionsSort data-custom-select="true")

@@ -1,0 +1,54 @@
+.shop-filters
+  display flex
+  flex-direction column
+  gap 30px
+
+  &__top
+    display flex
+    flex-wrap wrap
+    gap 15px
+
+  &__bottom
+    display flex
+    flex-wrap wrap
+    gap 30px
+    align-items center
+    justify-content space-between
+    &-block
+      display flex
+      gap 30px
+      align-items center
+    &-action
+      display flex
+      gap 10px
+      align-items center
+      font-weight 500
+      font-size rem(16px)
+      &--desktop
+        display none
+        +above(64em)
+          display flex
+      &--tablet
+        display none
+        +above(48em)
+          display flex
+      a
+        color var(--color-gray-dark)
+        transition all .2s ease
+        &:hover
+        &:focus-visible
+          color var(--color-dark)
+          text-decoration none
+      button
+        margin 0
+        padding 0
+        background none
+        border none
+      a
+      button
+        &.active
+          color var(--color-dark)
+      .icon
+        size 20px
+      .custom-select
+        min-width 160px
